@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Akademie Olympia Research Group">
+
+    <title>Akademie Olympia | Research Group</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #080808;
+
+            background-image:
+                    linear-gradient(
+                            rgba(5, 5, 5, 0.50),
+                            rgba(5, 5, 5, 0.72)
+                    ),
+                    url('/images/index-bg.jpg');
+
+            /*
+             * FOTOĞRAF SAYFAYLA BİRLİKTE KAYAR.
+             *
+             * İlk katman tüm sayfa boyunca karanlık ton verir.
+             * Fotoğraf kendi oranında aşağı doğru devam eder.
+             */
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                    rgba(5, 5, 5, 0.88);
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 29px;
+        }
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.78rem;
+
+            letter-spacing: 0.09em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            color: #777166;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    135px
+                    8%
+                    90px;
+        }
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1100px;
+
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(3.2rem, 8vw, 7rem);
+
+            font-weight: 500;
+
+            line-height: 0.98;
+
+            letter-spacing: 0.08em;
+
+            color: #f4efe5;
+
+            text-shadow:
+                    0 4px 30px rgba(0, 0, 0, 0.95);
+        }
+
+        .hero-subtitle {
+            margin-top: 22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(0.85rem, 2vw, 1.18rem);
+
+            letter-spacing: 0.30em;
+
+            color: #aaa295;
+
+            text-shadow:
+                    0 2px 12px rgba(0, 0, 0, 0.95);
+        }
+
+        .gold-line {
+            width: 115px;
+            height: 1px;
+
+            margin: 38px auto;
+
+            background: #d4af37;
+        }
+
+        .hero-description {
+            max-width: 820px;
+
+            margin: 0 auto;
+
+            font-size: 1.12rem;
+
+            line-height: 1.95;
+
+            color: #d9d2c6;
+
+            text-shadow:
+                    0 3px 12px rgba(0, 0, 0, 0.95);
+        }
+
+
+        /* =========================================================
+           COMMON
+           ========================================================= */
+
+        .section-title {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.3rem, 2vw, 1.55rem);
+
+            font-weight: 500;
+
+            letter-spacing: 0.13em;
+
+            color: #d4af37;
+        }
+
+        .section-description {
+            max-width: 790px;
+
+            margin:
+                    20px
+                    auto
+                    0;
+
+            text-align: center;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #c9c1b5;
+
+            text-shadow:
+                    0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+
+        /* =========================================================
+           HISTORY
+           ========================================================= */
+
+        .history-section {
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            padding:
+                    105px
+                    7%;
+        }
+
+        .history-panel {
+            padding:
+                    58px
+                    62px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(7, 7, 7, 0.78),
+                            rgba(15, 15, 15, 0.67)
+                    );
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.13);
+
+            border-right:
+                    1px solid rgba(212, 175, 55, 0.08);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.10);
+
+            box-shadow:
+                    0 15px 50px rgba(0, 0, 0, 0.22);
+        }
+
+        .history-panel .section-title {
+            margin-bottom: 42px;
+
+            text-align: center;
+        }
+
+        .history-panel p {
+            margin-bottom: 24px;
+
+            font-size: 1.02rem;
+
+            line-height: 1.95;
+
+            color: #d5cec2;
+        }
+
+        .history-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-panel strong {
+            color: #f0e9dd;
+        }
+
+        .historical-quote {
+            margin:
+                    42px
+                    0;
+
+            padding:
+                    28px
+                    32px;
+
+            background:
+                    rgba(0, 0, 0, 0.30);
+
+            border-left:
+                    2px solid #d4af37;
+        }
+
+        .historical-quote blockquote {
+            font-size: 1.11rem;
+
+            line-height: 1.85;
+
+            font-style: italic;
+
+            color: #e7e0d5;
+        }
+
+        .quote-reference {
+            margin-top: 18px;
+
+            font-size: 0.82rem;
+
+            color: #8e867a;
+        }
+
+
+        /* =========================================================
+           QUESTIONS
+           ========================================================= */
+
+        .questions-section {
+            padding:
+                    115px
+                    7%
+                    130px;
+        }
+
+        .questions-container {
+            max-width: 1140px;
+
+            margin: 0 auto;
+        }
+
+        .questions-heading {
+            margin-bottom: 60px;
+
+            text-align: center;
+        }
+
+        .questions-heading .section-title {
+            text-shadow:
+                    0 3px 12px rgba(0, 0, 0, 0.85);
+        }
+
+
+        /*
+         * 2 SÜTUN × 3 SATIR
+         */
+
+        .questions-grid {
+            display: grid;
+
+            grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+        }
+
+        .question-card {
+            min-height: 160px;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                    32px
+                    34px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(7, 7, 7, 0.80),
+                            rgba(15, 15, 15, 0.69)
+                    );
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.14);
+
+            border-right:
+                    1px solid rgba(212, 175, 55, 0.08);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.10);
+
+            box-shadow:
+                    0 10px 32px rgba(0, 0, 0, 0.20);
+
+            transition:
+                    transform 0.25s ease,
+                    background 0.25s ease,
+                    border-color 0.25s ease;
+        }
+
+        .question-card:hover {
+            transform:
+                    translateY(-4px);
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(15, 15, 15, 0.88),
+                            rgba(22, 22, 22, 0.78)
+                    );
+
+            border-color:
+                    rgba(212, 175, 55, 0.40);
+        }
+
+        .question-number {
+            flex:
+                    0 0
+                    58px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.90rem;
+
+            letter-spacing: 0.15em;
+
+            color: #d4af37;
+        }
+
+        .question-text {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(0.88rem, 1.25vw, 1rem);
+
+            font-weight: 400;
+
+            line-height: 1.72;
+
+            color: #e2dbcf;
+
+            text-shadow:
+                    0 2px 8px rgba(0, 0, 0, 0.80);
+        }
+
+
+        /* =========================================================
+           RESEARCH DIVISIONS
+           ========================================================= */
+
+        .research-section {
+            max-width: 1220px;
+
+            margin: 0 auto;
+
+            padding:
+                    120px
+                    7%
+                    135px;
+        }
+
+        .research-heading {
+            margin-bottom: 62px;
+
+            text-align: center;
+        }
+
+        .division-grid {
+            display: grid;
+
+            grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+
+            gap: 25px;
+        }
+
+        .division-card {
+            display: flex;
+
+            flex-direction: column;
+
+            min-height: 430px;
+
+            padding:
+                    36px
+                    31px;
+
+            text-decoration: none;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(7, 7, 7, 0.79),
+                            rgba(15, 15, 15, 0.68)
+                    );
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.13);
+
+            border-right:
+                    1px solid rgba(212, 175, 55, 0.08);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.10);
+
+            box-shadow:
+                    0 12px 38px rgba(0, 0, 0, 0.20);
+
+            transition:
+                    transform 0.25s ease,
+                    background 0.25s ease,
+                    border-color 0.25s ease;
+        }
+
+        .division-card:hover {
+            transform:
+                    translateY(-6px);
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(15, 15, 15, 0.88),
+                            rgba(22, 22, 22, 0.77)
+                    );
+
+            border-color:
+                    rgba(212, 175, 55, 0.42);
+        }
+
+        .division-number {
+            margin-bottom: 17px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.70rem;
+
+            letter-spacing: 0.20em;
+
+            color: #777064;
+        }
+
+        .division-name {
+            margin-bottom: 20px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.69rem;
+
+            letter-spacing: 0.26em;
+
+            color: #a0988c;
+        }
+
+        .division-card h3 {
+            min-height: 98px;
+
+            margin-bottom: 22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 1.08rem;
+
+            font-weight: 500;
+
+            line-height: 1.55;
+
+            color: #d4af37;
+        }
+
+        .division-card p {
+            font-size: 0.96rem;
+
+            line-height: 1.84;
+
+            color: #cac3b7;
+        }
+
+        .division-link {
+            display: inline-block;
+
+            margin-top: auto;
+
+            padding-top: 27px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 0.14em;
+
+            color: #8c8579;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+        .division-card:hover
+        .division-link {
+            color: #d4af37;
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(3, 3, 3, 0.90);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.13);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #898175;
+        }
+
+
+        /* =========================================================
+           TABLET
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 16px;
+            }
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        90px;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .division-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .division-card {
+                min-height: auto;
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.76rem;
+
+                letter-spacing: 0.20em;
+            }
+
+            .history-section {
+                padding:
+                        80px
+                        6%;
+            }
+
+            .history-panel {
+                padding:
+                        36px
+                        24px;
+            }
+
+            .questions-section {
+                padding:
+                        85px
+                        6%
+                        100px;
+            }
+
+            .question-card {
+                min-height: 125px;
+
+                padding:
+                        25px
+                        22px;
+            }
+
+            .question-number {
+                flex-basis: 45px;
+
+                font-size: 0.80rem;
+            }
+
+            .question-text {
+                font-size: 0.88rem;
+            }
+
+            .research-section {
+                padding:
+                        90px
+                        6%
+                        105px;
+            }
+
+            .division-card {
+                padding:
+                        30px
+                        24px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+
+        <a class="current-page"
+           th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <div class="language-switcher">
+
+        <a th:href="@{/(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            AKADEMIE<br>
+            OLYMPIA
+        </h1>
+
+        <div class="hero-subtitle">
+            RESEARCH GROUP
+        </div>
+
+        <div class="gold-line"></div>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+
+            Fizikteki temel problemleri teorik,
+            fenomenolojik ve hesaplamalı yöntemleri
+            bir araya getirerek inceleyen bağımsız
+            bir araştırma topluluğu.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+
+            An independent research group studying
+            fundamental problems in physics through
+            theoretical, phenomenological and
+            computational methods.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+
+            Eine unabhängige Forschungsgruppe,
+            die grundlegende Probleme der Physik durch
+            theoretische, phänomenologische und
+            computergestützte Methoden untersucht.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     AKADEMIE OLYMPIA HISTORY
+     ========================================================= -->
+
+<section class="history-section">
+
+    <div class="history-panel">
+
+
+        <!-- =====================================================
+             TÜRKÇE
+             ===================================================== -->
+
+        <div th:if="${lang == 'tr'}">
+
+            <h2 class="section-title">
+                AKADEMIE OLYMPIA NEDİR?
+            </h2>
+
+
+            <p>
+                20. yüzyılın başında, henüz dünyaca tanınan
+                bir fizikçi olmayan genç Albert Einstein,
+                Bern’de geçimini sağlayabilmek için matematik
+                ve fizik özel dersleri vermeye çalışıyordu.
+                Yerel bir gazeteye verdiği ilanda öğrencilere
+                matematik ve fizik dersleri vereceğini,
+                hatta ilk dersin ücretsiz olduğunu duyurdu.
+            </p>
+
+
+            <p>
+                Bu ilanı görenlerden biri, felsefe eğitimi alan
+                Maurice Solovine idi. Solovine, doğa bilimlerine
+                yönelmeyi düşündüğü için Einstein’dan fizik dersi
+                almak üzere onun kapısını çaldı.
+                Ancak ilk görüşmeleri beklenmedik biçimde gelişti.
+                Öğretmen-öğrenci ilişkisiyle başlaması gereken
+                ders, kısa sürede fizik ve felsefe üzerine
+                uzun bir tartışmaya dönüştü.
+            </p>
+
+
+            <p>
+                Sonraki gün yeniden buluştular;
+                ardından ders ücreti ve resmi ders fikri
+                tamamen ortadan kalktı.
+                Einstein ve Solovine, fiziğin temel problemlerini
+                birlikte tartışan iki arkadaşa dönüştüler.
+            </p>
+
+
+            <p>
+                Bir süre sonra onlara matematikçi ve fizikçi
+                <strong>Conrad Habicht</strong> de katıldı.
+                Böylece farklı düşünsel geçmişlerden gelen
+                üç kişilik küçük bir çevre oluştu:
+                Einstein fizikçi, Solovine felsefeci,
+                Habicht ise matematikçiydi.
+                Kendilerine, dönemin ciddi ve görkemli
+                bilim akademileriyle biraz da alay ederek,
+                <em>“Akademie Olympia”</em> adını verdiler.
+            </p>
+
+
+            <p>
+                Toplantılarında yalnızca fizik konuşmuyorlardı.
+                Hume, Mach, Poincaré, Pearson, Mill ve Spinoza
+                gibi düşünürleri okuyarak bilgi, deney,
+                nedensellik, uzay, zaman ve hareket gibi
+                fiziğin en temel kavramlarını tartışıyorlardı.
+                Bazen tek bir sayfa üzerinde bütün bir akşam
+                duruyor, bir kavramı saatlerce sorguluyorlardı.
+            </p>
+
+
+            <p>
+                Bu çekirdek ekibin yanında Einstein’ın
+                dostları Michele Besso ve Lucien Chavan da
+                zaman zaman bu tartışma ortamına eşlik etti.
+            </p>
+
+
+            <p>
+                Bu yaklaşımın Einstein’ın düşüncesinde geçici
+                bir gençlik hevesi olmadığı, yaklaşık yarım
+                yüzyıl sonra yazdığı bir mektupta da görülür.
+                12 Şubat 1951’de Maurice Solovine’e yazdığı
+                mektupta, birleşik alan teorisi üzerine
+                çalışmalarından söz ederken teorinin matematiksel
+                olarak kullanılmasının ve sınanmasının
+                güçlüğünü vurgular.
+            </p>
+
+
+            <div class="historical-quote">
+
+                <blockquote>
+                    “Bu durum daha uzun yıllar sürecektir;
+                    bunun başlıca nedeni fizikçilerin
+                    mantıksal ve felsefi argümanlardan
+                    anlamamalarıdır.”
+                </blockquote>
+
+                <div class="quote-reference">
+                    Albert Einstein Archives · AEA 21-277
+                </div>
+
+            </div>
+
+
+            <p>
+                Einstein için fiziğin temel problemleri
+                yalnızca daha karmaşık hesaplar yapılarak
+                çözülecek teknik problemler değildir;
+                kullandığımız kavramların anlamını,
+                mantıksal yapısını ve felsefi temellerini
+                de yeniden sorgulamak gerekir.
+            </p>
+
+
+            <p>
+                Bu araştırma grubu da bu düşünsel gelenekten
+                ilham alıyor. Amacımız fizik, matematik ve
+                felsefenin kesiştiği yerde sorular sormak,
+                birbirimizin fikirlerini eleştirmek,
+                fizikteki ontolojik kabulleri yeniden incelemek
+                ve gerektiğinde bir problemin en başına dönmek.
+            </p>
+
+
+            <p>
+                Olympia Akademisi üç arkadaşın bir odada
+                kitap okuyup tartışmasıyla başlamıştı.
+                Biz de aynı ruhu günümüzün fizik problemlerine
+                taşıyan, özgür tartışmaya ve bağımsız düşünceye
+                dayanan bir araştırma topluluğu oluşturmayı
+                amaçlıyoruz.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             ENGLISH
+             ===================================================== -->
+
+        <div th:if="${lang == 'en'}">
+
+            <h2 class="section-title">
+                WHAT IS AKADEMIE OLYMPIA?
+            </h2>
+
+
+            <p>
+                At the beginning of the twentieth century,
+                long before becoming a world-famous physicist,
+                the young Albert Einstein was living in Bern
+                and attempted to support himself by offering
+                private lessons in mathematics and physics.
+                In a local newspaper advertisement,
+                he announced that he would teach both subjects
+                and even offered the first lesson free of charge.
+            </p>
+
+
+            <p>
+                One of those who responded was Maurice Solovine,
+                then studying philosophy and considering a move
+                toward the natural sciences.
+                He approached Einstein intending to take lessons
+                in physics, but their first meeting developed
+                in an unexpected direction.
+                What was supposed to be a teacher-student lesson
+                quickly became a long discussion about
+                physics and philosophy.
+            </p>
+
+
+            <p>
+                They met again the following day.
+                Before long, both the lesson fee and the formal
+                idea of private instruction disappeared.
+                Einstein and Solovine instead became friends
+                who met to discuss fundamental problems in physics.
+            </p>
+
+
+            <p>
+                They were later joined by the mathematician
+                and physicist <strong>Conrad Habicht</strong>.
+                The result was a small circle of three people
+                with different intellectual backgrounds:
+                Einstein the physicist, Solovine the philosopher
+                and Habicht the mathematician.
+                With a measure of irony toward the solemn
+                academies of their time, they called themselves
+                <em>“Akademie Olympia.”</em>
+            </p>
+
+
+            <p>
+                Their meetings were not restricted to physics.
+                They read thinkers such as Hume, Mach,
+                Poincaré, Pearson, Mill and Spinoza
+                and discussed some of the most fundamental
+                concepts underlying physics:
+                knowledge, experience, causality,
+                space, time and motion.
+                At times, an entire evening could be devoted
+                to a single page or a single conceptual problem.
+            </p>
+
+
+            <p>
+                Einstein's friends Michele Besso and
+                Lucien Chavan also accompanied this
+                intellectual circle on some occasions.
+            </p>
+
+
+            <p>
+                That concern with conceptual and philosophical
+                foundations was not merely a youthful episode.
+                Decades later, in a letter to Maurice Solovine
+                dated 12 February 1951, Einstein discussed
+                his work on unified field theory and the
+                difficulty of bringing such a theory into
+                mathematical and empirical use.
+            </p>
+
+
+            <div class="historical-quote">
+
+                <blockquote>
+                    “This situation will continue for many years;
+                    the principal reason is that physicists
+                    do not understand logical and philosophical
+                    arguments.”
+                </blockquote>
+
+                <div class="quote-reference">
+                    Albert Einstein Archives · AEA 21-277
+                </div>
+
+            </div>
+
+
+            <p>
+                From this perspective, fundamental problems
+                in physics are not merely technical problems
+                to be solved by increasingly complicated
+                calculations. The meaning, logical structure
+                and philosophical foundations of the concepts
+                we use must also be subjected to scrutiny.
+            </p>
+
+
+            <p>
+                Our research group draws inspiration from
+                this intellectual tradition.
+                We aim to ask questions at the intersection
+                of physics, mathematics and philosophy,
+                to criticise one another's ideas,
+                to reconsider the ontological assumptions
+                of physical theories and, when necessary,
+                to return to the beginning of a problem.
+            </p>
+
+
+            <p>
+                The original Olympia Academy began with
+                three friends reading and arguing together
+                in a room. Our aim is to carry that spirit
+                into contemporary problems in physics
+                and to build a research community grounded
+                in free discussion and independent thought.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             DEUTSCH
+             ===================================================== -->
+
+        <div th:if="${lang == 'de'}">
+
+            <h2 class="section-title">
+                WAS IST DIE AKADEMIE OLYMPIA?
+            </h2>
+
+
+            <p>
+                Zu Beginn des 20. Jahrhunderts,
+                lange bevor Albert Einstein zu einem
+                weltberühmten Physiker wurde,
+                lebte der junge Einstein in Bern und
+                versuchte, seinen Lebensunterhalt
+                durch privaten Unterricht in Mathematik
+                und Physik zu verdienen.
+                In einer lokalen Zeitungsanzeige bot er
+                Unterricht in beiden Fächern an;
+                die erste Unterrichtsstunde sollte sogar
+                kostenlos sein.
+            </p>
+
+
+            <p>
+                Einer derjenigen, die auf diese Anzeige
+                reagierten, war Maurice Solovine.
+                Er studierte Philosophie und erwog,
+                sich den Naturwissenschaften zuzuwenden.
+                Solovine suchte Einstein ursprünglich auf,
+                um Physikunterricht zu nehmen.
+                Doch ihr erstes Treffen entwickelte sich
+                anders als erwartet:
+                Aus einer Lehrer-Schüler-Situation wurde
+                schnell eine lange Diskussion über Physik
+                und Philosophie.
+            </p>
+
+
+            <p>
+                Bereits am folgenden Tag trafen sie sich erneut.
+                Bald verschwanden sowohl die Unterrichtsgebühr
+                als auch die Idee eines formalen Unterrichts.
+                Einstein und Solovine wurden Freunde,
+                die gemeinsam über grundlegende Probleme
+                der Physik diskutierten.
+            </p>
+
+
+            <p>
+                Später schloss sich ihnen der Mathematiker
+                und Physiker <strong>Conrad Habicht</strong> an.
+                So entstand ein kleiner Kreis von drei Menschen
+                mit unterschiedlichen intellektuellen Hintergründen:
+                Einstein als Physiker, Solovine als Philosoph
+                und Habicht als Mathematiker.
+                Mit einem gewissen ironischen Seitenhieb auf
+                die feierlichen wissenschaftlichen Akademien
+                ihrer Zeit nannten sie sich
+                <em>„Akademie Olympia“</em>.
+            </p>
+
+
+            <p>
+                In ihren Treffen sprachen sie keineswegs
+                nur über Physik.
+                Sie lasen Hume, Mach, Poincaré,
+                Pearson, Mill und Spinoza und diskutierten
+                grundlegende Begriffe wie Erkenntnis,
+                Erfahrung, Kausalität, Raum,
+                Zeit und Bewegung.
+                Mitunter konnte ein ganzer Abend einer
+                einzigen Seite oder einer einzigen
+                begrifflichen Frage gewidmet sein.
+            </p>
+
+
+            <p>
+                Auch Einsteins Freunde Michele Besso
+                und Lucien Chavan nahmen gelegentlich
+                an diesem intellektuellen Umfeld teil.
+            </p>
+
+
+            <p>
+                Dass diese Beschäftigung mit begrifflichen
+                und philosophischen Grundlagen für Einstein
+                keine bloße Jugenderscheinung war,
+                zeigt sich auch Jahrzehnte später.
+                In einem Brief an Maurice Solovine vom
+                12. Februar 1951 schrieb Einstein über
+                seine Arbeiten an einer einheitlichen
+                Feldtheorie und über die Schwierigkeit,
+                eine solche Theorie mathematisch und
+                empirisch nutzbar zu machen.
+            </p>
+
+
+            <div class="historical-quote">
+
+                <blockquote>
+                    „Diese Situation wird noch viele Jahre
+                    andauern; der Hauptgrund dafür ist,
+                    dass die Physiker logische und
+                    philosophische Argumente nicht verstehen.“
+                </blockquote>
+
+                <div class="quote-reference">
+                    Albert Einstein Archives · AEA 21-277
+                </div>
+
+            </div>
+
+
+            <p>
+                Aus dieser Perspektive sind die grundlegenden
+                Probleme der Physik nicht bloß technische
+                Aufgaben, die durch immer kompliziertere
+                Berechnungen gelöst werden können.
+                Auch die Bedeutung, die logische Struktur
+                und die philosophischen Grundlagen unserer
+                Begriffe müssen erneut untersucht werden.
+            </p>
+
+
+            <p>
+                Unsere Forschungsgruppe lässt sich von
+                dieser intellektuellen Tradition inspirieren.
+                Wir möchten Fragen an der Schnittstelle von
+                Physik, Mathematik und Philosophie stellen,
+                gegenseitige Kritik fördern,
+                ontologische Voraussetzungen physikalischer
+                Theorien neu untersuchen und, wenn nötig,
+                zum Ausgangspunkt eines Problems zurückkehren.
+            </p>
+
+
+            <p>
+                Die ursprüngliche Olympia-Akademie begann
+                damit, dass drei Freunde gemeinsam in einem
+                Zimmer lasen und diskutierten.
+                Wir möchten denselben Geist auf heutige
+                Probleme der Physik übertragen und eine
+                Forschungsgemeinschaft auf der Grundlage
+                freier Diskussion und unabhängigen Denkens
+                aufbauen.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     QUESTIONS
+     ========================================================= -->
+
+<section class="questions-section">
+
+    <div class="questions-container">
+
+
+        <div class="questions-heading">
+
+            <h2 class="section-title"
+                th:if="${lang == 'tr'}">
+                HANGİ SORULARA YANIT ARIYORUZ?
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'en'}">
+                WHAT QUESTIONS DO WE ASK?
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'de'}">
+                WELCHE FRAGEN STELLEN WIR?
+            </h2>
+
+
+            <p class="section-description"
+               th:if="${lang == 'tr'}">
+
+                Çalışmalarımız yalnızca belirli teknikleri
+                uygulamakla sınırlı değildir.
+                Fizik teorilerinin arkasındaki kavramsal,
+                matematiksel ve ontolojik soruları
+                yeniden düşünmeyi amaçlıyoruz.
+
+            </p>
+
+
+            <p class="section-description"
+               th:if="${lang == 'en'}">
+
+                Our work is not limited to the application
+                of particular techniques.
+                We also aim to reconsider the conceptual,
+                mathematical and ontological questions
+                underlying physical theories.
+
+            </p>
+
+
+            <p class="section-description"
+               th:if="${lang == 'de'}">
+
+                Unsere Arbeit beschränkt sich nicht
+                auf die Anwendung bestimmter Methoden.
+                Wir möchten auch die begrifflichen,
+                mathematischen und ontologischen Fragen
+                hinter physikalischen Theorien neu untersuchen.
+
+            </p>
+
+        </div>
+
+
+        <div class="questions-grid">
+
+
+            <!-- =================================================
+                 QUESTION I
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    I
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Geometri fiziksel gerçekliğin
+                    temel yapısı mıdır?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    Is geometry a fundamental structure
+                    of physical reality?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Ist Geometrie eine grundlegende Struktur
+                    der physikalischen Wirklichkeit?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION II
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    II
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Doğayı en iyi biçimde nasıl izah ederiz?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    How can we best describe and explain nature?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Wie können wir die Natur bestmöglich
+                    beschreiben und erklären?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION III
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    III
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Fizikte mutlaklık diye bir şey var mıdır?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    Is there anything absolute in physics?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Gibt es in der Physik etwas Absolutes?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION IV
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    IV
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Bir teorinin matematiksel yapısından
+                    gözlenebilir fiziksel öngörülere nasıl geçilir?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    How do we pass from the mathematical structure
+                    of a theory to observable physical predictions?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Wie gelangen wir von der mathematischen Struktur
+                    einer Theorie zu beobachtbaren
+                    physikalischen Vorhersagen?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION V
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    V
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Fizik teorilerinin temel
+                    ontolojik kabulleri nelerdir?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    What are the fundamental ontological
+                    assumptions of physical theories?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Was sind die grundlegenden ontologischen
+                    Annahmen physikalischer Theorien?
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 QUESTION VI
+                 ================================================= -->
+
+            <div class="question-card">
+
+                <div class="question-number">
+                    VI
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'tr'}">
+                    Fizik teorilerinin ontolojik varsayımları
+                    gözlem, fenomenoloji ve hesaplama yoluyla
+                    nasıl sınanabilir?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'en'}">
+                    How can the ontological assumptions
+                    of physical theories be tested through
+                    observation, phenomenology and computation?
+                </div>
+
+                <div class="question-text"
+                     th:if="${lang == 'de'}">
+                    Wie können die ontologischen Annahmen
+                    physikalischer Theorien durch Beobachtung,
+                    Phänomenologie und Berechnung geprüft werden?
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH DIVISIONS
+     ========================================================= -->
+
+<section class="research-section">
+
+    <div class="research-heading">
+
+        <h2 class="section-title"
+            th:if="${lang == 'tr'}">
+            ARAŞTIRMA BÖLÜMLERİ
+        </h2>
+
+        <h2 class="section-title"
+            th:if="${lang == 'en'}">
+            RESEARCH DIVISIONS
+        </h2>
+
+        <h2 class="section-title"
+            th:if="${lang == 'de'}">
+            FORSCHUNGSBEREICHE
+        </h2>
+
+
+        <p class="section-description"
+           th:if="${lang == 'tr'}">
+
+            Araştırma programımızı teori,
+            fenomenoloji ve hesaplama olmak üzere
+            birbirini tamamlayan üç temel alan
+            üzerinden yürütüyoruz.
+
+        </p>
+
+
+        <p class="section-description"
+           th:if="${lang == 'en'}">
+
+            Our research programme is organised around
+            three complementary areas:
+            theory, phenomenology and computation.
+
+        </p>
+
+
+        <p class="section-description"
+           th:if="${lang == 'de'}">
+
+            Unser Forschungsprogramm gliedert sich
+            in drei sich ergänzende Bereiche:
+            Theorie, Phänomenologie und Berechnung.
+
+        </p>
+
+    </div>
+
+
+    <div class="division-grid">
+
+
+        <!-- =====================================================
+             THEORY
+             ===================================================== -->
+
+        <a class="division-card"
+           th:href="@{/research(lang=${lang})}">
+
+            <div class="division-number">
+                DIVISION I
+            </div>
+
+            <div class="division-name">
+                THEORY
+            </div>
+
+
+            <h3 th:if="${lang == 'tr'}">
+                TEORİK KÜTLEÇEKİM
+                VE MATEMATİKSEL FİZİK
+            </h3>
+
+            <h3 th:if="${lang == 'en'}">
+                THEORETICAL GRAVITATION
+                & MATHEMATICAL PHYSICS
+            </h3>
+
+            <h3 th:if="${lang == 'de'}">
+                THEORETISCHE GRAVITATION
+                & MATHEMATISCHE PHYSIK
+            </h3>
+
+
+            <p th:if="${lang == 'tr'}">
+                Geometrik ve fiziksel teorilerin oluşturulması,
+                matematiksel temellerinin kurulması,
+                teleparalel geometri, alan denklemleri,
+                simetriler ve temel fiziksel problemlerin
+                teorik yapısı üzerine çalışmalar.
+            </p>
+
+            <p th:if="${lang == 'en'}">
+                Research on the construction of geometric
+                and physical theories, their mathematical
+                foundations, teleparallel geometry,
+                field equations, symmetries and fundamental
+                theoretical problems in physics.
+            </p>
+
+            <p th:if="${lang == 'de'}">
+                Forschung zur Entwicklung geometrischer
+                und physikalischer Theorien, ihren mathematischen
+                Grundlagen, teleparalleler Geometrie,
+                Feldgleichungen, Symmetrien und grundlegenden
+                theoretischen Problemen der Physik.
+            </p>
+
+
+            <span class="division-link"
+                  th:if="${lang == 'tr'}">
+                ARAŞTIRMAYI İNCELE →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'en'}">
+                EXPLORE RESEARCH →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'de'}">
+                FORSCHUNG ENTDECKEN →
+            </span>
+
+        </a>
+
+
+        <!-- =====================================================
+             PHENOMENOLOGY
+             ===================================================== -->
+
+        <a class="division-card"
+           th:href="@{/research(lang=${lang})}">
+
+            <div class="division-number">
+                DIVISION II
+            </div>
+
+            <div class="division-name">
+                PHENOMENOLOGY
+            </div>
+
+
+            <h3 th:if="${lang == 'tr'}">
+                FENOMENOLOJİ
+                VE VERİ ANALİZİ
+            </h3>
+
+            <h3 th:if="${lang == 'en'}">
+                PHENOMENOLOGY
+                & DATA ANALYSIS
+            </h3>
+
+            <h3 th:if="${lang == 'de'}">
+                PHÄNOMENOLOGIE
+                & DATENANALYSE
+            </h3>
+
+
+            <p th:if="${lang == 'tr'}">
+                Teorik modellerin fiziksel çözümleri,
+                kara delikler, galaktik dinamikler,
+                dönüş eğrileri, BTFR, kozmoloji,
+                CMB ve gözlemsel verilerle karşılaştırılması
+                üzerine çalışmalar.
+            </p>
+
+            <p th:if="${lang == 'en'}">
+                Research on physical solutions of theoretical
+                models, black holes, galactic dynamics,
+                rotation curves, the BTFR, cosmology,
+                the CMB and comparison with observational data.
+            </p>
+
+            <p th:if="${lang == 'de'}">
+                Forschung zu physikalischen Lösungen
+                theoretischer Modelle, Schwarzen Löchern,
+                galaktischer Dynamik, Rotationskurven,
+                BTFR, Kosmologie, CMB und dem Vergleich
+                mit Beobachtungsdaten.
+            </p>
+
+
+            <span class="division-link"
+                  th:if="${lang == 'tr'}">
+                ARAŞTIRMAYI İNCELE →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'en'}">
+                EXPLORE RESEARCH →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'de'}">
+                FORSCHUNG ENTDECKEN →
+            </span>
+
+        </a>
+
+
+        <!-- =====================================================
+             COMPUTATION
+             ===================================================== -->
+
+        <a class="division-card"
+           th:href="@{/research(lang=${lang})}">
+
+            <div class="division-number">
+                DIVISION III
+            </div>
+
+            <div class="division-name">
+                COMPUTATION
+            </div>
+
+
+            <h3 th:if="${lang == 'tr'}">
+                HESAPLAMALI FİZİK
+                VE SAYISAL MODELLEME
+            </h3>
+
+            <h3 th:if="${lang == 'en'}">
+                COMPUTATIONAL PHYSICS
+                & NUMERICAL MODELING
+            </h3>
+
+            <h3 th:if="${lang == 'de'}">
+                COMPUTATIONAL PHYSICS
+                & NUMERISCHE MODELLIERUNG
+            </h3>
+
+
+            <p th:if="${lang == 'tr'}">
+                Sayısal çözümler, diferansiyel denklemler,
+                parametre taramaları, dinamik sistemler,
+                astrofiziksel ve kozmolojik modellemeler,
+                simülasyonlar ve bilimsel görselleştirme
+                üzerine çalışmalar.
+            </p>
+
+            <p th:if="${lang == 'en'}">
+                Research on numerical solutions,
+                differential equations, parameter scans,
+                dynamical systems, astrophysical and
+                cosmological modelling, simulations
+                and scientific visualisation.
+            </p>
+
+            <p th:if="${lang == 'de'}">
+                Forschung zu numerischen Lösungen,
+                Differentialgleichungen, Parameterscans,
+                dynamischen Systemen, astrophysikalischer
+                und kosmologischer Modellierung,
+                Simulationen und wissenschaftlicher Visualisierung.
+            </p>
+
+
+            <span class="division-link"
+                  th:if="${lang == 'tr'}">
+                ARAŞTIRMAYI İNCELE →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'en'}">
+                EXPLORE RESEARCH →
+            </span>
+
+            <span class="division-link"
+                  th:if="${lang == 'de'}">
+                FORSCHUNG ENTDECKEN →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · RESEARCH GROUP
+</footer>
+
+
+</body>
+</html>

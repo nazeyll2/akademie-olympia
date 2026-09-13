@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Akademie Olympia Publications">
+
+    <title>Publications | Akademie Olympia</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #090909;
+
+            background-image:
+                    linear-gradient(
+                            rgba(5, 5, 5, 0.28),
+                            rgba(5, 5, 5, 0.52)
+                    ),
+                    url('/images/publications-bg.png');
+
+            /*
+             * Arka plan sayfayla beraber kayar.
+             * Fotoğraf bittiğinde aşağı doğru tekrar eder.
+             */
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                    rgba(0, 0, 0, 0.86);
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.78rem;
+
+            letter-spacing: 0.09em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            color: #777166;
+        }
+
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .publications-hero {
+            min-height: 70vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    140px
+                    7%
+                    80px;
+        }
+
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1000px;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+            margin-bottom: 22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.74rem;
+
+            letter-spacing: 0.32em;
+
+            color: #d4af37;
+        }
+
+
+        .publications-hero h1 {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(3.1rem, 7vw, 6.3rem);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            letter-spacing: 0.10em;
+
+            color: #f5f0e7;
+
+            text-shadow:
+                    0 4px 30px
+                    rgba(0, 0, 0, 0.95);
+        }
+
+
+        .gold-line {
+            width: 110px;
+            height: 1px;
+
+            margin:
+                    37px
+                    auto;
+
+            background: #d4af37;
+        }
+
+
+        .hero-description {
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            font-size: 1.06rem;
+
+            line-height: 1.9;
+
+            color: #e8e1d6;
+
+            text-shadow:
+                    0 3px 14px
+                    rgba(0, 0, 0, 0.95);
+        }
+
+
+
+        /* =========================================================
+           MAIN CONTENT
+           ========================================================= */
+
+        .publications-main {
+            width: 100%;
+
+            max-width: 1120px;
+
+            margin: 0 auto;
+
+            padding:
+                    40px
+                    7%
+                    130px;
+        }
+
+
+
+        /* =========================================================
+           SECTION
+           ========================================================= */
+
+        .publication-section {
+            margin-bottom: 95px;
+        }
+
+
+        .publication-section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .section-heading {
+            margin-bottom: 38px;
+        }
+
+
+        .section-eyebrow {
+            margin-bottom: 10px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.26em;
+
+            color: #d4af37;
+        }
+
+
+        .section-title {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.35rem, 2.3vw, 1.8rem);
+
+            font-weight: 500;
+
+            letter-spacing: 0.10em;
+
+            color: #f0eadd;
+
+            text-shadow:
+                    0 2px 12px
+                    rgba(0, 0, 0, 0.88);
+        }
+
+
+        .section-line {
+            width: 100%;
+            height: 1px;
+
+            margin-top: 18px;
+
+            background:
+                    linear-gradient(
+                            to right,
+                            rgba(212, 175, 55, 0.75),
+                            rgba(212, 175, 55, 0.05)
+                    );
+        }
+
+
+
+        /* =========================================================
+           PUBLICATION CARD
+           ========================================================= */
+
+        .publication-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 27px;
+        }
+
+
+        .publication-card {
+            position: relative;
+
+            overflow: hidden;
+
+            padding:
+                    38px
+                    42px;
+
+            /*
+             * Açık ama saf beyaz olmayan,
+             * sıcak kırık-beyaz panel.
+             */
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(246, 242, 234, 0.90),
+                            rgba(225, 218, 205, 0.82)
+                    );
+
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+
+            border-left:
+                    3px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(255, 255, 255, 0.60);
+
+            border-right:
+                    1px solid rgba(255, 255, 255, 0.34);
+
+            border-bottom:
+                    1px solid rgba(255, 255, 255, 0.36);
+
+            box-shadow:
+                    0 17px 48px
+                    rgba(0, 0, 0, 0.18);
+
+            transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease,
+                    background 0.25s ease;
+        }
+
+
+        .publication-card:hover {
+            transform:
+                    translateY(-4px);
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(250, 247, 241, 0.95),
+                            rgba(232, 225, 213, 0.88)
+                    );
+
+            box-shadow:
+                    0 22px 58px
+                    rgba(0, 0, 0, 0.24);
+        }
+
+
+
+        /* =========================================================
+           CARD HEADER
+           ========================================================= */
+
+        .publication-top {
+            display: flex;
+
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .publication-type {
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.64rem;
+
+            letter-spacing: 0.20em;
+
+            color: #84640c;
+        }
+
+
+        .publication-title {
+            max-width: 800px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.02rem, 1.8vw, 1.28rem);
+
+            font-weight: 600;
+
+            line-height: 1.55;
+
+            color: #211e19;
+        }
+
+
+        .publication-year {
+            flex: 0 0 auto;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 1rem;
+
+            color: #9b791c;
+        }
+
+
+
+        /* =========================================================
+           METADATA
+           ========================================================= */
+
+        .publication-meta {
+            padding-bottom: 21px;
+
+            margin-bottom: 21px;
+
+            border-bottom:
+                    1px solid
+                    rgba(77, 67, 50, 0.17);
+        }
+
+
+        .publication-authors {
+            margin-bottom: 8px;
+
+            font-size: 0.92rem;
+
+            line-height: 1.65;
+
+            color: #4a443b;
+        }
+
+
+        .publication-journal {
+            font-size: 0.88rem;
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+            color: #866916;
+        }
+
+
+
+        /* =========================================================
+           ABSTRACT
+           ========================================================= */
+
+        .publication-abstract {
+            max-width: 900px;
+
+            margin-bottom: 26px;
+
+            font-size: 0.97rem;
+
+            line-height: 1.85;
+
+            color: #38332c;
+        }
+
+
+
+        /* =========================================================
+           LINKS
+           ========================================================= */
+
+        .publication-links {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .publication-link {
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 38px;
+
+            padding:
+                    9px
+                    15px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.12em;
+
+            text-decoration: none;
+
+            color: #322d26;
+
+            background:
+                    rgba(255, 255, 255, 0.31);
+
+            border:
+                    1px solid
+                    rgba(107, 91, 58, 0.27);
+
+            transition:
+                    color 0.25s ease,
+                    background 0.25s ease,
+                    border-color 0.25s ease;
+        }
+
+
+        .publication-link:hover {
+            color: #11100e;
+
+            background: #d4af37;
+
+            border-color: #d4af37;
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(0, 0, 0, 0.88);
+
+            border-top:
+                    1px solid
+                    rgba(212, 175, 55, 0.12);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #7e776c;
+        }
+
+
+
+        /* =========================================================
+           TABLET
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+            }
+
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+
+            .publications-hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        90px;
+            }
+
+        }
+
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+
+            .publications-hero h1 {
+                font-size: 2.55rem;
+            }
+
+
+            .hero-description {
+                font-size: 0.96rem;
+            }
+
+
+            .publications-main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+
+            .publication-card {
+                padding:
+                        30px
+                        24px;
+            }
+
+
+            .publication-top {
+                display: block;
+            }
+
+
+            .publication-year {
+                margin-top: 13px;
+
+                font-size: 0.85rem;
+            }
+
+
+            .publication-title {
+                font-size: 1rem;
+            }
+
+
+            .publication-abstract {
+                font-size: 0.92rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+
+        <!-- HOME -->
+
+        <a th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a class="current-page"
+           th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a class="current-page"
+           th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a class="current-page"
+           th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <!-- LANGUAGE SWITCHER -->
+
+    <div class="language-switcher">
+
+        <a th:href="@{/publications(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/publications(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/publications(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="publications-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            AKADEMIE OLYMPIA
+        </div>
+
+
+        <h1 th:if="${lang == 'tr'}">
+            YAYINLAR
+        </h1>
+
+        <h1 th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </h1>
+
+        <h1 th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+            Araştırma grubumuzun yayımlanmış çalışmaları,
+            preprintleri ve devam eden akademik çalışmaları.
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+            Published articles, preprints and ongoing
+            academic work produced within our research programme.
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+            Veröffentlichte Arbeiten, Preprints und laufende
+            wissenschaftliche Arbeiten unseres Forschungsprogramms.
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main class="publications-main">
+
+
+    <!-- =====================================================
+         PUBLISHED JOURNAL ARTICLES
+         ===================================================== -->
+
+    <section class="publication-section">
+
+
+        <div class="section-heading">
+
+            <div class="section-eyebrow">
+                01
+            </div>
+
+
+            <h2 class="section-title"
+                th:if="${lang == 'tr'}">
+                YAYIMLANMIŞ MAKALELER
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'en'}">
+                PUBLISHED JOURNAL ARTICLES
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'de'}">
+                VERÖFFENTLICHTE ARTIKEL
+            </h2>
+
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="publication-list">
+
+
+            <!-- =================================================
+                 ARTICLE 1
+                 ================================================= -->
+
+            <article class="publication-card">
+
+
+                <div class="publication-top">
+
+                    <div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'tr'}">
+                            HAKEMLİ DERGİ MAKALESİ
+                        </div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'en'}">
+                            JOURNAL ARTICLE
+                        </div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'de'}">
+                            ZEITSCHRIFTENARTIKEL
+                        </div>
+
+
+                        <h3 class="publication-title">
+                            On the Geometric Interpretation
+                            of Non-Singular Black Hole Interiors
+                        </h3>
+
+                    </div>
+
+
+                    <div class="publication-year">
+                        2026
+                    </div>
+
+                </div>
+
+
+                <div class="publication-meta">
+
+                    <div class="publication-authors">
+                        Melih Gümüş · B. B. Öner
+                    </div>
+
+                    <div class="publication-journal">
+                        Modern Physics Letters A · Article 2650184
+                    </div>
+
+                </div>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'tr'}">
+
+                    Bu çalışma, teleparalel kütleçekim çerçevesinde
+                    tekillik içermeyen kara delik iç bölgelerini
+                    incelemektedir. Merkezi tekilliğin de Sitter benzeri
+                    bir çekirdeğe sahip düzenli bir iç geometriyle
+                    yer değiştirebilme olasılığı; torsiyon,
+                    ufuk yapısı ve eşdeğerlik ilkesi bağlamında
+                    araştırılmaktadır.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'en'}">
+
+                    This study investigates non-singular black-hole
+                    interiors within the framework of teleparallel
+                    gravity. It explores the possibility that the
+                    central singularity may be replaced by a regular
+                    interior geometry with a de Sitter-like core,
+                    with particular emphasis on torsion,
+                    horizon structure and the equivalence principle.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'de'}">
+
+                    Diese Arbeit untersucht nichtsinguläre Innenräume
+                    Schwarzer Löcher im Rahmen der teleparallelen
+                    Gravitation. Dabei wird die Möglichkeit untersucht,
+                    dass die zentrale Singularität durch eine reguläre
+                    innere Geometrie mit einem de-Sitter-ähnlichen Kern
+                    ersetzt werden kann. Besonderes Augenmerk liegt
+                    auf Torsion, Horizontstruktur und dem
+                    Äquivalenzprinzip.
+
+                </p>
+
+
+                <div class="publication-links">
+
+                    <a class="publication-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'tr'}">
+                        DOI / MAKALE
+                    </a>
+
+                    <a class="publication-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'en'}">
+                        DOI / ARTICLE
+                    </a>
+
+                    <a class="publication-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'de'}">
+                        DOI / ARTIKEL
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PREPRINTS & MANUSCRIPTS
+         ===================================================== -->
+
+    <section class="publication-section">
+
+
+        <div class="section-heading">
+
+            <div class="section-eyebrow">
+                02
+            </div>
+
+
+            <h2 class="section-title"
+                th:if="${lang == 'tr'}">
+                PREPRINTLER VE MANÜSKRİPTLER
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'en'}">
+                PREPRINTS & MANUSCRIPTS
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'de'}">
+                PREPRINTS & MANUSKRIPTE
+            </h2>
+
+
+            <div class="section-line"></div>
+
+        </div>
+
+
+        <div class="publication-list">
+
+
+            <!-- =================================================
+                 PREPRINT 1
+                 ================================================= -->
+
+            <article class="publication-card">
+
+
+                <div class="publication-top">
+
+                    <div>
+
+                        <div class="publication-type">
+                            PREPRINT
+                        </div>
+
+
+                        <h3 class="publication-title">
+                            On the Nature of Gravitation
+                            and Geometric Drift of Spacetime
+                        </h3>
+
+                    </div>
+
+
+                    <div class="publication-year">
+                        2025
+                    </div>
+
+                </div>
+
+
+                <div class="publication-meta">
+
+                    <div class="publication-authors">
+                        Melih Gümüş · B. B. Öner
+                    </div>
+
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'tr'}">
+                        Çevrimiçi Preprint
+                    </div>
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'en'}">
+                        Online Preprint
+                    </div>
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'de'}">
+                        Online-Preprint
+                    </div>
+
+                </div>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'tr'}">
+
+                    Bu çalışma, teleparalel uzay-zamanda tanımlanan
+                    geometrik drift vektörleri aracılığıyla
+                    kütleçekimin temel doğasını incelemektedir.
+                    Formülasyon, uzay-zamanın torsiyon temelli
+                    bir betimlemesi üzerinden eylemsizlik ve
+                    kütleçekim etkileri arasındaki geometrik
+                    ilişkiyi araştırmaktadır.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'en'}">
+
+                    This work investigates the fundamental nature
+                    of gravitation through geometric drift vectors
+                    defined within teleparallel spacetime.
+                    The formulation explores the geometric relationship
+                    between inertial and gravitational effects
+                    through a torsion-based description of spacetime.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'de'}">
+
+                    Diese Arbeit untersucht die fundamentale Natur
+                    der Gravitation mithilfe geometrischer
+                    Driftvektoren in einer teleparallelen Raumzeit.
+                    Der Ansatz untersucht den geometrischen Zusammenhang
+                    zwischen Trägheits- und Gravitationseffekten
+                    auf Grundlage einer torsionsbasierten Beschreibung
+                    der Raumzeit.
+
+                </p>
+
+
+                <div class="publication-links">
+
+                    <a class="publication-link"
+                       href="https://www.preprints.org/manuscript/202512.1361"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        PREPRINT
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 MANUSCRIPT 2
+                 ================================================= -->
+
+            <article class="publication-card">
+
+
+                <div class="publication-top">
+
+                    <div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'tr'}">
+                            MANÜSKRİPT
+                        </div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'en'}">
+                            MANUSCRIPT
+                        </div>
+
+                        <div class="publication-type"
+                             th:if="${lang == 'de'}">
+                            MANUSKRIPT
+                        </div>
+
+
+                        <h3 class="publication-title">
+                            On the Geometric Emergence
+                            of the Electromagnetic Field
+                            in Teleparallel Spacetime
+                        </h3>
+
+                    </div>
+
+
+                    <div class="publication-year">
+                        2026
+                    </div>
+
+                </div>
+
+
+                <div class="publication-meta">
+
+                    <div class="publication-authors">
+                        Melih Gümüş
+                    </div>
+
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'tr'}">
+                        Manüskript
+                    </div>
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'en'}">
+                        Manuscript
+                    </div>
+
+                    <div class="publication-journal"
+                         th:if="${lang == 'de'}">
+                        Manuskript
+                    </div>
+
+                </div>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'tr'}">
+
+                    Bu çalışma, elektromanyetizmanın teleparalel
+                    uzay-zaman içerisinde geometrik bir formülasyonunu
+                    araştırmaktadır. Elektromanyetik alan,
+                    zamansal tetrad yapısı ve torsiyon ile
+                    ilişkilendirilerek elektromanyetik olguların
+                    aynı uzay-zaman çerçevesi içinde geometrik
+                    olarak yorumlanıp yorumlanamayacağı incelenmektedir.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'en'}">
+
+                    This work explores a geometric formulation
+                    of electromagnetism within teleparallel spacetime.
+                    The electromagnetic field is related to temporal
+                    tetrad structure and torsion, with the aim
+                    of examining whether electromagnetic phenomena
+                    may admit a geometric interpretation within
+                    the same spacetime framework.
+
+                </p>
+
+
+                <p class="publication-abstract"
+                   th:if="${lang == 'de'}">
+
+                    Diese Arbeit untersucht eine geometrische
+                    Formulierung des Elektromagnetismus
+                    in der teleparallelen Raumzeit.
+                    Das elektromagnetische Feld wird mit der
+                    zeitlichen Tetradenstruktur und der Torsion
+                    in Verbindung gebracht, um zu untersuchen,
+                    ob elektromagnetische Phänomene innerhalb
+                    desselben Raumzeitrahmens geometrisch
+                    interpretiert werden können.
+
+                </p>
+
+
+                <div class="publication-links">
+
+                    <a class="publication-link"
+                       href="https://www.preprints.org/manuscript/202602.0469"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'tr'}">
+                        MANÜSKRİPT
+                    </a>
+
+                    <a class="publication-link"
+                       href="https://www.preprints.org/manuscript/202602.0469"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'en'}">
+                        MANUSCRIPT
+                    </a>
+
+                    <a class="publication-link"
+                       href="https://www.preprints.org/manuscript/202602.0469"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       th:if="${lang == 'de'}">
+                        MANUSKRIPT
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · RESEARCH GROUP
+</footer>
+
+
+</body>
+</html>

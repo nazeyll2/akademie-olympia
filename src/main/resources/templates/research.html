@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Akademie Olympia Research">
+
+    <title>Research | Akademie Olympia</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #090909;
+
+            background-image:
+                    linear-gradient(
+                            rgba(4, 4, 4, 0.38),
+                            rgba(4, 4, 4, 0.72)
+                    ),
+                    url('/images/research-bg.jpg');
+
+            /*
+             * Arka plan sayfayla birlikte kayar.
+             * Fotoğraf bittiğinde aşağı doğru tekrar eder.
+             */
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                    rgba(0, 0, 0, 0.84);
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.78rem;
+
+            letter-spacing: 0.09em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            color: #777166;
+        }
+
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .research-hero {
+            min-height: 82vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    140px
+                    7%
+                    90px;
+        }
+
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1000px;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+            margin-bottom: 22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.74rem;
+
+            letter-spacing: 0.32em;
+
+            color: #d4af37;
+        }
+
+
+        .research-hero h1 {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(3.4rem, 7vw, 6.7rem);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            letter-spacing: 0.10em;
+
+            color: #f5f0e7;
+
+            text-shadow:
+                    0 4px 30px
+                    rgba(0, 0, 0, 0.92);
+        }
+
+
+        .gold-line {
+            width: 110px;
+            height: 1px;
+
+            margin:
+                    37px
+                    auto;
+
+            background: #d4af37;
+        }
+
+
+        .hero-description {
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            font-size: 1.08rem;
+
+            line-height: 1.95;
+
+            color: #ddd6ca;
+
+            text-shadow:
+                    0 2px 12px
+                    rgba(0, 0, 0, 0.95);
+        }
+
+
+
+        /* =========================================================
+           GENERAL CONTENT
+           ========================================================= */
+
+        .research-main {
+            max-width: 1120px;
+
+            margin: 0 auto;
+
+            padding:
+                    40px
+                    7%
+                    130px;
+        }
+
+
+        .section-title {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.25rem, 2vw, 1.55rem);
+
+            font-weight: 500;
+
+            letter-spacing: 0.13em;
+
+            color: #d4af37;
+        }
+
+
+
+        /* =========================================================
+           SOFT PANEL
+           ========================================================= */
+
+        .soft-panel {
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(245, 241, 232, 0.13),
+                            rgba(245, 241, 232, 0.055)
+                    );
+
+            backdrop-filter: blur(11px);
+            -webkit-backdrop-filter: blur(11px);
+
+            border:
+                    1px solid
+                    rgba(245, 241, 232, 0.17);
+
+            box-shadow:
+                    0 20px 55px
+                    rgba(0, 0, 0, 0.20);
+        }
+
+
+
+        /* =========================================================
+           RESEARCH VISION
+           ========================================================= */
+
+        .vision-panel {
+            padding:
+                    58px
+                    62px;
+
+            margin-bottom: 100px;
+
+            border-left:
+                    2px solid
+                    rgba(212, 175, 55, 0.88);
+        }
+
+
+        .vision-panel .section-title {
+            margin-bottom: 34px;
+        }
+
+
+        .vision-panel p {
+            margin-bottom: 23px;
+
+            font-size: 1.04rem;
+
+            line-height: 2;
+
+            color: #eee8dd;
+        }
+
+
+        .vision-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+        /* =========================================================
+           DIVISIONS INTRO
+           ========================================================= */
+
+        .divisions-intro {
+            max-width: 820px;
+
+            margin:
+                    0
+                    auto
+                    65px;
+
+            text-align: center;
+        }
+
+
+        .divisions-intro .section-title {
+            margin-bottom: 22px;
+        }
+
+
+        .divisions-intro p {
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #d0c9bd;
+        }
+
+
+
+        /* =========================================================
+           RESEARCH DIVISIONS
+           ========================================================= */
+
+        .research-divisions {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 35px;
+        }
+
+
+        .division-panel {
+            position: relative;
+
+            padding:
+                    48px
+                    52px;
+
+            overflow: hidden;
+
+            transition:
+                    transform 0.28s ease,
+                    background 0.28s ease,
+                    border-color 0.28s ease;
+        }
+
+
+        .division-panel:hover {
+            transform:
+                    translateY(-4px);
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(245, 241, 232, 0.16),
+                            rgba(245, 241, 232, 0.075)
+                    );
+
+            border-color:
+                    rgba(212, 175, 55, 0.30);
+        }
+
+
+        .division-number {
+            position: absolute;
+
+            top: 27px;
+            right: 35px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 4.7rem;
+
+            color:
+                    rgba(255, 255, 255, 0.055);
+
+            pointer-events: none;
+        }
+
+
+        .division-label {
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.70rem;
+
+            letter-spacing: 0.28em;
+
+            color: #b8af9f;
+        }
+
+
+        .division-panel h2 {
+            max-width: 800px;
+
+            margin-bottom: 28px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.25rem, 2.2vw, 1.65rem);
+
+            font-weight: 500;
+
+            line-height: 1.5;
+
+            color: #d4af37;
+        }
+
+
+        .division-panel p {
+            max-width: 900px;
+
+            margin-bottom: 19px;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #ebe4d8;
+        }
+
+
+        .division-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(0, 0, 0, 0.88);
+
+            border-top:
+                    1px solid
+                    rgba(212, 175, 55, 0.12);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #7e776c;
+        }
+
+
+
+        /* =========================================================
+           TABLET
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+            }
+
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+
+            .research-hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        100px;
+            }
+
+
+            .vision-panel {
+                padding:
+                        45px
+                        38px;
+            }
+
+
+            .division-panel {
+                padding:
+                        42px
+                        37px;
+            }
+
+
+            .division-number {
+                font-size: 3.5rem;
+            }
+
+        }
+
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+
+            .research-hero h1 {
+                font-size: 2.65rem;
+            }
+
+
+            .hero-description {
+                font-size: 0.98rem;
+            }
+
+
+            .research-main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+
+            .vision-panel {
+                padding:
+                        36px
+                        24px;
+            }
+
+
+            .division-panel {
+                padding:
+                        35px
+                        24px;
+            }
+
+
+            .division-number {
+                top: 18px;
+                right: 20px;
+
+                font-size: 2.8rem;
+            }
+
+
+            .division-label {
+                font-size: 0.63rem;
+            }
+
+
+            .division-panel p,
+            .vision-panel p {
+                font-size: 0.95rem;
+
+                line-height: 1.88;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+
+        <!-- HOME -->
+
+        <a th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a class="current-page"
+           th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a class="current-page"
+           th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a class="current-page"
+           th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <!-- LANGUAGE SWITCHER -->
+
+    <div class="language-switcher">
+
+        <a th:href="@{/research(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/research(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/research(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="research-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            AKADEMIE OLYMPIA
+        </div>
+
+
+        <h1 th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </h1>
+
+        <h1 th:if="${lang == 'en'}">
+            RESEARCH
+        </h1>
+
+        <h1 th:if="${lang == 'de'}">
+            FORSCHUNG
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <!-- TÜRKÇE -->
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+
+            Araştırma programımız geometrik ve matematiksel
+            temellerden fiziksel çözümlere, fenomenolojiye,
+            hesaplamalı modellemeye ve gözlemsel sınamalara uzanır.
+
+        </p>
+
+
+        <!-- ENGLISH -->
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+
+            Our research programme extends from geometric
+            and mathematical foundations to physical solutions,
+            phenomenology, computational modelling
+            and observational tests.
+
+        </p>
+
+
+        <!-- DEUTSCH -->
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+
+            Unser Forschungsprogramm reicht von geometrischen
+            und mathematischen Grundlagen über physikalische
+            Lösungen und Phänomenologie bis hin zu
+            computergestützter Modellierung und Beobachtungstests.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="research-main">
+
+
+    <!-- =====================================================
+         RESEARCH VISION
+         ===================================================== -->
+
+    <section class="vision-panel soft-panel">
+
+
+        <!-- =================================================
+             TÜRKÇE
+             ================================================= -->
+
+        <div th:if="${lang == 'tr'}">
+
+            <h2 class="section-title">
+                ARAŞTIRMA VİZYONUMUZ
+            </h2>
+
+
+            <p>
+                Akademie Olympia’da temel amacımız,
+                kütleçekimin geometrik yapısını ve bu yapının
+                temel fiziksel problemlerde ortaya çıkan
+                sonuçlarını incelemektir. Çalışmalarımızın
+                önemli bir bölümü teleparalel geometri,
+                geometrik kütleçekim teorileri ve bu çerçevede
+                geliştirilen modifiye kütleçekim modelleri
+                üzerine kuruludur.
+            </p>
+
+
+            <p>
+                Araştırma programımız yalnızca belirli çözümler
+                veya belirli gözlemsel anomalilerle sınırlı değildir.
+                Kara delikler, tekillikler, galaktik dinamikler,
+                kozmoloji ve astrofiziksel testlerin yanı sıra;
+                uzay-zamanın doğası, geometrinin fiziksel statüsü,
+                kütleçekimin ontolojik yorumu ve fizik teorilerinin
+                temel varsayımları gibi daha genel kavramsal
+                problemlere de yöneliyoruz.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ENGLISH
+             ================================================= -->
+
+        <div th:if="${lang == 'en'}">
+
+            <h2 class="section-title">
+                OUR RESEARCH VISION
+            </h2>
+
+
+            <p>
+                At Akademie Olympia, our primary aim is to investigate
+                the geometric structure of gravitation and the
+                consequences of this structure for fundamental
+                problems in physics. A significant part of our work
+                is based on teleparallel geometry, geometric theories
+                of gravitation and modified gravity models developed
+                within this framework.
+            </p>
+
+
+            <p>
+                Our research programme is not limited to particular
+                solutions or specific observational anomalies.
+                Alongside black holes, singularities, galactic dynamics,
+                cosmology and astrophysical tests, we also investigate
+                broader conceptual questions concerning the nature
+                of spacetime, the physical status of geometry,
+                the ontological interpretation of gravitation
+                and the fundamental assumptions underlying
+                physical theories.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DEUTSCH
+             ================================================= -->
+
+        <div th:if="${lang == 'de'}">
+
+            <h2 class="section-title">
+                UNSERE FORSCHUNGSVISION
+            </h2>
+
+
+            <p>
+                Unser zentrales Ziel an der Akademie Olympia
+                ist es, die geometrische Struktur der Gravitation
+                und ihre Konsequenzen für grundlegende physikalische
+                Probleme zu untersuchen. Ein wesentlicher Teil
+                unserer Arbeit basiert auf teleparalleler Geometrie,
+                geometrischen Gravitationstheorien und modifizierten
+                Gravitationsmodellen, die innerhalb dieses
+                geometrischen Rahmens entwickelt werden.
+            </p>
+
+
+            <p>
+                Unser Forschungsprogramm beschränkt sich weder
+                auf bestimmte Lösungen noch auf einzelne
+                Beobachtungsanomalien. Neben Schwarzen Löchern,
+                Singularitäten, galaktischer Dynamik, Kosmologie
+                und astrophysikalischen Tests untersuchen wir
+                auch grundlegendere konzeptionelle Fragen
+                zur Natur der Raumzeit, zum physikalischen Status
+                der Geometrie, zur ontologischen Interpretation
+                der Gravitation und zu den grundlegenden
+                Annahmen physikalischer Theorien.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESEARCH DIVISIONS INTRO
+         ===================================================== -->
+
+    <section class="divisions-intro">
+
+
+        <h2 class="section-title"
+            th:if="${lang == 'tr'}">
+            ARAŞTIRMA BÖLÜMLERİ
+        </h2>
+
+
+        <h2 class="section-title"
+            th:if="${lang == 'en'}">
+            RESEARCH DIVISIONS
+        </h2>
+
+
+        <h2 class="section-title"
+            th:if="${lang == 'de'}">
+            FORSCHUNGSBEREICHE
+        </h2>
+
+
+        <p th:if="${lang == 'tr'}">
+            Araştırma programımızı birbirini tamamlayan
+            üç temel çalışma alanı üzerinden yürütüyoruz.
+        </p>
+
+
+        <p th:if="${lang == 'en'}">
+            Our research programme is organised around
+            three complementary areas of study.
+        </p>
+
+
+        <p th:if="${lang == 'de'}">
+            Unser Forschungsprogramm gliedert sich in
+            drei sich ergänzende Forschungsbereiche.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESEARCH DIVISIONS
+         ===================================================== -->
+
+    <section class="research-divisions">
+
+
+        <!-- =================================================
+             DIVISION I — THEORY
+             ================================================= -->
+
+        <article class="division-panel soft-panel">
+
+            <div class="division-number">
+                I
+            </div>
+
+
+            <div class="division-label">
+                THEORY
+            </div>
+
+
+
+            <!-- =========================
+                 TÜRKÇE
+                 ========================= -->
+
+            <div th:if="${lang == 'tr'}">
+
+                <h2>
+                    TEORİK KÜTLEÇEKİM
+                    VE MATEMATİKSEL FİZİK
+                </h2>
+
+
+                <p>
+                    Bu bölümde temel geometrik ve fiziksel
+                    teorilerin oluşturulması, matematiksel
+                    yapılarının kurulması ve iç tutarlılıklarının
+                    incelenmesi amaçlanmaktadır.
+                </p>
+
+
+                <p>
+                    Özellikle teleparalel geometri,
+                    alternatif geometrik yapılar,
+                    modifiye kütleçekim teorileri,
+                    alan denklemlerinin türetilmesi,
+                    simetriler, korunum yasaları ve teorilerin
+                    matematiksel temelleri üzerinde çalışıyoruz.
+                </p>
+
+
+                <p>
+                    Bu alan aynı zamanda daha temel sorularla
+                    da ilgilenir: geometrinin fiziksel statüsü
+                    nedir, uzay-zaman temel bir yapı mıdır,
+                    kütleçekimin geometrik açıklamasının sınırları
+                    nelerdir ve fizik teorilerinin temel
+                    ontolojik varsayımları nelerdir?
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENGLISH
+                 ========================= -->
+
+            <div th:if="${lang == 'en'}">
+
+                <h2>
+                    THEORETICAL GRAVITATION
+                    & MATHEMATICAL PHYSICS
+                </h2>
+
+
+                <p>
+                    This division focuses on the construction
+                    of fundamental geometric and physical theories,
+                    the establishment of their mathematical structures
+                    and the investigation of their internal consistency.
+                </p>
+
+
+                <p>
+                    Our work focuses particularly on teleparallel
+                    geometry, alternative geometric structures,
+                    modified theories of gravity, the derivation
+                    of field equations, symmetries, conservation laws
+                    and the mathematical foundations of physical theories.
+                </p>
+
+
+                <p>
+                    This area also addresses more fundamental questions:
+                    What is the physical status of geometry?
+                    Is spacetime a fundamental structure?
+                    What are the limits of geometric descriptions
+                    of gravitation, and what fundamental ontological
+                    assumptions underlie physical theories?
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 DEUTSCH
+                 ========================= -->
+
+            <div th:if="${lang == 'de'}">
+
+                <h2>
+                    THEORETISCHE GRAVITATION
+                    & MATHEMATISCHE PHYSIK
+                </h2>
+
+
+                <p>
+                    Dieser Bereich konzentriert sich auf die Entwicklung
+                    grundlegender geometrischer und physikalischer
+                    Theorien, den Aufbau ihrer mathematischen Strukturen
+                    und die Untersuchung ihrer inneren Konsistenz.
+                </p>
+
+
+                <p>
+                    Im Mittelpunkt stehen insbesondere teleparallele
+                    Geometrie, alternative geometrische Strukturen,
+                    modifizierte Gravitationstheorien,
+                    die Herleitung von Feldgleichungen,
+                    Symmetrien, Erhaltungssätze und die mathematischen
+                    Grundlagen physikalischer Theorien.
+                </p>
+
+
+                <p>
+                    Dieser Bereich befasst sich zugleich mit
+                    grundlegenderen Fragen: Welchen physikalischen
+                    Status besitzt die Geometrie?
+                    Ist die Raumzeit eine fundamentale Struktur?
+                    Wo liegen die Grenzen geometrischer Beschreibungen
+                    der Gravitation und welche grundlegenden
+                    ontologischen Annahmen liegen physikalischen
+                    Theorien zugrunde?
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             DIVISION II — PHENOMENOLOGY
+             ================================================= -->
+
+        <article class="division-panel soft-panel">
+
+            <div class="division-number">
+                II
+            </div>
+
+
+            <div class="division-label">
+                PHENOMENOLOGY
+            </div>
+
+
+
+            <!-- =========================
+                 TÜRKÇE
+                 ========================= -->
+
+            <div th:if="${lang == 'tr'}">
+
+                <h2>
+                    FENOMENOLOJİ
+                    VE VERİ ANALİZİ
+                </h2>
+
+
+                <p>
+                    Teorik olarak oluşturulan modellerin
+                    fiziksel sonuçları bu bölümde incelenmektedir.
+                    Amacımız alan denklemlerinden fiziksel
+                    çözümlere, bu çözümlerden de gözlenebilir
+                    niceliklere geçmektir.
+                </p>
+
+
+                <p>
+                    Modifiye kütleçekim modellerinin kara delik
+                    çözümleri, galaktik dinamikleri,
+                    dönüş eğrileri, BTFR, kozmolojik evrim,
+                    CMB ve farklı fiziksel rejimlerde ortaya
+                    çıkan diğer gözlenebilir sonuçları
+                    araştırıyoruz.
+                </p>
+
+
+                <p>
+                    Elde edilen teorik öngörüler gözlemsel
+                    verilerle karşılaştırılarak modellerin
+                    fiziksel uygulanabilirliği, parametre uzayı
+                    ve gözlemsel uyumu incelenmektedir.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENGLISH
+                 ========================= -->
+
+            <div th:if="${lang == 'en'}">
+
+                <h2>
+                    PHENOMENOLOGY
+                    & DATA ANALYSIS
+                </h2>
+
+
+                <p>
+                    This division investigates the physical
+                    consequences of theoretically constructed models.
+                    Our aim is to move from field equations
+                    to physical solutions and from those solutions
+                    to observable quantities.
+                </p>
+
+
+                <p>
+                    We investigate black-hole solutions,
+                    galactic dynamics, rotation curves,
+                    the BTFR, cosmological evolution,
+                    the CMB and other observable consequences
+                    produced by modified gravity models
+                    across different physical regimes.
+                </p>
+
+
+                <p>
+                    The resulting theoretical predictions
+                    are compared with observational data
+                    in order to investigate the physical viability,
+                    parameter space and observational consistency
+                    of the models.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 DEUTSCH
+                 ========================= -->
+
+            <div th:if="${lang == 'de'}">
+
+                <h2>
+                    PHÄNOMENOLOGIE
+                    & DATENANALYSE
+                </h2>
+
+
+                <p>
+                    In diesem Bereich werden die physikalischen
+                    Konsequenzen theoretisch entwickelter Modelle
+                    untersucht. Unser Ziel ist es,
+                    von den Feldgleichungen zu physikalischen
+                    Lösungen und von diesen Lösungen zu
+                    beobachtbaren Größen zu gelangen.
+                </p>
+
+
+                <p>
+                    Wir untersuchen Lösungen für Schwarze Löcher,
+                    galaktische Dynamik, Rotationskurven,
+                    die BTFR, kosmologische Entwicklung,
+                    den CMB und weitere beobachtbare Konsequenzen,
+                    die modifizierte Gravitationstheorien
+                    in unterschiedlichen physikalischen Regimen erzeugen.
+                </p>
+
+
+                <p>
+                    Die daraus gewonnenen theoretischen Vorhersagen
+                    werden mit Beobachtungsdaten verglichen,
+                    um die physikalische Tragfähigkeit,
+                    den Parameterraum und die
+                    Beobachtungsverträglichkeit der Modelle
+                    zu untersuchen.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             DIVISION III — COMPUTATION
+             ================================================= -->
+
+        <article class="division-panel soft-panel">
+
+            <div class="division-number">
+                III
+            </div>
+
+
+            <div class="division-label">
+                COMPUTATION
+            </div>
+
+
+
+            <!-- =========================
+                 TÜRKÇE
+                 ========================= -->
+
+            <div th:if="${lang == 'tr'}">
+
+                <h2>
+                    HESAPLAMALI FİZİK
+                    VE SAYISAL MODELLEME
+                </h2>
+
+
+                <p>
+                    Fiziksel olarak çözülen sistemlerin
+                    simülasyonunun yapılması, modellemeler,
+                    analitik olarak çözülemeyen veya doğrudan
+                    incelenmesi güç olan fiziksel sistemler,
+                    hesaplamalı ve sayısal yöntemlerle
+                    araştırılmaktadır.
+                </p>
+
+
+                <p>
+                    Bu bölümde kozmolojik ve astrofiziksel
+                    modellemeler, simülasyonlar ve teorik
+                    sonuçların görsel olarak temsil edilmesi,
+                    diferansiyel denklemlerin sayısal çözümleri,
+                    parametre taramaları ve dinamik sistem
+                    analizleri üzerinde çalışıyoruz.
+                </p>
+
+
+                <p>
+                    Hesaplamalı yöntemleri yalnızca sonuç
+                    üretmek için değil; teorik yapının davranışını
+                    anlamak, farklı fiziksel rejimleri karşılaştırmak,
+                    analitik olarak erişilemeyen bölgeleri
+                    incelemek ve fenomenolojik sonuçları
+                    daha açık biçimde ortaya koymak için kullanıyoruz.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 ENGLISH
+                 ========================= -->
+
+            <div th:if="${lang == 'en'}">
+
+                <h2>
+                    COMPUTATIONAL PHYSICS
+                    & NUMERICAL MODELING
+                </h2>
+
+
+                <p>
+                    This division includes simulations
+                    and modelling of systems for which physical
+                    solutions have been obtained.
+                    Physical systems that cannot be solved
+                    analytically, or that are difficult to investigate
+                    directly, are studied using computational
+                    and numerical methods.
+                </p>
+
+
+                <p>
+                    Our work includes cosmological and astrophysical
+                    modelling, simulations and visual representations
+                    of theoretical results, numerical solutions
+                    of differential equations, parameter scans
+                    and dynamical-systems analyses.
+                </p>
+
+
+                <p>
+                    We use computational methods not merely
+                    to generate results, but also to understand
+                    the behaviour of theoretical structures,
+                    compare different physical regimes,
+                    investigate regions that are analytically
+                    inaccessible and present phenomenological
+                    results more clearly.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 DEUTSCH
+                 ========================= -->
+
+            <div th:if="${lang == 'de'}">
+
+                <h2>
+                    COMPUTATIONAL PHYSICS
+                    & NUMERISCHE MODELLIERUNG
+                </h2>
+
+
+                <p>
+                    Dieser Bereich umfasst Simulationen
+                    und Modellierungen von Systemen,
+                    für die physikalische Lösungen gewonnen wurden.
+                    Physikalische Systeme, die analytisch nicht
+                    lösbar oder unmittelbar nur schwer zugänglich
+                    sind, werden mit computergestützten
+                    und numerischen Methoden untersucht.
+                </p>
+
+
+                <p>
+                    Unsere Arbeit umfasst kosmologische
+                    und astrophysikalische Modellierungen,
+                    Simulationen und visuelle Darstellungen
+                    theoretischer Ergebnisse, numerische Lösungen
+                    von Differentialgleichungen, Parameterscans
+                    und Analysen dynamischer Systeme.
+                </p>
+
+
+                <p>
+                    Computergestützte Methoden verwenden wir
+                    nicht nur zur Berechnung von Ergebnissen,
+                    sondern auch, um das Verhalten theoretischer
+                    Strukturen zu verstehen, unterschiedliche
+                    physikalische Regime zu vergleichen,
+                    analytisch nicht zugängliche Bereiche
+                    zu untersuchen und phänomenologische
+                    Ergebnisse klarer darzustellen.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · RESEARCH GROUP
+</footer>
+
+
+</body>
+</html>

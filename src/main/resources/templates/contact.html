@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Contact Akademie Olympia Research Group">
+
+    <title>Contact | Akademie Olympia</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #090909;
+
+            background-image:
+                    linear-gradient(
+                            rgba(5, 5, 5, 0.42),
+                            rgba(5, 5, 5, 0.69)
+                    ),
+                    url('/images/contact-bg.png');
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                    rgba(0, 0, 0, 0.86);
+
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.78rem;
+
+            letter-spacing: 0.09em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            color: #777166;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .contact-hero {
+            min-height: 68vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    140px
+                    7%
+                    80px;
+        }
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1000px;
+
+            text-align: center;
+        }
+
+        .hero-label {
+            margin-bottom: 22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.74rem;
+
+            letter-spacing: 0.32em;
+
+            color: #d4af37;
+        }
+
+        .contact-hero h1 {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(3.2rem, 7vw, 6.4rem);
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            letter-spacing: 0.10em;
+
+            color: #f5f0e7;
+
+            text-shadow:
+                    0 4px 30px rgba(0, 0, 0, 0.95);
+        }
+
+        .gold-line {
+            width: 110px;
+            height: 1px;
+
+            margin:
+                    37px
+                    auto;
+
+            background: #d4af37;
+        }
+
+        .hero-description {
+            max-width: 780px;
+
+            margin: 0 auto;
+
+            font-size: 1.05rem;
+
+            line-height: 1.9;
+
+            color: #ddd6ca;
+
+            text-shadow:
+                    0 3px 14px rgba(0, 0, 0, 0.95);
+        }
+
+
+        /* =========================================================
+           MAIN
+           ========================================================= */
+
+        .contact-main {
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            padding:
+                    45px
+                    7%
+                    130px;
+        }
+
+
+        /* =========================================================
+           CONTACT GRID
+           ========================================================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            gap: 28px;
+
+            margin-bottom: 95px;
+        }
+
+        .contact-card {
+            min-height: 390px;
+
+            display: flex;
+            flex-direction: column;
+
+            padding:
+                    46px
+                    43px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(8, 8, 8, 0.82),
+                            rgba(18, 18, 18, 0.70)
+                    );
+
+            backdrop-filter: blur(9px);
+            -webkit-backdrop-filter: blur(9px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.14);
+
+            border-right:
+                    1px solid rgba(212, 175, 55, 0.09);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.10);
+
+            box-shadow:
+                    0 18px 50px rgba(0, 0, 0, 0.22);
+        }
+
+        .card-label {
+            margin-bottom: 18px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.25em;
+
+            color: #aaa194;
+        }
+
+        .contact-card h2 {
+            margin-bottom: 27px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.25rem, 2vw, 1.65rem);
+
+            font-weight: 500;
+
+            line-height: 1.5;
+
+            color: #d4af37;
+        }
+
+        .contact-card p {
+            margin-bottom: 20px;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #ddd6ca;
+        }
+
+
+        /* =========================================================
+           EMAIL
+           ========================================================= */
+
+        .email-address {
+            display: inline-block;
+
+            margin-top: auto;
+
+            padding-top: 27px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(0.82rem, 1.4vw, 1rem);
+
+            letter-spacing: 0.06em;
+
+            text-decoration: none;
+
+            color: #f1eadf;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.18);
+
+            transition:
+                    color 0.25s ease;
+        }
+
+        .email-address:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================================================
+           APPLICATION BUTTON
+           ========================================================= */
+
+        .application-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: fit-content;
+
+            min-height: 48px;
+
+            margin-top: auto;
+
+            padding:
+                    13px
+                    22px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.72rem;
+
+            letter-spacing: 0.14em;
+
+            text-decoration: none;
+
+            color: #17140d;
+
+            background: #d4af37;
+
+            border:
+                    1px solid #d4af37;
+
+            transition:
+                    background 0.25s ease,
+                    color 0.25s ease,
+                    transform 0.25s ease;
+        }
+
+        .application-button:hover {
+            transform:
+                    translateY(-2px);
+
+            background: #e1c15b;
+
+            color: #0f0e0b;
+        }
+
+
+        /* =========================================================
+           JOIN SECTION
+           ========================================================= */
+
+        .join-section {
+            padding:
+                    52px
+                    55px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(245, 241, 232, 0.12),
+                            rgba(245, 241, 232, 0.05)
+                    );
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border:
+                    1px solid rgba(245, 241, 232, 0.15);
+
+            box-shadow:
+                    0 18px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .join-section h2 {
+            margin-bottom: 29px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.3rem, 2.2vw, 1.7rem);
+
+            font-weight: 500;
+
+            letter-spacing: 0.10em;
+
+            color: #d4af37;
+        }
+
+        .join-section p {
+            margin-bottom: 19px;
+
+            font-size: 1rem;
+
+            line-height: 1.95;
+
+            color: #e3dcd1;
+        }
+
+        .join-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .division-list {
+            margin:
+                    30px
+                    0;
+
+            display: grid;
+
+            grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+
+            gap: 14px;
+        }
+
+        .division-item {
+            padding:
+                    17px
+                    16px;
+
+            text-align: center;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.68rem;
+
+            line-height: 1.7;
+
+            letter-spacing: 0.08em;
+
+            color: #ddd6ca;
+
+            background:
+                    rgba(0, 0, 0, 0.23);
+
+            border:
+                    1px solid rgba(212, 175, 55, 0.13);
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(0, 0, 0, 0.88);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.12);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #7e776c;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                padding: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+            .contact-hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        90px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .division-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-description {
+                font-size: 0.96rem;
+            }
+
+            .contact-main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .contact-card {
+                min-height: auto;
+
+                padding:
+                        36px
+                        25px;
+            }
+
+            .join-section {
+                padding:
+                        38px
+                        25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+        <a th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a class="current-page"
+           th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a class="current-page"
+           th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a class="current-page"
+           th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <!-- LANGUAGE SWITCHER -->
+
+    <div class="language-switcher">
+
+        <a th:href="@{/contact(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/contact(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/contact(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="contact-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            AKADEMIE OLYMPIA
+        </div>
+
+
+        <h1 th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </h1>
+
+        <h1 th:if="${lang == 'en'}">
+            CONTACT
+        </h1>
+
+        <h1 th:if="${lang == 'de'}">
+            KONTAKT
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+            Araştırmalarımız, akademik iş birlikleri
+            veya Akademie Olympia’ya katılım hakkında
+            bizimle iletişime geçebilirsiniz.
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+            You are welcome to contact us regarding our research,
+            potential academic collaborations or opportunities
+            to join Akademie Olympia.
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+            Sie können uns gerne bezüglich unserer Forschung,
+            möglicher wissenschaftlicher Kooperationen
+            oder einer Mitarbeit an der Akademie Olympia kontaktieren.
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="contact-main">
+
+
+    <!-- =====================================================
+         CONTACT + APPLICATION
+         ===================================================== -->
+
+    <section class="contact-grid">
+
+
+        <!-- EMAIL -->
+
+        <article class="contact-card">
+
+
+            <div class="card-label"
+                 th:if="${lang == 'tr'}">
+                GENEL İLETİŞİM
+            </div>
+
+            <div class="card-label"
+                 th:if="${lang == 'en'}">
+                GENERAL CONTACT
+            </div>
+
+            <div class="card-label"
+                 th:if="${lang == 'de'}">
+                ALLGEMEINER KONTAKT
+            </div>
+
+
+            <h2 th:if="${lang == 'tr'}">
+                BİZİMLE İLETİŞİME GEÇİN
+            </h2>
+
+            <h2 th:if="${lang == 'en'}">
+                GET IN TOUCH
+            </h2>
+
+            <h2 th:if="${lang == 'de'}">
+                KONTAKTIEREN SIE UNS
+            </h2>
+
+
+            <p th:if="${lang == 'tr'}">
+                Araştırmalarımız, akademik iş birlikleri,
+                bilimsel tartışmalar veya grup hakkında
+                genel sorularınız için bize e-posta
+                aracılığıyla ulaşabilirsiniz.
+            </p>
+
+
+            <p th:if="${lang == 'en'}">
+                For questions regarding our research,
+                academic collaborations, scientific discussions
+                or general information about the group,
+                you can contact us by email.
+            </p>
+
+
+            <p th:if="${lang == 'de'}">
+                Bei Fragen zu unserer Forschung,
+                wissenschaftlichen Kooperationen,
+                fachlichen Diskussionen oder allgemeinen
+                Informationen über die Gruppe können Sie
+                uns per E-Mail kontaktieren.
+            </p>
+
+
+            <a class="email-address"
+               href="mailto:olympiaacademie@gmail.com">
+                olympiaacademie@gmail.com
+            </a>
+
+        </article>
+
+
+
+        <!-- APPLICATION -->
+
+        <article class="contact-card">
+
+
+            <div class="card-label"
+                 th:if="${lang == 'tr'}">
+                ARAŞTIRMA GRUBUNA KATILIN
+            </div>
+
+            <div class="card-label"
+                 th:if="${lang == 'en'}">
+                JOIN THE RESEARCH GROUP
+            </div>
+
+            <div class="card-label"
+                 th:if="${lang == 'de'}">
+                FORSCHUNGSGRUPPE BEITRETEN
+            </div>
+
+
+            <h2 th:if="${lang == 'tr'}">
+                BAŞVURU
+            </h2>
+
+            <h2 th:if="${lang == 'en'}">
+                APPLICATION
+            </h2>
+
+            <h2 th:if="${lang == 'de'}">
+                BEWERBUNG
+            </h2>
+
+
+            <p th:if="${lang == 'tr'}">
+                Akademie Olympia’nın araştırma gruplarından
+                birine katılmak istiyorsanız başvuru formumuzu
+                doldurabilirsiniz. Başvurunuzda akademik geçmişiniz,
+                araştırma ilgi alanlarınız, motivasyonunuz
+                ve çalışma olanaklarınız hakkında bilgi isteyeceğiz.
+            </p>
+
+
+            <p th:if="${lang == 'en'}">
+                If you are interested in joining one of the
+                Akademie Olympia research divisions,
+                please complete our application form.
+                We will ask about your academic background,
+                research interests, motivation and availability.
+            </p>
+
+
+            <p th:if="${lang == 'de'}">
+                Wenn Sie sich einer Forschungsgruppe
+                der Akademie Olympia anschließen möchten,
+                füllen Sie bitte unser Bewerbungsformular aus.
+                Dabei fragen wir nach Ihrem akademischen Hintergrund,
+                Ihren Forschungsinteressen, Ihrer Motivation
+                und Ihrer zeitlichen Verfügbarkeit.
+            </p>
+
+
+            <!-- GOOGLE FORMS LINK -->
+
+            <a class="application-button"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
+               target="_blank"
+               rel="noopener noreferrer"
+               th:if="${lang == 'tr'}">
+                BAŞVURU FORMUNU AÇ
+            </a>
+
+
+            <a class="application-button"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
+               target="_blank"
+               rel="noopener noreferrer"
+               th:if="${lang == 'en'}">
+                OPEN APPLICATION FORM
+            </a>
+
+
+            <a class="application-button"
+               href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
+               target="_blank"
+               rel="noopener noreferrer"
+               th:if="${lang == 'de'}">
+                BEWERBUNGSFORMULAR ÖFFNEN
+            </a>
+
+        </article>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · RESEARCH GROUP
+</footer>
+
+
+</body>
+</html>
