@@ -11,7 +11,7 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Akademie Olympia Research">
+          content="Akademie Olympia Research Programme">
 
     <title>Research | Akademie Olympia</title>
 
@@ -68,11 +68,6 @@
                     ),
                     url('/images/research-bg.jpg');
 
-            /*
-             * Arka plan sayfayla birlikte kayar.
-             * Fotoğraf bittiğinde aşağı doğru tekrar eder.
-             */
-
             background-size:
                     100% 100%,
                     100% auto;
@@ -114,13 +109,15 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 6%;
+            padding:
+                    0
+                    4%;
 
             background:
-                    rgba(0, 0, 0, 0.84);
+                    rgba(0, 0, 0, 0.88);
 
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
 
             border-bottom:
                     1px solid rgba(212, 175, 55, 0.24);
@@ -133,7 +130,7 @@
             display: flex;
             align-items: center;
 
-            gap: 28px;
+            gap: 19px;
         }
 
 
@@ -144,13 +141,15 @@
                     Georgia,
                     serif;
 
-            font-size: 0.78rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.09em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
             color: #ddd6c8;
+
+            white-space: nowrap;
 
             transition:
                     color 0.25s ease;
@@ -172,7 +171,11 @@
             display: flex;
             align-items: center;
 
-            gap: 9px;
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
 
             color: #777166;
         }
@@ -418,8 +421,15 @@
         }
 
 
+        /*
+         * Kartın tamamı artık bir <a> etiketi.
+         * Kullanıcı kartın herhangi bir yerine tıklayabilir.
+         */
+
         .division-panel {
             position: relative;
+
+            display: block;
 
             padding:
                     48px
@@ -427,26 +437,35 @@
 
             overflow: hidden;
 
+            text-decoration: none;
+
+            cursor: pointer;
+
             transition:
                     transform 0.28s ease,
                     background 0.28s ease,
-                    border-color 0.28s ease;
+                    border-color 0.28s ease,
+                    box-shadow 0.28s ease;
         }
 
 
         .division-panel:hover {
             transform:
-                    translateY(-4px);
+                    translateY(-5px);
 
             background:
                     linear-gradient(
                             135deg,
-                            rgba(245, 241, 232, 0.16),
-                            rgba(245, 241, 232, 0.075)
+                            rgba(245, 241, 232, 0.17),
+                            rgba(245, 241, 232, 0.08)
                     );
 
             border-color:
-                    rgba(212, 175, 55, 0.30);
+                    rgba(212, 175, 55, 0.38);
+
+            box-shadow:
+                    0 25px 65px
+                    rgba(0, 0, 0, 0.27);
         }
 
 
@@ -520,8 +539,43 @@
         }
 
 
-        .division-panel p:last-child {
+        .division-panel p:last-of-type {
             margin-bottom: 0;
+        }
+
+
+        .division-link {
+            display: inline-block;
+
+            margin-top: 28px;
+
+            padding-top: 19px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.15em;
+
+            color: #9e9688;
+
+            border-top:
+                    1px solid
+                    rgba(212, 175, 55, 0.15);
+
+            transition:
+                    color 0.25s ease,
+                    letter-spacing 0.25s ease;
+        }
+
+
+        .division-panel:hover .division-link {
+            color: #d4af37;
+
+            letter-spacing: 0.18em;
         }
 
 
@@ -554,19 +608,21 @@
 
 
         /* =========================================================
-           TABLET
+           TABLET / SMALL DESKTOP
            ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 18px;
+                gap: 16px;
 
-                padding: 20px;
+                padding:
+                        19px
+                        4%;
             }
 
 
@@ -575,11 +631,15 @@
 
                 justify-content: center;
 
-                gap: 15px;
+                gap:
+                        13px
+                        18px;
             }
 
 
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
 
@@ -593,6 +653,11 @@
                         100px;
             }
 
+        }
+
+
+
+        @media (max-width: 900px) {
 
             .vision-panel {
                 padding:
@@ -626,6 +691,12 @@
                 background-size:
                         100% 100%,
                         auto 100vh;
+            }
+
+
+            .nav-links a,
+            .language-switcher a {
+                font-size: 0.64rem;
             }
 
 
@@ -705,6 +776,7 @@
         </a>
 
 
+
         <!-- RESEARCH -->
 
         <a class="current-page"
@@ -726,6 +798,64 @@
         </a>
 
 
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+
         <!-- PUBLICATIONS -->
 
         <a th:href="@{/publications(lang=${lang})}"
@@ -742,6 +872,7 @@
            th:if="${lang == 'de'}">
             PUBLIKATIONEN
         </a>
+
 
 
         <!-- TEAM -->
@@ -762,6 +893,7 @@
         </a>
 
 
+
         <!-- CONTACT -->
 
         <a th:href="@{/contact(lang=${lang})}"
@@ -780,6 +912,7 @@
         </a>
 
     </div>
+
 
 
     <!-- LANGUAGE SWITCHER -->
@@ -840,8 +973,6 @@
         <div class="gold-line"></div>
 
 
-        <!-- TÜRKÇE -->
-
         <p class="hero-description"
            th:if="${lang == 'tr'}">
 
@@ -851,8 +982,6 @@
 
         </p>
 
-
-        <!-- ENGLISH -->
 
         <p class="hero-description"
            th:if="${lang == 'en'}">
@@ -864,8 +993,6 @@
 
         </p>
 
-
-        <!-- DEUTSCH -->
 
         <p class="hero-description"
            th:if="${lang == 'de'}">
@@ -897,9 +1024,7 @@
     <section class="vision-panel soft-panel">
 
 
-        <!-- =================================================
-             TÜRKÇE
-             ================================================= -->
+        <!-- TÜRKÇE -->
 
         <div th:if="${lang == 'tr'}">
 
@@ -912,32 +1037,31 @@
                 Akademie Olympia’da temel amacımız,
                 kütleçekimin geometrik yapısını ve bu yapının
                 temel fiziksel problemlerde ortaya çıkan
-                sonuçlarını incelemektir. Çalışmalarımızın
-                önemli bir bölümü teleparalel geometri,
-                geometrik kütleçekim teorileri ve bu çerçevede
-                geliştirilen modifiye kütleçekim modelleri
-                üzerine kuruludur.
+                sonuçlarını incelemektir.
+                Çalışmalarımızın önemli bir bölümü
+                teleparalel geometri, geometrik kütleçekim
+                teorileri ve bu çerçevede geliştirilen
+                modifiye kütleçekim modelleri üzerine kuruludur.
             </p>
 
 
             <p>
-                Araştırma programımız yalnızca belirli çözümler
-                veya belirli gözlemsel anomalilerle sınırlı değildir.
-                Kara delikler, tekillikler, galaktik dinamikler,
-                kozmoloji ve astrofiziksel testlerin yanı sıra;
-                uzay-zamanın doğası, geometrinin fiziksel statüsü,
-                kütleçekimin ontolojik yorumu ve fizik teorilerinin
-                temel varsayımları gibi daha genel kavramsal
-                problemlere de yöneliyoruz.
+                Araştırma programımız kara delikler,
+                tekillikler, galaktik dinamikler,
+                kozmoloji ve astrofiziksel testler gibi
+                fiziksel problemlere uzanmaktadır.
+                Uzay-zamanın doğası, geometrinin fiziksel
+                statüsü, kütleçekimin ontolojik yorumu
+                ve fizik teorilerinin temel varsayımları
+                da araştırma programımızın merkezi
+                soruları arasındadır.
             </p>
 
         </div>
 
 
 
-        <!-- =================================================
-             ENGLISH
-             ================================================= -->
+        <!-- ENGLISH -->
 
         <div th:if="${lang == 'en'}">
 
@@ -950,32 +1074,31 @@
                 At Akademie Olympia, our primary aim is to investigate
                 the geometric structure of gravitation and the
                 consequences of this structure for fundamental
-                problems in physics. A significant part of our work
-                is based on teleparallel geometry, geometric theories
-                of gravitation and modified gravity models developed
-                within this framework.
+                problems in physics.
+                A significant part of our work is based on
+                teleparallel geometry, geometric theories
+                of gravitation and modified gravity models
+                developed within this framework.
             </p>
 
 
             <p>
-                Our research programme is not limited to particular
-                solutions or specific observational anomalies.
-                Alongside black holes, singularities, galactic dynamics,
-                cosmology and astrophysical tests, we also investigate
-                broader conceptual questions concerning the nature
+                Our research programme addresses black holes,
+                singularities, galactic dynamics, cosmology
+                and astrophysical tests.
+                Broader questions concerning the nature
                 of spacetime, the physical status of geometry,
                 the ontological interpretation of gravitation
                 and the fundamental assumptions underlying
-                physical theories.
+                physical theories form a central part
+                of the programme.
             </p>
 
         </div>
 
 
 
-        <!-- =================================================
-             DEUTSCH
-             ================================================= -->
+        <!-- DEUTSCH -->
 
         <div th:if="${lang == 'de'}">
 
@@ -986,27 +1109,27 @@
 
             <p>
                 Unser zentrales Ziel an der Akademie Olympia
-                ist es, die geometrische Struktur der Gravitation
-                und ihre Konsequenzen für grundlegende physikalische
-                Probleme zu untersuchen. Ein wesentlicher Teil
-                unserer Arbeit basiert auf teleparalleler Geometrie,
-                geometrischen Gravitationstheorien und modifizierten
-                Gravitationsmodellen, die innerhalb dieses
-                geometrischen Rahmens entwickelt werden.
+                besteht darin, die geometrische Struktur
+                der Gravitation und ihre Konsequenzen
+                für grundlegende physikalische Probleme
+                zu untersuchen.
+                Ein wesentlicher Teil unserer Arbeit basiert
+                auf teleparalleler Geometrie,
+                geometrischen Gravitationstheorien
+                und modifizierten Gravitationsmodellen.
             </p>
 
 
             <p>
-                Unser Forschungsprogramm beschränkt sich weder
-                auf bestimmte Lösungen noch auf einzelne
-                Beobachtungsanomalien. Neben Schwarzen Löchern,
-                Singularitäten, galaktischer Dynamik, Kosmologie
-                und astrophysikalischen Tests untersuchen wir
-                auch grundlegendere konzeptionelle Fragen
-                zur Natur der Raumzeit, zum physikalischen Status
-                der Geometrie, zur ontologischen Interpretation
-                der Gravitation und zu den grundlegenden
-                Annahmen physikalischer Theorien.
+                Unser Forschungsprogramm umfasst Schwarze Löcher,
+                Singularitäten, galaktische Dynamik,
+                Kosmologie und astrophysikalische Tests.
+                Grundlegende Fragen zur Natur der Raumzeit,
+                zum physikalischen Status der Geometrie,
+                zur ontologischen Interpretation der Gravitation
+                und zu den fundamentalen Voraussetzungen
+                physikalischer Theorien bilden einen
+                zentralen Teil unserer Forschung.
             </p>
 
         </div>
@@ -1043,18 +1166,23 @@
         <p th:if="${lang == 'tr'}">
             Araştırma programımızı birbirini tamamlayan
             üç temel çalışma alanı üzerinden yürütüyoruz.
+            Her bölüm kendi güncel araştırma programına sahiptir.
         </p>
 
 
         <p th:if="${lang == 'en'}">
             Our research programme is organised around
             three complementary areas of study.
+            Each division maintains its own current
+            research programme.
         </p>
 
 
         <p th:if="${lang == 'de'}">
-            Unser Forschungsprogramm gliedert sich in
-            drei sich ergänzende Forschungsbereiche.
+            Unser Forschungsprogramm gliedert sich
+            in drei sich ergänzende Forschungsbereiche.
+            Jeder Bereich verfolgt ein eigenes
+            aktuelles Forschungsprogramm.
         </p>
 
     </section>
@@ -1062,7 +1190,7 @@
 
 
     <!-- =====================================================
-         RESEARCH DIVISIONS
+         CLICKABLE RESEARCH DIVISIONS
          ===================================================== -->
 
     <section class="research-divisions">
@@ -1072,7 +1200,8 @@
              DIVISION I — THEORY
              ================================================= -->
 
-        <article class="division-panel soft-panel">
+        <a class="division-panel soft-panel"
+           th:href="@{/theory(lang=${lang})}">
 
             <div class="division-number">
                 I
@@ -1085,9 +1214,7 @@
 
 
 
-            <!-- =========================
-                 TÜRKÇE
-                 ========================= -->
+            <!-- TÜRKÇE -->
 
             <div th:if="${lang == 'tr'}">
 
@@ -1098,39 +1225,41 @@
 
 
                 <p>
-                    Bu bölümde temel geometrik ve fiziksel
-                    teorilerin oluşturulması, matematiksel
-                    yapılarının kurulması ve iç tutarlılıklarının
-                    incelenmesi amaçlanmaktadır.
+                    Bu bölüm kütleçekimin temel geometrik
+                    ve matematiksel yapısını araştırmaktadır.
+                    Teleparalel geometri, alternatif geometrik
+                    yapılar, modifiye kütleçekim teorileri,
+                    alan denklemleri, simetriler ve korunum
+                    yasaları temel çalışma konuları arasındadır.
                 </p>
 
 
                 <p>
-                    Özellikle teleparalel geometri,
-                    alternatif geometrik yapılar,
-                    modifiye kütleçekim teorileri,
-                    alan denklemlerinin türetilmesi,
-                    simetriler, korunum yasaları ve teorilerin
-                    matematiksel temelleri üzerinde çalışıyoruz.
+                    Güncel araştırmalar Geometric Drift
+                    of Spacetime (GDV), eylemsizliğin
+                    geometrik kökeni ve düzenli kara delik
+                    iç geometrileri üzerinde yoğunlaşmaktadır.
                 </p>
 
 
                 <p>
-                    Bu alan aynı zamanda daha temel sorularla
-                    da ilgilenir: geometrinin fiziksel statüsü
-                    nedir, uzay-zaman temel bir yapı mıdır,
-                    kütleçekimin geometrik açıklamasının sınırları
-                    nelerdir ve fizik teorilerinin temel
-                    ontolojik varsayımları nelerdir?
+                    Geometrinin fiziksel statüsü,
+                    uzay-zamanın temel yapısı ve
+                    kütleçekimin ontolojik yorumu
+                    teorik araştırma programının
+                    temel kavramsal sorularını oluşturur.
                 </p>
+
+
+                <span class="division-link">
+                    GÜNCEL TEORİK ÇALIŞMALARI İNCELE →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 ENGLISH
-                 ========================= -->
+            <!-- ENGLISH -->
 
             <div th:if="${lang == 'en'}">
 
@@ -1141,38 +1270,42 @@
 
 
                 <p>
-                    This division focuses on the construction
-                    of fundamental geometric and physical theories,
-                    the establishment of their mathematical structures
-                    and the investigation of their internal consistency.
+                    This division investigates the fundamental
+                    geometric and mathematical structure
+                    of gravitation.
+                    Teleparallel geometry, alternative geometric
+                    structures, modified theories of gravity,
+                    field equations, symmetries and conservation
+                    laws form major areas of research.
                 </p>
 
 
                 <p>
-                    Our work focuses particularly on teleparallel
-                    geometry, alternative geometric structures,
-                    modified theories of gravity, the derivation
-                    of field equations, symmetries, conservation laws
-                    and the mathematical foundations of physical theories.
+                    Current research focuses on Geometric Drift
+                    of Spacetime (GDV), the geometric origin
+                    of inertia and regular black-hole
+                    interior geometries.
                 </p>
 
 
                 <p>
-                    This area also addresses more fundamental questions:
-                    What is the physical status of geometry?
-                    Is spacetime a fundamental structure?
-                    What are the limits of geometric descriptions
-                    of gravitation, and what fundamental ontological
-                    assumptions underlie physical theories?
+                    The physical status of geometry,
+                    the fundamental structure of spacetime
+                    and the ontological interpretation
+                    of gravitation form central conceptual
+                    questions of the programme.
                 </p>
+
+
+                <span class="division-link">
+                    VIEW CURRENT THEORY RESEARCH →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 DEUTSCH
-                 ========================= -->
+            <!-- DEUTSCH -->
 
             <div th:if="${lang == 'de'}">
 
@@ -1183,37 +1316,41 @@
 
 
                 <p>
-                    Dieser Bereich konzentriert sich auf die Entwicklung
-                    grundlegender geometrischer und physikalischer
-                    Theorien, den Aufbau ihrer mathematischen Strukturen
-                    und die Untersuchung ihrer inneren Konsistenz.
-                </p>
-
-
-                <p>
-                    Im Mittelpunkt stehen insbesondere teleparallele
-                    Geometrie, alternative geometrische Strukturen,
+                    Dieser Bereich untersucht die grundlegende
+                    geometrische und mathematische Struktur
+                    der Gravitation.
+                    Teleparallele Geometrie, alternative
+                    geometrische Strukturen,
                     modifizierte Gravitationstheorien,
-                    die Herleitung von Feldgleichungen,
-                    Symmetrien, Erhaltungssätze und die mathematischen
-                    Grundlagen physikalischer Theorien.
+                    Feldgleichungen, Symmetrien und Erhaltungssätze
+                    bilden zentrale Forschungsgebiete.
                 </p>
 
 
                 <p>
-                    Dieser Bereich befasst sich zugleich mit
-                    grundlegenderen Fragen: Welchen physikalischen
-                    Status besitzt die Geometrie?
-                    Ist die Raumzeit eine fundamentale Struktur?
-                    Wo liegen die Grenzen geometrischer Beschreibungen
-                    der Gravitation und welche grundlegenden
-                    ontologischen Annahmen liegen physikalischen
-                    Theorien zugrunde?
+                    Die aktuelle Forschung konzentriert sich
+                    auf Geometric Drift of Spacetime (GDV),
+                    den geometrischen Ursprung der Trägheit
+                    und reguläre Innengeometrien Schwarzer Löcher.
                 </p>
+
+
+                <p>
+                    Der physikalische Status der Geometrie,
+                    die fundamentale Struktur der Raumzeit
+                    und die ontologische Interpretation
+                    der Gravitation bilden zentrale
+                    konzeptionelle Fragen.
+                </p>
+
+
+                <span class="division-link">
+                    AKTUELLE THEORIEFORSCHUNG ANSEHEN →
+                </span>
 
             </div>
 
-        </article>
+        </a>
 
 
 
@@ -1221,7 +1358,8 @@
              DIVISION II — PHENOMENOLOGY
              ================================================= -->
 
-        <article class="division-panel soft-panel">
+        <a class="division-panel soft-panel"
+           th:href="@{/phenomenology(lang=${lang})}">
 
             <div class="division-number">
                 II
@@ -1234,9 +1372,7 @@
 
 
 
-            <!-- =========================
-                 TÜRKÇE
-                 ========================= -->
+            <!-- TÜRKÇE -->
 
             <div th:if="${lang == 'tr'}">
 
@@ -1247,38 +1383,41 @@
 
 
                 <p>
-                    Teorik olarak oluşturulan modellerin
-                    fiziksel sonuçları bu bölümde incelenmektedir.
-                    Amacımız alan denklemlerinden fiziksel
-                    çözümlere, bu çözümlerden de gözlenebilir
-                    niceliklere geçmektir.
+                    Bu bölüm teorik modellerin fiziksel
+                    sonuçlarını ve gözlenebilir öngörülerini
+                    araştırmaktadır.
+                    Alan denklemlerinden fiziksel çözümlere,
+                    bu çözümlerden ölçülebilir niceliklere
+                    uzanan ilişki incelenmektedir.
                 </p>
 
 
                 <p>
-                    Modifiye kütleçekim modellerinin kara delik
-                    çözümleri, galaktik dinamikleri,
-                    dönüş eğrileri, BTFR, kozmolojik evrim,
-                    CMB ve farklı fiziksel rejimlerde ortaya
-                    çıkan diğer gözlenebilir sonuçları
-                    araştırıyoruz.
+                    Güncel çalışmalarımız galaktik dinamikler,
+                    düz dönüş eğrileri, Baryonic Tully–Fisher
+                    Relation ve GDV alan denklemlerinin
+                    galaktik ölçekteki davranışı üzerinde
+                    yoğunlaşmaktadır.
                 </p>
 
 
                 <p>
-                    Elde edilen teorik öngörüler gözlemsel
-                    verilerle karşılaştırılarak modellerin
-                    fiziksel uygulanabilirliği, parametre uzayı
-                    ve gözlemsel uyumu incelenmektedir.
+                    Teorik öngörüler gözlemsel verilerle
+                    karşılaştırılarak modelin fiziksel
+                    uygulanabilirliği, parametre uzayı
+                    ve gözlemsel uyumu araştırılmaktadır.
                 </p>
+
+
+                <span class="division-link">
+                    GÜNCEL FENOMENOLOJİ ÇALIŞMALARINI İNCELE →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 ENGLISH
-                 ========================= -->
+            <!-- ENGLISH -->
 
             <div th:if="${lang == 'en'}">
 
@@ -1290,38 +1429,39 @@
 
                 <p>
                     This division investigates the physical
-                    consequences of theoretically constructed models.
-                    Our aim is to move from field equations
-                    to physical solutions and from those solutions
-                    to observable quantities.
+                    consequences and observable predictions
+                    of theoretical models.
+                    The programme follows the connection
+                    from field equations to physical solutions
+                    and from those solutions to measurable quantities.
                 </p>
 
 
                 <p>
-                    We investigate black-hole solutions,
-                    galactic dynamics, rotation curves,
-                    the BTFR, cosmological evolution,
-                    the CMB and other observable consequences
-                    produced by modified gravity models
-                    across different physical regimes.
+                    Current research focuses on galactic dynamics,
+                    flat rotation curves, the Baryonic
+                    Tully–Fisher Relation and the galactic-scale
+                    behaviour of the GDV field equations.
                 </p>
 
 
                 <p>
-                    The resulting theoretical predictions
-                    are compared with observational data
-                    in order to investigate the physical viability,
-                    parameter space and observational consistency
-                    of the models.
+                    Theoretical predictions are compared
+                    with observational data to investigate
+                    physical viability, parameter space
+                    and observational consistency.
                 </p>
+
+
+                <span class="division-link">
+                    VIEW CURRENT PHENOMENOLOGY RESEARCH →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 DEUTSCH
-                 ========================= -->
+            <!-- DEUTSCH -->
 
             <div th:if="${lang == 'de'}">
 
@@ -1332,37 +1472,41 @@
 
 
                 <p>
-                    In diesem Bereich werden die physikalischen
-                    Konsequenzen theoretisch entwickelter Modelle
-                    untersucht. Unser Ziel ist es,
-                    von den Feldgleichungen zu physikalischen
-                    Lösungen und von diesen Lösungen zu
-                    beobachtbaren Größen zu gelangen.
+                    Dieser Bereich untersucht die physikalischen
+                    Konsequenzen und beobachtbaren Vorhersagen
+                    theoretischer Modelle.
+                    Die Forschung verfolgt den Weg von
+                    Feldgleichungen zu physikalischen Lösungen
+                    und von diesen Lösungen zu messbaren Größen.
                 </p>
 
 
                 <p>
-                    Wir untersuchen Lösungen für Schwarze Löcher,
-                    galaktische Dynamik, Rotationskurven,
-                    die BTFR, kosmologische Entwicklung,
-                    den CMB und weitere beobachtbare Konsequenzen,
-                    die modifizierte Gravitationstheorien
-                    in unterschiedlichen physikalischen Regimen erzeugen.
+                    Die aktuelle Forschung konzentriert sich
+                    auf galaktische Dynamik,
+                    flache Rotationskurven,
+                    die baryonische Tully-Fisher-Relation
+                    und das galaktische Verhalten
+                    der GDV-Feldgleichungen.
                 </p>
 
 
                 <p>
-                    Die daraus gewonnenen theoretischen Vorhersagen
-                    werden mit Beobachtungsdaten verglichen,
-                    um die physikalische Tragfähigkeit,
-                    den Parameterraum und die
-                    Beobachtungsverträglichkeit der Modelle
+                    Theoretische Vorhersagen werden
+                    mit Beobachtungsdaten verglichen,
+                    um physikalische Tragfähigkeit,
+                    Parameterraum und Beobachtungsverträglichkeit
                     zu untersuchen.
                 </p>
 
+
+                <span class="division-link">
+                    AKTUELLE PHÄNOMENOLOGIE ANSEHEN →
+                </span>
+
             </div>
 
-        </article>
+        </a>
 
 
 
@@ -1370,7 +1514,8 @@
              DIVISION III — COMPUTATION
              ================================================= -->
 
-        <article class="division-panel soft-panel">
+        <a class="division-panel soft-panel"
+           th:href="@{/computation(lang=${lang})}">
 
             <div class="division-number">
                 III
@@ -1383,9 +1528,7 @@
 
 
 
-            <!-- =========================
-                 TÜRKÇE
-                 ========================= -->
+            <!-- TÜRKÇE -->
 
             <div th:if="${lang == 'tr'}">
 
@@ -1396,41 +1539,41 @@
 
 
                 <p>
-                    Fiziksel olarak çözülen sistemlerin
-                    simülasyonunun yapılması, modellemeler,
-                    analitik olarak çözülemeyen veya doğrudan
-                    incelenmesi güç olan fiziksel sistemler,
-                    hesaplamalı ve sayısal yöntemlerle
-                    araştırılmaktadır.
+                    Hesaplamalı fizik bölümü teorik modellerin
+                    sayısal çözümlerini, astrofiziksel
+                    simülasyonları ve gözlemsel veri analizlerini
+                    yürütmektedir.
                 </p>
 
 
                 <p>
-                    Bu bölümde kozmolojik ve astrofiziksel
-                    modellemeler, simülasyonlar ve teorik
-                    sonuçların görsel olarak temsil edilmesi,
-                    diferansiyel denklemlerin sayısal çözümleri,
-                    parametre taramaları ve dinamik sistem
-                    analizleri üzerinde çalışıyoruz.
+                    Güncel çalışmalar galaksi dönüş eğrilerinin
+                    sayısal modellenmesi, veri kümesindeki
+                    galaksilerin sistematik BTFR analizi,
+                    baryonik bileşenler, kpc ve Mpc ölçekleri
+                    ve GDV alan denklemlerinin sayısal
+                    çözümleri üzerinde yoğunlaşmaktadır.
                 </p>
 
 
                 <p>
-                    Hesaplamalı yöntemleri yalnızca sonuç
-                    üretmek için değil; teorik yapının davranışını
-                    anlamak, farklı fiziksel rejimleri karşılaştırmak,
-                    analitik olarak erişilemeyen bölgeleri
-                    incelemek ve fenomenolojik sonuçları
-                    daha açık biçimde ortaya koymak için kullanıyoruz.
+                    Parametre taramaları, kararlılık analizleri,
+                    residual incelemeleri ve bilimsel
+                    görselleştirmeler teorik sonuçların
+                    fiziksel davranışını ayrıntılı biçimde
+                    incelemek için kullanılmaktadır.
                 </p>
+
+
+                <span class="division-link">
+                    GÜNCEL HESAPLAMALI ÇALIŞMALARI İNCELE →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 ENGLISH
-                 ========================= -->
+            <!-- ENGLISH -->
 
             <div th:if="${lang == 'en'}">
 
@@ -1441,42 +1584,40 @@
 
 
                 <p>
-                    This division includes simulations
-                    and modelling of systems for which physical
-                    solutions have been obtained.
-                    Physical systems that cannot be solved
-                    analytically, or that are difficult to investigate
-                    directly, are studied using computational
-                    and numerical methods.
+                    The computational physics division develops
+                    numerical solutions of theoretical models,
+                    astrophysical simulations and observational
+                    data analyses.
                 </p>
 
 
                 <p>
-                    Our work includes cosmological and astrophysical
-                    modelling, simulations and visual representations
-                    of theoretical results, numerical solutions
-                    of differential equations, parameter scans
-                    and dynamical-systems analyses.
+                    Current research focuses on numerical
+                    modelling of galactic rotation curves,
+                    systematic BTFR analysis across the adopted
+                    galaxy sample, baryonic components,
+                    kpc and Mpc scales and numerical solutions
+                    of the GDV field equations.
                 </p>
 
 
                 <p>
-                    We use computational methods not merely
-                    to generate results, but also to understand
-                    the behaviour of theoretical structures,
-                    compare different physical regimes,
-                    investigate regions that are analytically
-                    inaccessible and present phenomenological
-                    results more clearly.
+                    Parameter scans, stability studies,
+                    residual analyses and scientific visualisation
+                    are used to investigate the physical behaviour
+                    of theoretical solutions in detail.
                 </p>
+
+
+                <span class="division-link">
+                    VIEW CURRENT COMPUTATIONAL RESEARCH →
+                </span>
 
             </div>
 
 
 
-            <!-- =========================
-                 DEUTSCH
-                 ========================= -->
+            <!-- DEUTSCH -->
 
             <div th:if="${lang == 'de'}">
 
@@ -1487,40 +1628,38 @@
 
 
                 <p>
-                    Dieser Bereich umfasst Simulationen
-                    und Modellierungen von Systemen,
-                    für die physikalische Lösungen gewonnen wurden.
-                    Physikalische Systeme, die analytisch nicht
-                    lösbar oder unmittelbar nur schwer zugänglich
-                    sind, werden mit computergestützten
-                    und numerischen Methoden untersucht.
+                    Der Bereich Computational Physics entwickelt
+                    numerische Lösungen theoretischer Modelle,
+                    astrophysikalische Simulationen
+                    und Analysen von Beobachtungsdaten.
                 </p>
 
 
                 <p>
-                    Unsere Arbeit umfasst kosmologische
-                    und astrophysikalische Modellierungen,
-                    Simulationen und visuelle Darstellungen
-                    theoretischer Ergebnisse, numerische Lösungen
-                    von Differentialgleichungen, Parameterscans
-                    und Analysen dynamischer Systeme.
+                    Die aktuelle Forschung konzentriert sich
+                    auf numerische Modellierung galaktischer
+                    Rotationskurven, systematische BTFR-Analysen
+                    des verwendeten Galaxiensamples,
+                    baryonische Komponenten, kpc- und Mpc-Skalen
+                    und numerische Lösungen der GDV-Feldgleichungen.
                 </p>
 
 
                 <p>
-                    Computergestützte Methoden verwenden wir
-                    nicht nur zur Berechnung von Ergebnissen,
-                    sondern auch, um das Verhalten theoretischer
-                    Strukturen zu verstehen, unterschiedliche
-                    physikalische Regime zu vergleichen,
-                    analytisch nicht zugängliche Bereiche
-                    zu untersuchen und phänomenologische
-                    Ergebnisse klarer darzustellen.
+                    Parameterscans, Stabilitätsanalysen,
+                    Residuenuntersuchungen und wissenschaftliche
+                    Visualisierungen dienen der detaillierten
+                    Untersuchung des physikalischen Verhaltens.
                 </p>
+
+
+                <span class="division-link">
+                    AKTUELLE COMPUTATIONAL-FORSCHUNG ANSEHEN →
+                </span>
 
             </div>
 
-        </article>
+        </a>
 
     </section>
 

@@ -48,6 +48,7 @@
             scroll-behavior: smooth;
         }
 
+
         body {
             min-height: 100vh;
 
@@ -58,14 +59,14 @@
 
             color: #eee9df;
 
-            background-color: #090909;
+            background-color: #17130f;
 
             background-image:
                     linear-gradient(
-                            rgba(5, 5, 5, 0.40),
-                            rgba(5, 5, 5, 0.67)
+                            rgba(20, 16, 12, 0.24),
+                            rgba(20, 16, 12, 0.43)
                     ),
-                    url('/images/teams-bg.jpg');
+                    url('/images/teams-bg.png');
 
             background-size:
                     100% 100%,
@@ -108,13 +109,15 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 6%;
+            padding:
+                    0
+                    4%;
 
             background:
-                    rgba(0, 0, 0, 0.86);
+                    rgba(0, 0, 0, 0.88);
 
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
 
             border-bottom:
                     1px solid rgba(212, 175, 55, 0.24);
@@ -127,7 +130,7 @@
             display: flex;
             align-items: center;
 
-            gap: 28px;
+            gap: 19px;
         }
 
 
@@ -138,13 +141,15 @@
                     Georgia,
                     serif;
 
-            font-size: 0.78rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.09em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
             color: #ddd6c8;
+
+            white-space: nowrap;
 
             transition:
                     color 0.25s ease;
@@ -166,7 +171,11 @@
             display: flex;
             align-items: center;
 
-            gap: 9px;
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
 
             color: #777166;
         }
@@ -213,6 +222,10 @@
             letter-spacing: 0.32em;
 
             color: #d4af37;
+
+            text-shadow:
+                    0 2px 10px
+                    rgba(0, 0, 0, 0.80);
         }
 
 
@@ -260,7 +273,7 @@
 
             line-height: 1.9;
 
-            color: #ddd6ca;
+            color: #f1ebe0;
 
             text-shadow:
                     0 3px 14px
@@ -281,9 +294,9 @@
             margin: 0 auto;
 
             padding:
-                    45px
+                    55px
                     5%
-                    130px;
+                    135px;
         }
 
 
@@ -318,6 +331,10 @@
             letter-spacing: 0.12em;
 
             color: #d4af37;
+
+            text-shadow:
+                    0 2px 12px
+                    rgba(0, 0, 0, 0.70);
         }
 
 
@@ -328,14 +345,17 @@
 
             line-height: 1.9;
 
-            color: #d1c9bd;
+            color: #f0e9dd;
+
+            text-shadow:
+                    0 2px 12px
+                    rgba(0, 0, 0, 0.85);
         }
 
 
 
         /* =========================================================
-           LEADERSHIP GRID
-           4 PEOPLE SIDE BY SIDE
+           RESEARCH TEAM
            ========================================================= */
 
         .leadership-section {
@@ -349,24 +369,34 @@
             grid-template-columns:
                     repeat(4, minmax(0, 1fr));
 
-            gap: 22px;
+            gap: 23px;
+
+            align-items: stretch;
         }
 
 
+
+        /* =========================================================
+           MEMBER CARD
+           ========================================================= */
+
         .member-card {
             display: flex;
-
             flex-direction: column;
 
             min-width: 0;
+            min-height: 340px;
 
-            overflow: hidden;
+            padding:
+                    38px
+                    30px
+                    32px;
 
             background:
                     linear-gradient(
-                            135deg,
-                            rgba(7, 7, 7, 0.82),
-                            rgba(18, 18, 18, 0.72)
+                            145deg,
+                            rgba(249, 246, 238, 0.94),
+                            rgba(226, 219, 205, 0.91)
                     );
 
             backdrop-filter: blur(8px);
@@ -374,19 +404,23 @@
 
             border:
                     1px solid
-                    rgba(212, 175, 55, 0.15);
+                    rgba(255, 255, 255, 0.55);
+
+            border-top:
+                    2px solid
+                    rgba(180, 139, 28, 0.80);
 
             border-bottom:
-                    2px solid
-                    rgba(212, 175, 55, 0.72);
+                    3px solid
+                    rgba(180, 139, 28, 0.80);
 
             box-shadow:
-                    0 18px 45px
-                    rgba(0, 0, 0, 0.24);
+                    0 18px 48px
+                    rgba(0, 0, 0, 0.22);
 
             transition:
                     transform 0.25s ease,
-                    border-color 0.25s ease,
+                    box-shadow 0.25s ease,
                     background 0.25s ease;
         }
 
@@ -395,83 +429,16 @@
             transform:
                     translateY(-6px);
 
-            border-color:
-                    rgba(212, 175, 55, 0.35);
-
-            background:
-                    linear-gradient(
-                            135deg,
-                            rgba(13, 13, 13, 0.88),
-                            rgba(24, 24, 24, 0.77)
-                    );
-        }
-
-
-
-        /* =========================================================
-           MEMBER PHOTO
-           ========================================================= */
-
-        .member-photo {
-            position: relative;
-
-            width: 100%;
-            aspect-ratio: 4 / 4.7;
-
-            overflow: hidden;
-
             background:
                     linear-gradient(
                             145deg,
-                            rgba(255, 255, 255, 0.06),
-                            rgba(255, 255, 255, 0.015)
+                            rgba(255, 252, 246, 0.97),
+                            rgba(236, 229, 217, 0.94)
                     );
 
-            border-bottom:
-                    1px solid
-                    rgba(212, 175, 55, 0.15);
-        }
-
-
-        .member-photo img {
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            object-position: center;
-
-            z-index: 2;
-        }
-
-
-        .photo-placeholder {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size: 0.67rem;
-
-            letter-spacing: 0.28em;
-
-            color:
-                    rgba(222, 214, 200, 0.38);
-
-            z-index: 1;
+            box-shadow:
+                    0 25px 58px
+                    rgba(0, 0, 0, 0.28);
         }
 
 
@@ -480,23 +447,10 @@
            MEMBER INFORMATION
            ========================================================= */
 
-        .member-content {
-            flex: 1;
-
-            display: flex;
-            flex-direction: column;
-
-            padding:
-                    29px
-                    25px
-                    27px;
-        }
-
-
         .member-role {
-            min-height: 48px;
+            min-height: 55px;
 
-            margin-bottom: 17px;
+            margin-bottom: 34px;
 
             font-family:
                     "Cinzel",
@@ -505,143 +459,15 @@
 
             font-size: 0.64rem;
 
-            line-height: 1.6;
+            line-height: 1.65;
 
-            letter-spacing: 0.16em;
+            letter-spacing: 0.13em;
 
-            color: #d4af37;
+            color: #8b6810;
         }
 
 
         .member-name {
-            margin-bottom: 20px;
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size:
-                    clamp(1.05rem, 1.5vw, 1.35rem);
-
-            font-weight: 500;
-
-            line-height: 1.45;
-
-            color: #f3ede3;
-        }
-
-
-        .member-academic {
-            margin-bottom: 20px;
-
-            font-size: 0.91rem;
-
-            line-height: 1.65;
-
-            color: #cbc3b7;
-        }
-
-
-        .member-university {
-            margin-top: auto;
-
-            padding-top: 17px;
-
-            border-top:
-                    1px solid
-                    rgba(212, 175, 55, 0.16);
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size: 0.66rem;
-
-            line-height: 1.65;
-
-            letter-spacing: 0.08em;
-
-            color: #9d9589;
-        }
-
-
-
-        /* =========================================================
-           RESEARCH DIVISIONS
-           ========================================================= */
-
-        .research-groups-section {
-            margin-bottom: 125px;
-        }
-
-
-        .research-groups-grid {
-            display: grid;
-
-            grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-
-            gap: 24px;
-        }
-
-
-        .research-group-card {
-            min-height: 330px;
-
-            padding:
-                    38px
-                    35px;
-
-            background:
-                    linear-gradient(
-                            135deg,
-                            rgba(245, 241, 232, 0.12),
-                            rgba(245, 241, 232, 0.05)
-                    );
-
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-
-            border-left:
-                    2px solid #d4af37;
-
-            border-top:
-                    1px solid
-                    rgba(245, 241, 232, 0.14);
-
-            border-right:
-                    1px solid
-                    rgba(245, 241, 232, 0.10);
-
-            border-bottom:
-                    1px solid
-                    rgba(245, 241, 232, 0.10);
-
-            box-shadow:
-                    0 15px 45px
-                    rgba(0, 0, 0, 0.18);
-        }
-
-
-        .group-label {
-            margin-bottom: 16px;
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size: 0.66rem;
-
-            letter-spacing: 0.25em;
-
-            color: #aaa194;
-        }
-
-
-        .group-title {
             margin-bottom: 24px;
 
             font-family:
@@ -650,22 +476,48 @@
                     serif;
 
             font-size:
-                    clamp(1.05rem, 1.8vw, 1.4rem);
+                    clamp(1.10rem, 1.5vw, 1.38rem);
 
             font-weight: 500;
 
-            line-height: 1.5;
+            line-height: 1.45;
 
-            color: #d4af37;
+            color: #29251f;
         }
 
 
-        .research-group-card p {
-            font-size: 0.96rem;
+        .member-academic {
+            margin-bottom: 24px;
 
-            line-height: 1.9;
+            font-size: 0.94rem;
 
-            color: #e0d9ce;
+            line-height: 1.7;
+
+            color: #494238;
+        }
+
+
+        .member-university {
+            margin-top: auto;
+
+            padding-top: 20px;
+
+            border-top:
+                    1px solid
+                    rgba(121, 97, 38, 0.20);
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.64rem;
+
+            line-height: 1.7;
+
+            letter-spacing: 0.07em;
+
+            color: #746b5f;
         }
 
 
@@ -698,8 +550,8 @@
             background:
                     linear-gradient(
                             135deg,
-                            rgba(7, 7, 7, 0.72),
-                            rgba(20, 20, 20, 0.58)
+                            rgba(249, 246, 238, 0.91),
+                            rgba(225, 217, 203, 0.86)
                     );
 
             backdrop-filter: blur(8px);
@@ -707,7 +559,10 @@
 
             border:
                     1px solid
-                    rgba(212, 175, 55, 0.16);
+                    rgba(255, 255, 255, 0.48);
+
+            border-left:
+                    2px solid #d4af37;
 
             box-shadow:
                     0 15px 45px
@@ -726,7 +581,7 @@
             font-size: 2rem;
 
             color:
-                    rgba(212, 175, 55, 0.55);
+                    rgba(147, 109, 12, 0.75);
         }
 
 
@@ -737,7 +592,7 @@
 
             line-height: 1.85;
 
-            color: #aaa296;
+            color: #4e473d;
         }
 
 
@@ -773,26 +628,18 @@
            RESPONSIVE
            ========================================================= */
 
-        @media (max-width: 1150px) {
-
-            .team-grid {
-                grid-template-columns:
-                        repeat(2, minmax(0, 1fr));
-            }
-
-        }
-
-
-        @media (max-width: 900px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 18px;
+                gap: 16px;
 
-                padding: 20px;
+                padding:
+                        19px
+                        4%;
             }
 
 
@@ -801,11 +648,15 @@
 
                 justify-content: center;
 
-                gap: 15px;
+                gap:
+                        13px
+                        18px;
             }
 
 
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
 
@@ -819,12 +670,19 @@
                         90px;
             }
 
+        }
 
-            .research-groups-grid {
-                grid-template-columns: 1fr;
+
+
+        @media (max-width: 1150px) {
+
+            .team-grid {
+                grid-template-columns:
+                        repeat(2, minmax(0, 1fr));
             }
 
         }
+
 
 
         @media (max-width: 600px) {
@@ -833,6 +691,12 @@
                 background-size:
                         100% 100%,
                         auto 100vh;
+            }
+
+
+            .nav-links a,
+            .language-switcher a {
+                font-size: 0.64rem;
             }
 
 
@@ -857,12 +721,14 @@
 
                 width: 100%;
 
+                min-height: 300px;
+
                 margin: 0 auto;
-            }
 
-
-            .member-photo {
-                aspect-ratio: 4 / 4.5;
+                padding:
+                        34px
+                        26px
+                        29px;
             }
 
         }
@@ -883,9 +749,13 @@
 
     <div class="nav-links">
 
+
+        <!-- HOME -->
+
         <a th:href="@{/(lang=${lang})}">
             [HOME]
         </a>
+
 
 
         <!-- RESEARCH -->
@@ -906,6 +776,64 @@
         </a>
 
 
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+
         <!-- PUBLICATIONS -->
 
         <a th:href="@{/publications(lang=${lang})}"
@@ -922,6 +850,7 @@
            th:if="${lang == 'de'}">
             PUBLIKATIONEN
         </a>
+
 
 
         <!-- TEAM -->
@@ -945,6 +874,7 @@
         </a>
 
 
+
         <!-- CONTACT -->
 
         <a th:href="@{/contact(lang=${lang})}"
@@ -964,6 +894,9 @@
 
     </div>
 
+
+
+    <!-- LANGUAGE SWITCHER -->
 
     <div class="language-switcher">
 
@@ -1024,10 +957,10 @@
         <p class="hero-description"
            th:if="${lang == 'tr'}">
 
-            Akademie Olympia, teorik fizik,
-            fenomenoloji ve hesaplamalı fiziği
-            ortak bir araştırma programı altında
-            bir araya getiren bir araştırma topluluğudur.
+            Akademie Olympia; teorik fizik,
+            fenomenoloji ve hesaplamalı fizik alanlarında
+            çalışan araştırmacıları ortak bir bilimsel
+            program altında bir araya getirir.
 
         </p>
 
@@ -1035,9 +968,10 @@
         <p class="hero-description"
            th:if="${lang == 'en'}">
 
-            Akademie Olympia brings together theoretical physics,
-            phenomenology and computational physics within
-            a unified research programme.
+            Akademie Olympia brings together researchers
+            working in theoretical physics, phenomenology
+            and computational physics within a common
+            scientific programme.
 
         </p>
 
@@ -1045,9 +979,10 @@
         <p class="hero-description"
            th:if="${lang == 'de'}">
 
-            Die Akademie Olympia vereint theoretische Physik,
-            Phänomenologie und Computational Physics
-            in einem gemeinsamen Forschungsprogramm.
+            Die Akademie Olympia vereint Forschende
+            aus theoretischer Physik, Phänomenologie
+            und Computational Physics in einem gemeinsamen
+            wissenschaftlichen Programm.
 
         </p>
 
@@ -1065,7 +1000,7 @@
 
 
     <!-- =====================================================
-         LEADERSHIP
+         RESEARCH TEAM
          ===================================================== -->
 
     <section class="leadership-section">
@@ -1079,10 +1014,12 @@
                 ARAŞTIRMA EKİBİ
             </h2>
 
+
             <h2 class="section-title"
                 th:if="${lang == 'en'}">
                 RESEARCH TEAM
             </h2>
+
 
             <h2 class="section-title"
                 th:if="${lang == 'de'}">
@@ -1093,10 +1030,10 @@
             <p class="section-description"
                th:if="${lang == 'tr'}">
 
-                Akademie Olympia’nın araştırma programı,
-                birbirini tamamlayan teorik,
-                fenomenolojik ve hesaplamalı
-                çalışma alanları üzerinden yürütülmektedir.
+                Akademie Olympia'nın araştırma programı
+                teori, fenomenoloji ve hesaplamalı fizik
+                alanlarında çalışan araştırmacılar tarafından
+                birlikte yürütülmektedir.
 
             </p>
 
@@ -1105,8 +1042,8 @@
                th:if="${lang == 'en'}">
 
                 The research programme of Akademie Olympia
-                is organised around complementary theoretical,
-                phenomenological and computational areas.
+                is carried out collaboratively across theory,
+                phenomenology and computational physics.
 
             </p>
 
@@ -1115,8 +1052,8 @@
                th:if="${lang == 'de'}">
 
                 Das Forschungsprogramm der Akademie Olympia
-                gliedert sich in sich ergänzende theoretische,
-                phänomenologische und computergestützte Bereiche.
+                wird gemeinsam in den Bereichen Theorie,
+                Phänomenologie und Computational Physics durchgeführt.
 
             </p>
 
@@ -1133,64 +1070,50 @@
 
             <article class="member-card">
 
-                <div class="member-photo">
 
-                    <img src="/images/team/melih-gumus.jpg"
-                         alt="Melih Gümüş"
-                         onload="this.nextElementSibling.style.display='none';"
-                         onerror="this.style.display='none';">
-
-                    <div class="photo-placeholder">
-                        PHOTO
-                    </div>
-
+                <div class="member-role"
+                     th:if="${lang == 'tr'}">
+                    ARAŞTIRMA GRUBU YÜRÜTÜCÜSÜ
                 </div>
 
 
-                <div class="member-content">
+                <div class="member-role"
+                     th:if="${lang == 'en'}">
+                    RESEARCH GROUP LEAD
+                </div>
 
 
-                    <div class="member-role"
-                         th:if="${lang == 'tr'}">
-                        ARAŞTIRMA GRUBU BAŞKANI
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'en'}">
-                        HEAD OF RESEARCH GROUP
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'de'}">
-                        LEITUNG DER FORSCHUNGSGRUPPE
-                    </div>
+                <div class="member-role"
+                     th:if="${lang == 'de'}">
+                    LEITUNG DER FORSCHUNGSGRUPPE
+                </div>
 
 
-                    <h2 class="member-name">
-                        Melih Gümüş
-                    </h2>
+                <h2 class="member-name">
+                    Melih Gümüş
+                </h2>
 
 
-                    <div class="member-academic"
-                         th:if="${lang == 'tr'}">
-                        M.Sc. Fizik Öğrencisi
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'en'}">
-                        M.Sc. Student in Physics
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'de'}">
-                        M.Sc.-Student der Physik
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'tr'}">
+                    M.Sc. Fizik Öğrencisi
+                </div>
 
 
-                    <div class="member-university">
-                        Ludwig-Maximilians-Universität München
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'en'}">
+                    M.Sc. Student in Physics
+                </div>
 
+
+                <div class="member-academic"
+                     th:if="${lang == 'de'}">
+                    M.Sc.-Student der Physik
+                </div>
+
+
+                <div class="member-university">
+                    Ludwig-Maximilians-Universität München
                 </div>
 
             </article>
@@ -1203,64 +1126,50 @@
 
             <article class="member-card">
 
-                <div class="member-photo">
 
-                    <img src="/images/team/bilgehan-baris-oner.jpg"
-                         alt="Bilgehan Barış Öner"
-                         onload="this.nextElementSibling.style.display='none';"
-                         onerror="this.style.display='none';">
-
-                    <div class="photo-placeholder">
-                        PHOTO
-                    </div>
-
+                <div class="member-role"
+                     th:if="${lang == 'tr'}">
+                    TEORİK FİZİK ARAŞTIRMA LİDERİ
                 </div>
 
 
-                <div class="member-content">
+                <div class="member-role"
+                     th:if="${lang == 'en'}">
+                    THEORY RESEARCH LEAD
+                </div>
 
 
-                    <div class="member-role"
-                         th:if="${lang == 'tr'}">
-                        TEORİK FİZİK BÖLÜM BAŞKANI
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'en'}">
-                        HEAD OF THEORETICAL PHYSICS
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'de'}">
-                        LEITUNG THEORETISCHE PHYSIK
-                    </div>
+                <div class="member-role"
+                     th:if="${lang == 'de'}">
+                    FORSCHUNGSLEITUNG THEORIE
+                </div>
 
 
-                    <h2 class="member-name">
-                        Dr. Bilgehan Barış Öner
-                    </h2>
+                <h2 class="member-name">
+                    Dr. Bilgehan Barış Öner
+                </h2>
 
 
-                    <div class="member-academic"
-                         th:if="${lang == 'tr'}">
-                        Doktora Sonrası Araştırmacı
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'en'}">
-                        Postdoctoral Researcher
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'de'}">
-                        Postdoktoraler Wissenschaftler
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'tr'}">
+                    Doktora Sonrası Araştırmacı
+                </div>
 
 
-                    <div class="member-university">
-                        University of Southampton
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'en'}">
+                    Postdoctoral Researcher
+                </div>
 
+
+                <div class="member-academic"
+                     th:if="${lang == 'de'}">
+                    Postdoktoraler Wissenschaftler
+                </div>
+
+
+                <div class="member-university">
+                    University of Southampton
                 </div>
 
             </article>
@@ -1273,64 +1182,50 @@
 
             <article class="member-card">
 
-                <div class="member-photo">
 
-                    <img src="/images/team/mahir-baran-kaya.jpg"
-                         alt="Mahir Baran Kaya"
-                         onload="this.nextElementSibling.style.display='none';"
-                         onerror="this.style.display='none';">
-
-                    <div class="photo-placeholder">
-                        PHOTO
-                    </div>
-
+                <div class="member-role"
+                     th:if="${lang == 'tr'}">
+                    HESAPLAMALI FİZİK ARAŞTIRMA LİDERİ
                 </div>
 
 
-                <div class="member-content">
+                <div class="member-role"
+                     th:if="${lang == 'en'}">
+                    COMPUTATIONAL PHYSICS RESEARCH LEAD
+                </div>
 
 
-                    <div class="member-role"
-                         th:if="${lang == 'tr'}">
-                        HESAPLAMALI FİZİK BÖLÜM BAŞKANI
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'en'}">
-                        HEAD OF COMPUTATIONAL PHYSICS
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'de'}">
-                        LEITUNG COMPUTATIONAL PHYSICS
-                    </div>
+                <div class="member-role"
+                     th:if="${lang == 'de'}">
+                    FORSCHUNGSLEITUNG COMPUTATIONAL PHYSICS
+                </div>
 
 
-                    <h2 class="member-name">
-                        Mahir Baran Kaya
-                    </h2>
+                <h2 class="member-name">
+                    Mahir Baran Kaya
+                </h2>
 
 
-                    <div class="member-academic"
-                         th:if="${lang == 'tr'}">
-                        M.Sc. Fizik Öğrencisi
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'en'}">
-                        M.Sc. Student in Physics
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'de'}">
-                        M.Sc.-Student der Physik
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'tr'}">
+                    M.Sc. Fizik Öğrencisi
+                </div>
 
 
-                    <div class="member-university">
-                        Ankara University
-                    </div>
+                <div class="member-academic"
+                     th:if="${lang == 'en'}">
+                    M.Sc. Student in Physics
+                </div>
 
+
+                <div class="member-academic"
+                     th:if="${lang == 'de'}">
+                    M.Sc.-Student der Physik
+                </div>
+
+
+                <div class="member-university">
+                    Ankara University
                 </div>
 
             </article>
@@ -1343,276 +1238,54 @@
 
             <article class="member-card">
 
-                <div class="member-photo">
 
-                    <img src="/images/team/naz-eylul-tekin.jpg"
-                         alt="Naz Eylül Tekin"
-                         onload="this.nextElementSibling.style.display='none';"
-                         onerror="this.style.display='none';">
-
-                    <div class="photo-placeholder">
-                        PHOTO
-                    </div>
-
-                </div>
-
-
-                <div class="member-content">
-
-
-                    <div class="member-role"
-                         th:if="${lang == 'tr'}">
-                        FENOMENOLOJİ VE VERİ ANALİZİ BÖLÜM BAŞKANI
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'en'}">
-                        HEAD OF PHENOMENOLOGY & DATA ANALYSIS
-                    </div>
-
-                    <div class="member-role"
-                         th:if="${lang == 'de'}">
-                        LEITUNG PHÄNOMENOLOGIE & DATENANALYSE
-                    </div>
-
-
-                    <h2 class="member-name">
-                        Naz Eylül Tekin
-                    </h2>
-
-
-                    <div class="member-academic"
-                         th:if="${lang == 'tr'}">
-                        Fizik Lisans Öğrencisi
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'en'}">
-                        Undergraduate Student in Physics
-                    </div>
-
-                    <div class="member-academic"
-                         th:if="${lang == 'de'}">
-                        Bachelorstudentin der Physik
-                    </div>
-
-
-                    <div class="member-university">
-                        Ankara University
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         RESEARCH DIVISIONS
-         ===================================================== -->
-
-    <section class="research-groups-section">
-
-
-        <div class="section-heading">
-
-
-            <h2 class="section-title"
-                th:if="${lang == 'tr'}">
-                ARAŞTIRMA GRUPLARI
-            </h2>
-
-            <h2 class="section-title"
-                th:if="${lang == 'en'}">
-                RESEARCH DIVISIONS
-            </h2>
-
-            <h2 class="section-title"
-                th:if="${lang == 'de'}">
-                FORSCHUNGSBEREICHE
-            </h2>
-
-        </div>
-
-
-
-        <div class="research-groups-grid">
-
-
-            <!-- THEORY -->
-
-            <article class="research-group-card">
-
-                <div class="group-label">
-                    THEORY
-                </div>
-
-
-                <h3 class="group-title"
-                    th:if="${lang == 'tr'}">
-                    TEORİK FİZİK
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'en'}">
-                    THEORETICAL PHYSICS
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'de'}">
-                    THEORETISCHE PHYSIK
-                </h3>
-
-
-                <p th:if="${lang == 'tr'}">
-                    Teorik fizik grubu, kütleçekimin geometrik
-                    ve matematiksel yapısını inceler.
-                    Teleparalel geometri, modifiye kütleçekim,
-                    alan denklemleri ve fizik teorilerinin
-                    kavramsal temelleri başlıca çalışma alanlarıdır.
-                </p>
-
-
-                <p th:if="${lang == 'en'}">
-                    The theoretical physics group investigates
-                    the geometric and mathematical structure
-                    of gravitation. Its main areas include
-                    teleparallel geometry, modified gravity,
-                    field equations and the conceptual foundations
-                    of physical theories.
-                </p>
-
-
-                <p th:if="${lang == 'de'}">
-                    Die Gruppe für theoretische Physik untersucht
-                    die geometrische und mathematische Struktur
-                    der Gravitation. Zu den zentralen Themen gehören
-                    teleparallele Geometrie, modifizierte Gravitation,
-                    Feldgleichungen und die konzeptionellen Grundlagen
-                    physikalischer Theorien.
-                </p>
-
-            </article>
-
-
-
-            <!-- PHENOMENOLOGY -->
-
-            <article class="research-group-card">
-
-                <div class="group-label">
-                    PHENOMENOLOGY
-                </div>
-
-
-                <h3 class="group-title"
-                    th:if="${lang == 'tr'}">
+                <div class="member-role"
+                     th:if="${lang == 'tr'}">
                     FENOMENOLOJİ VE VERİ ANALİZİ
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'en'}">
-                    PHENOMENOLOGY & DATA ANALYSIS
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'de'}">
-                    PHÄNOMENOLOGIE & DATENANALYSE
-                </h3>
-
-
-                <p th:if="${lang == 'tr'}">
-                    Bu grup teorik modellerin gözlenebilir
-                    fiziksel sonuçlarını araştırır.
-                    Galaktik dinamikler, kara delikler,
-                    kozmoloji ve teorik öngörülerin
-                    gözlemsel verilerle karşılaştırılması
-                    temel çalışma alanlarıdır.
-                </p>
-
-
-                <p th:if="${lang == 'en'}">
-                    This group studies the observable physical
-                    consequences of theoretical models.
-                    Galactic dynamics, black holes, cosmology
-                    and comparison of theoretical predictions
-                    with observational data are among
-                    its principal research areas.
-                </p>
-
-
-                <p th:if="${lang == 'de'}">
-                    Diese Gruppe untersucht die beobachtbaren
-                    physikalischen Konsequenzen theoretischer Modelle.
-                    Galaktische Dynamik, Schwarze Löcher,
-                    Kosmologie und der Vergleich theoretischer
-                    Vorhersagen mit Beobachtungsdaten bilden
-                    zentrale Forschungsgebiete.
-                </p>
-
-            </article>
-
-
-
-            <!-- COMPUTATION -->
-
-            <article class="research-group-card">
-
-                <div class="group-label">
-                    COMPUTATION
+                    ARAŞTIRMA LİDERİ
                 </div>
 
 
-                <h3 class="group-title"
-                    th:if="${lang == 'tr'}">
-                    HESAPLAMALI FİZİK
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'en'}">
-                    COMPUTATIONAL PHYSICS
-                </h3>
-
-                <h3 class="group-title"
-                    th:if="${lang == 'de'}">
-                    COMPUTATIONAL PHYSICS
-                </h3>
+                <div class="member-role"
+                     th:if="${lang == 'en'}">
+                    PHENOMENOLOGY & DATA ANALYSIS
+                    RESEARCH LEAD
+                </div>
 
 
-                <p th:if="${lang == 'tr'}">
-                    Hesaplamalı fizik grubu,
-                    analitik olarak çözülemeyen veya sayısal
-                    inceleme gerektiren fiziksel sistemler
-                    üzerinde çalışır. Sayısal çözümler,
-                    dinamik sistemler, parametre taramaları
-                    ve fiziksel modellemeler bu alanın
-                    temel araçlarını oluşturur.
-                </p>
+                <div class="member-role"
+                     th:if="${lang == 'de'}">
+                    FORSCHUNGSLEITUNG PHÄNOMENOLOGIE
+                    & DATENANALYSE
+                </div>
 
 
-                <p th:if="${lang == 'en'}">
-                    The computational physics group investigates
-                    physical systems that cannot be treated
-                    analytically or require numerical analysis.
-                    Numerical solutions, dynamical systems,
-                    parameter scans and physical modelling
-                    form the principal tools of this division.
-                </p>
+                <h2 class="member-name">
+                    Naz Eylül Tekin
+                </h2>
 
 
-                <p th:if="${lang == 'de'}">
-                    Die Gruppe für Computational Physics untersucht
-                    physikalische Systeme, die analytisch nicht
-                    vollständig behandelbar sind oder numerische
-                    Methoden erfordern. Numerische Lösungen,
-                    dynamische Systeme, Parameterscans und
-                    physikalische Modellierungen bilden
-                    die zentralen Werkzeuge dieses Bereichs.
-                </p>
+                <div class="member-academic"
+                     th:if="${lang == 'tr'}">
+                    Fizik Lisans Öğrencisi
+                </div>
+
+
+                <div class="member-academic"
+                     th:if="${lang == 'en'}">
+                    Undergraduate Student in Physics
+                </div>
+
+
+                <div class="member-academic"
+                     th:if="${lang == 'de'}">
+                    Bachelorstudentin der Physik
+                </div>
+
+
+                <div class="member-university">
+                    Ankara University
+                </div>
 
             </article>
 
@@ -1637,10 +1310,12 @@
                 ÖĞRENCİLER
             </h2>
 
+
             <h2 class="section-title"
                 th:if="${lang == 'en'}">
                 STUDENTS
             </h2>
+
 
             <h2 class="section-title"
                 th:if="${lang == 'de'}">

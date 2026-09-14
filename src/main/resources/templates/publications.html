@@ -68,11 +68,6 @@
                     ),
                     url('/images/publications-bg.png');
 
-            /*
-             * Arka plan sayfayla beraber kayar.
-             * Fotoğraf bittiğinde aşağı doğru tekrar eder.
-             */
-
             background-size:
                     100% 100%,
                     100% auto;
@@ -114,13 +109,15 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 6%;
+            padding:
+                    0
+                    4%;
 
             background:
-                    rgba(0, 0, 0, 0.86);
+                    rgba(0, 0, 0, 0.88);
 
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
 
             border-bottom:
                     1px solid rgba(212, 175, 55, 0.24);
@@ -133,7 +130,7 @@
             display: flex;
             align-items: center;
 
-            gap: 28px;
+            gap: 19px;
         }
 
 
@@ -144,13 +141,15 @@
                     Georgia,
                     serif;
 
-            font-size: 0.78rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.09em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
             color: #ddd6c8;
+
+            white-space: nowrap;
 
             transition:
                     color 0.25s ease;
@@ -172,7 +171,11 @@
             display: flex;
             align-items: center;
 
-            gap: 9px;
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
 
             color: #777166;
         }
@@ -387,11 +390,6 @@
             padding:
                     38px
                     42px;
-
-            /*
-             * Açık ama saf beyaz olmayan,
-             * sıcak kırık-beyaz panel.
-             */
 
             background:
                     linear-gradient(
@@ -657,19 +655,21 @@
 
 
         /* =========================================================
-           TABLET
+           SMALL DESKTOP / TABLET
            ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 18px;
+                gap: 16px;
 
-                padding: 20px;
+                padding:
+                        19px
+                        4%;
             }
 
 
@@ -678,11 +678,15 @@
 
                 justify-content: center;
 
-                gap: 15px;
+                gap:
+                        13px
+                        18px;
             }
 
 
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
 
@@ -710,6 +714,12 @@
                 background-size:
                         100% 100%,
                         auto 100vh;
+            }
+
+
+            .nav-links a,
+            .language-switcher a {
+                font-size: 0.64rem;
             }
 
 
@@ -783,6 +793,7 @@
         </a>
 
 
+
         <!-- RESEARCH -->
 
         <a th:href="@{/research(lang=${lang})}"
@@ -799,6 +810,64 @@
            th:if="${lang == 'de'}">
             FORSCHUNG
         </a>
+
+
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
 
 
         <!-- PUBLICATIONS -->
@@ -822,6 +891,7 @@
         </a>
 
 
+
         <!-- TEAM -->
 
         <a th:href="@{/team(lang=${lang})}"
@@ -838,6 +908,7 @@
            th:if="${lang == 'de'}">
             TEAM
         </a>
+
 
 
         <!-- CONTACT -->
@@ -858,6 +929,7 @@
         </a>
 
     </div>
+
 
 
     <!-- LANGUAGE SWITCHER -->
@@ -986,6 +1058,7 @@
         </div>
 
 
+
         <div class="publication-list">
 
 
@@ -1031,6 +1104,7 @@
                 </div>
 
 
+
                 <div class="publication-meta">
 
                     <div class="publication-authors">
@@ -1042,6 +1116,7 @@
                     </div>
 
                 </div>
+
 
 
                 <p class="publication-abstract"
@@ -1085,6 +1160,7 @@
                     Äquivalenzprinzip.
 
                 </p>
+
 
 
                 <div class="publication-links">
@@ -1158,6 +1234,7 @@
         </div>
 
 
+
         <div class="publication-list">
 
 
@@ -1192,6 +1269,7 @@
                 </div>
 
 
+
                 <div class="publication-meta">
 
                     <div class="publication-authors">
@@ -1215,6 +1293,7 @@
                     </div>
 
                 </div>
+
 
 
                 <p class="publication-abstract"
@@ -1256,6 +1335,7 @@
                     der Raumzeit.
 
                 </p>
+
 
 
                 <div class="publication-links">
@@ -1316,6 +1396,7 @@
                 </div>
 
 
+
                 <div class="publication-meta">
 
                     <div class="publication-authors">
@@ -1339,6 +1420,7 @@
                     </div>
 
                 </div>
+
 
 
                 <p class="publication-abstract"
@@ -1383,6 +1465,7 @@
                     interpretiert werden können.
 
                 </p>
+
 
 
                 <div class="publication-links">

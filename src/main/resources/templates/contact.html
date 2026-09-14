@@ -43,9 +43,11 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             min-height: 100vh;
@@ -61,10 +63,10 @@
 
             background-image:
                     linear-gradient(
-                            rgba(5, 5, 5, 0.42),
-                            rgba(5, 5, 5, 0.69)
+                            rgba(5, 5, 5, 0.38),
+                            rgba(5, 5, 5, 0.67)
                     ),
-                    url('/images/contact-bg.png');
+                    url('/images/contact-bg.jpg');
 
             background-size:
                     100% 100%,
@@ -83,9 +85,11 @@
                     scroll;
         }
 
+
         a {
             color: inherit;
         }
+
 
 
         /* =========================================================
@@ -105,13 +109,15 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 6%;
+            padding:
+                    0
+                    4%;
 
             background:
-                    rgba(0, 0, 0, 0.86);
+                    rgba(0, 0, 0, 0.88);
 
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
 
             border-bottom:
                     1px solid rgba(212, 175, 55, 0.24);
@@ -119,12 +125,14 @@
             z-index: 1000;
         }
 
+
         .nav-links {
             display: flex;
             align-items: center;
 
-            gap: 28px;
+            gap: 19px;
         }
+
 
         .nav-links a,
         .language-switcher a {
@@ -133,35 +141,45 @@
                     Georgia,
                     serif;
 
-            font-size: 0.78rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.09em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
             color: #ddd6c8;
 
+            white-space: nowrap;
+
             transition:
                     color 0.25s ease;
         }
+
 
         .nav-links a:hover,
         .language-switcher a:hover {
             color: #d4af37;
         }
 
+
         .current-page {
             color: #d4af37 !important;
         }
+
 
         .language-switcher {
             display: flex;
             align-items: center;
 
-            gap: 9px;
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
 
             color: #777166;
         }
+
 
 
         /* =========================================================
@@ -181,6 +199,7 @@
                     80px;
         }
 
+
         .hero-content {
             width: 100%;
 
@@ -188,6 +207,7 @@
 
             text-align: center;
         }
+
 
         .hero-label {
             margin-bottom: 22px;
@@ -203,6 +223,7 @@
 
             color: #d4af37;
         }
+
 
         .contact-hero h1 {
             font-family:
@@ -222,8 +243,10 @@
             color: #f5f0e7;
 
             text-shadow:
-                    0 4px 30px rgba(0, 0, 0, 0.95);
+                    0 4px 30px
+                    rgba(0, 0, 0, 0.95);
         }
+
 
         .gold-line {
             width: 110px;
@@ -236,6 +259,7 @@
             background: #d4af37;
         }
 
+
         .hero-description {
             max-width: 780px;
 
@@ -245,11 +269,13 @@
 
             line-height: 1.9;
 
-            color: #ddd6ca;
+            color: #eee7dc;
 
             text-shadow:
-                    0 3px 14px rgba(0, 0, 0, 0.95);
+                    0 3px 14px
+                    rgba(0, 0, 0, 0.95);
         }
+
 
 
         /* =========================================================
@@ -264,8 +290,9 @@
             padding:
                     45px
                     7%
-                    130px;
+                    135px;
         }
+
 
 
         /* =========================================================
@@ -279,12 +306,11 @@
                     repeat(2, minmax(0, 1fr));
 
             gap: 28px;
-
-            margin-bottom: 95px;
         }
 
+
         .contact-card {
-            min-height: 390px;
+            min-height: 405px;
 
             display: flex;
             flex-direction: column;
@@ -316,8 +342,31 @@
                     1px solid rgba(212, 175, 55, 0.10);
 
             box-shadow:
-                    0 18px 50px rgba(0, 0, 0, 0.22);
+                    0 18px 50px
+                    rgba(0, 0, 0, 0.22);
+
+            transition:
+                    transform 0.25s ease,
+                    background 0.25s ease,
+                    border-color 0.25s ease;
         }
+
+
+        .contact-card:hover {
+            transform:
+                    translateY(-5px);
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(12, 12, 12, 0.88),
+                            rgba(24, 24, 24, 0.77)
+                    );
+
+            border-color:
+                    rgba(212, 175, 55, 0.36);
+        }
+
 
         .card-label {
             margin-bottom: 18px;
@@ -333,6 +382,7 @@
 
             color: #aaa194;
         }
+
 
         .contact-card h2 {
             margin-bottom: 27px;
@@ -352,6 +402,7 @@
             color: #d4af37;
         }
 
+
         .contact-card p {
             margin-bottom: 20px;
 
@@ -361,6 +412,7 @@
 
             color: #ddd6ca;
         }
+
 
 
         /* =========================================================
@@ -395,9 +447,11 @@
                     color 0.25s ease;
         }
 
+
         .email-address:hover {
             color: #d4af37;
         }
+
 
 
         /* =========================================================
@@ -444,6 +498,7 @@
                     transform 0.25s ease;
         }
 
+
         .application-button:hover {
             transform:
                     translateY(-2px);
@@ -453,104 +508,6 @@
             color: #0f0e0b;
         }
 
-
-        /* =========================================================
-           JOIN SECTION
-           ========================================================= */
-
-        .join-section {
-            padding:
-                    52px
-                    55px;
-
-            background:
-                    linear-gradient(
-                            135deg,
-                            rgba(245, 241, 232, 0.12),
-                            rgba(245, 241, 232, 0.05)
-                    );
-
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-
-            border:
-                    1px solid rgba(245, 241, 232, 0.15);
-
-            box-shadow:
-                    0 18px 50px rgba(0, 0, 0, 0.18);
-        }
-
-        .join-section h2 {
-            margin-bottom: 29px;
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size:
-                    clamp(1.3rem, 2.2vw, 1.7rem);
-
-            font-weight: 500;
-
-            letter-spacing: 0.10em;
-
-            color: #d4af37;
-        }
-
-        .join-section p {
-            margin-bottom: 19px;
-
-            font-size: 1rem;
-
-            line-height: 1.95;
-
-            color: #e3dcd1;
-        }
-
-        .join-section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .division-list {
-            margin:
-                    30px
-                    0;
-
-            display: grid;
-
-            grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-
-            gap: 14px;
-        }
-
-        .division-item {
-            padding:
-                    17px
-                    16px;
-
-            text-align: center;
-
-            font-family:
-                    "Cinzel",
-                    Georgia,
-                    serif;
-
-            font-size: 0.68rem;
-
-            line-height: 1.7;
-
-            letter-spacing: 0.08em;
-
-            color: #ddd6ca;
-
-            background:
-                    rgba(0, 0, 0, 0.23);
-
-            border:
-                    1px solid rgba(212, 175, 55, 0.13);
-        }
 
 
         /* =========================================================
@@ -578,33 +535,43 @@
         }
 
 
+
         /* =========================================================
            RESPONSIVE
            ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 18px;
+                gap: 16px;
 
-                padding: 20px;
+                padding:
+                        19px
+                        4%;
             }
+
 
             .nav-links {
                 flex-wrap: wrap;
 
                 justify-content: center;
 
-                gap: 15px;
+                gap:
+                        13px
+                        18px;
             }
 
+
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
+
 
             .contact-hero {
                 min-height: auto;
@@ -615,11 +582,12 @@
                         90px;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+        }
 
-            .division-list {
+
+        @media (max-width: 800px) {
+
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -634,30 +602,34 @@
                         auto 100vh;
             }
 
+
+            .nav-links a,
+            .language-switcher a {
+                font-size: 0.64rem;
+            }
+
+
             .contact-hero h1 {
                 font-size: 2.6rem;
             }
 
+
             .hero-description {
                 font-size: 0.96rem;
             }
+
 
             .contact-main {
                 padding-left: 6%;
                 padding-right: 6%;
             }
 
+
             .contact-card {
                 min-height: auto;
 
                 padding:
                         36px
-                        25px;
-            }
-
-            .join-section {
-                padding:
-                        38px
                         25px;
             }
 
@@ -679,9 +651,13 @@
 
     <div class="nav-links">
 
+
+        <!-- HOME -->
+
         <a th:href="@{/(lang=${lang})}">
             [HOME]
         </a>
+
 
 
         <!-- RESEARCH -->
@@ -702,6 +678,64 @@
         </a>
 
 
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+
         <!-- PUBLICATIONS -->
 
         <a th:href="@{/publications(lang=${lang})}"
@@ -720,6 +754,7 @@
         </a>
 
 
+
         <!-- TEAM -->
 
         <a th:href="@{/team(lang=${lang})}"
@@ -736,6 +771,7 @@
            th:if="${lang == 'de'}">
             TEAM
         </a>
+
 
 
         <!-- CONTACT -->
@@ -761,7 +797,10 @@
     </div>
 
 
-    <!-- LANGUAGE SWITCHER -->
+
+    <!-- =====================================================
+         LANGUAGE SWITCHER
+         ===================================================== -->
 
     <div class="language-switcher">
 
@@ -803,13 +842,21 @@
         </div>
 
 
+        <!-- TURKISH -->
+
         <h1 th:if="${lang == 'tr'}">
             İLETİŞİM
         </h1>
 
+
+        <!-- ENGLISH -->
+
         <h1 th:if="${lang == 'en'}">
             CONTACT
         </h1>
+
+
+        <!-- GERMAN -->
 
         <h1 th:if="${lang == 'de'}">
             KONTAKT
@@ -819,27 +866,42 @@
         <div class="gold-line"></div>
 
 
+
+        <!-- TURKISH -->
+
         <p class="hero-description"
            th:if="${lang == 'tr'}">
+
             Araştırmalarımız, akademik iş birlikleri
-            veya Akademie Olympia’ya katılım hakkında
+            veya Akademie Olympia'ya katılım hakkında
             bizimle iletişime geçebilirsiniz.
+
         </p>
 
+
+
+        <!-- ENGLISH -->
 
         <p class="hero-description"
            th:if="${lang == 'en'}">
+
             You are welcome to contact us regarding our research,
             potential academic collaborations or opportunities
             to join Akademie Olympia.
+
         </p>
 
 
+
+        <!-- GERMAN -->
+
         <p class="hero-description"
            th:if="${lang == 'de'}">
-            Sie können uns gerne bezüglich unserer Forschung,
+
+            Sie können uns bezüglich unserer Forschung,
             möglicher wissenschaftlicher Kooperationen
             oder einer Mitarbeit an der Akademie Olympia kontaktieren.
+
         </p>
 
     </div>
@@ -855,27 +917,33 @@
 <main class="contact-main">
 
 
-    <!-- =====================================================
-         CONTACT + APPLICATION
-         ===================================================== -->
-
     <section class="contact-grid">
 
 
-        <!-- EMAIL -->
+        <!-- =====================================================
+             GENERAL CONTACT
+             ===================================================== -->
 
         <article class="contact-card">
 
+
+            <!-- TURKISH -->
 
             <div class="card-label"
                  th:if="${lang == 'tr'}">
                 GENEL İLETİŞİM
             </div>
 
+
+            <!-- ENGLISH -->
+
             <div class="card-label"
                  th:if="${lang == 'en'}">
                 GENERAL CONTACT
             </div>
+
+
+            <!-- GERMAN -->
 
             <div class="card-label"
                  th:if="${lang == 'de'}">
@@ -883,147 +951,227 @@
             </div>
 
 
+
+            <!-- TURKISH -->
+
             <h2 th:if="${lang == 'tr'}">
                 BİZİMLE İLETİŞİME GEÇİN
             </h2>
 
+
+            <!-- ENGLISH -->
+
             <h2 th:if="${lang == 'en'}">
                 GET IN TOUCH
             </h2>
+
+
+            <!-- GERMAN -->
 
             <h2 th:if="${lang == 'de'}">
                 KONTAKTIEREN SIE UNS
             </h2>
 
 
+
+            <!-- TURKISH -->
+
             <p th:if="${lang == 'tr'}">
+
                 Araştırmalarımız, akademik iş birlikleri,
-                bilimsel tartışmalar veya grup hakkında
-                genel sorularınız için bize e-posta
-                aracılığıyla ulaşabilirsiniz.
+                bilimsel tartışmalar veya araştırma grubu
+                hakkında genel sorularınız için bize
+                e-posta aracılığıyla ulaşabilirsiniz.
+
             </p>
 
 
+
+            <!-- ENGLISH -->
+
             <p th:if="${lang == 'en'}">
+
                 For questions regarding our research,
                 academic collaborations, scientific discussions
                 or general information about the group,
                 you can contact us by email.
+
             </p>
 
 
+
+            <!-- GERMAN -->
+
             <p th:if="${lang == 'de'}">
+
                 Bei Fragen zu unserer Forschung,
                 wissenschaftlichen Kooperationen,
                 fachlichen Diskussionen oder allgemeinen
-                Informationen über die Gruppe können Sie
-                uns per E-Mail kontaktieren.
+                Informationen über die Forschungsgruppe
+                können Sie uns per E-Mail kontaktieren.
+
             </p>
+
 
 
             <a class="email-address"
                href="mailto:olympiaacademie@gmail.com">
+
                 olympiaacademie@gmail.com
+
             </a>
 
         </article>
 
 
 
-        <!-- APPLICATION -->
+        <!-- =====================================================
+             APPLICATION
+             ===================================================== -->
 
         <article class="contact-card">
 
 
+            <!-- TURKISH -->
+
             <div class="card-label"
                  th:if="${lang == 'tr'}">
-                ARAŞTIRMA GRUBUNA KATILIN
+                AKADEMIE OLYMPIA'YA KATILIN
             </div>
+
+
+            <!-- ENGLISH -->
 
             <div class="card-label"
                  th:if="${lang == 'en'}">
-                JOIN THE RESEARCH GROUP
+                JOIN AKADEMIE OLYMPIA
             </div>
+
+
+            <!-- GERMAN -->
 
             <div class="card-label"
                  th:if="${lang == 'de'}">
-                FORSCHUNGSGRUPPE BEITRETEN
+                AKADEMIE OLYMPIA BEITRETEN
             </div>
 
 
+
+            <!-- TURKISH -->
+
             <h2 th:if="${lang == 'tr'}">
-                BAŞVURU
+                ARAŞTIRMA BAŞVURUSU
             </h2>
+
+
+            <!-- ENGLISH -->
 
             <h2 th:if="${lang == 'en'}">
-                APPLICATION
+                RESEARCH APPLICATION
             </h2>
+
+
+            <!-- GERMAN -->
 
             <h2 th:if="${lang == 'de'}">
-                BEWERBUNG
+                FORSCHUNGSBEWERBUNG
             </h2>
 
 
+
+            <!-- TURKISH -->
+
             <p th:if="${lang == 'tr'}">
-                Akademie Olympia’nın araştırma gruplarından
-                birine katılmak istiyorsanız başvuru formumuzu
-                doldurabilirsiniz. Başvurunuzda akademik geçmişiniz,
-                araştırma ilgi alanlarınız, motivasyonunuz
-                ve çalışma olanaklarınız hakkında bilgi isteyeceğiz.
+
+                Theory, Phenomenology veya Computation
+                araştırma gruplarından birinde çalışmak
+                istiyorsanız başvuru formumuzu doldurabilirsiniz.
+                Formda akademik geçmişiniz, araştırma
+                ilgi alanlarınız, motivasyonunuz ve
+                çalışma olanaklarınız hakkında bilgi istenmektedir.
+
             </p>
 
+
+
+            <!-- ENGLISH -->
 
             <p th:if="${lang == 'en'}">
-                If you are interested in joining one of the
-                Akademie Olympia research divisions,
-                please complete our application form.
-                We will ask about your academic background,
-                research interests, motivation and availability.
+
+                If you are interested in working within
+                the Theory, Phenomenology or Computation
+                research divisions, you may submit our
+                application form. The form asks about your
+                academic background, research interests,
+                motivation and availability.
+
             </p>
 
+
+
+            <!-- GERMAN -->
 
             <p th:if="${lang == 'de'}">
-                Wenn Sie sich einer Forschungsgruppe
-                der Akademie Olympia anschließen möchten,
-                füllen Sie bitte unser Bewerbungsformular aus.
-                Dabei fragen wir nach Ihrem akademischen Hintergrund,
-                Ihren Forschungsinteressen, Ihrer Motivation
-                und Ihrer zeitlichen Verfügbarkeit.
+
+                Wenn Sie in den Bereichen Theory,
+                Phenomenology oder Computation mitarbeiten möchten,
+                können Sie unser Bewerbungsformular ausfüllen.
+                Das Formular enthält Fragen zu Ihrem
+                akademischen Hintergrund, Ihren Forschungsinteressen,
+                Ihrer Motivation und Ihrer zeitlichen Verfügbarkeit.
+
             </p>
 
 
-            <!-- GOOGLE FORMS LINK -->
+
+            <!-- =================================================
+                 GOOGLE FORM
+                 ================================================= -->
+
+
+            <!-- TURKISH -->
 
             <a class="application-button"
                href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
                target="_blank"
                rel="noopener noreferrer"
                th:if="${lang == 'tr'}">
-                BAŞVURU FORMUNU AÇ
+
+                BAŞVURU FORMUNU AÇ →
+
             </a>
 
+
+
+            <!-- ENGLISH -->
 
             <a class="application-button"
                href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
                target="_blank"
                rel="noopener noreferrer"
                th:if="${lang == 'en'}">
-                OPEN APPLICATION FORM
+
+                OPEN APPLICATION FORM →
+
             </a>
 
+
+
+            <!-- GERMAN -->
 
             <a class="application-button"
                href="https://docs.google.com/forms/d/e/1FAIpQLSfqeD_WB9NKhfBFtTlYpqddf6sZ0Y1iv8aTAB2fh4WQBFCFpg/viewform?usp=dialog"
                target="_blank"
                rel="noopener noreferrer"
                th:if="${lang == 'de'}">
-                BEWERBUNGSFORMULAR ÖFFNEN
+
+                BEWERBUNGSFORMULAR ÖFFNEN →
+
             </a>
 
         </article>
 
     </section>
-
 
 </main>
 

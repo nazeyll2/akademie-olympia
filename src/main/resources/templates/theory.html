@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Theoretical Gravitation and Mathematical Physics | Akademie Olympia">
+
+    <title>Theory | Akademie Olympia</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #090909;
+
+            background-image:
+                    linear-gradient(
+                            rgba(4, 4, 4, 0.43),
+                            rgba(4, 4, 4, 0.75)
+                    ),
+                    url('/images/theory-bg.png');
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 4.5%;
+
+            background:
+                    rgba(0, 0, 0, 0.88);
+
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 21px;
+        }
+
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.70rem;
+
+            letter-spacing: 0.075em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            white-space: nowrap;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            color: #777166;
+        }
+
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .theory-hero {
+            min-height: 86vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    145px
+                    7%
+                    100px;
+        }
+
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1050px;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+            margin-bottom: 24px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.73rem;
+
+            letter-spacing: 0.34em;
+
+            color: #d4af37;
+        }
+
+
+        .theory-hero h1 {
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(2.8rem, 5.8vw, 5.8rem);
+
+            font-weight: 500;
+
+            line-height: 1.16;
+
+            letter-spacing: 0.07em;
+
+            color: #f4efe5;
+
+            text-shadow:
+                    0 4px 30px
+                    rgba(0, 0, 0, 0.95);
+        }
+
+
+        .gold-line {
+            width: 110px;
+            height: 1px;
+
+            margin:
+                    38px
+                    auto;
+
+            background: #d4af37;
+        }
+
+
+        .hero-description {
+            max-width: 810px;
+
+            margin: 0 auto;
+
+            font-size: 1.08rem;
+
+            line-height: 1.95;
+
+            color: #ded7cb;
+
+            text-shadow:
+                    0 3px 15px
+                    rgba(0, 0, 0, 0.96);
+        }
+
+
+
+        /* =========================================================
+           MAIN
+           ========================================================= */
+
+        .theory-main {
+            width: 100%;
+
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            padding:
+                    30px
+                    7%
+                    140px;
+        }
+
+
+
+        /* =========================================================
+           INTRODUCTION
+           ========================================================= */
+
+        .theory-intro {
+            margin-bottom: 115px;
+
+            padding:
+                    58px
+                    62px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(245, 241, 232, 0.13),
+                            rgba(245, 241, 232, 0.055)
+                    );
+
+            backdrop-filter: blur(11px);
+            -webkit-backdrop-filter: blur(11px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(245, 241, 232, 0.15);
+
+            border-right:
+                    1px solid rgba(245, 241, 232, 0.10);
+
+            border-bottom:
+                    1px solid rgba(245, 241, 232, 0.10);
+
+            box-shadow:
+                    0 20px 55px
+                    rgba(0, 0, 0, 0.20);
+        }
+
+
+        .section-kicker {
+            margin-bottom: 15px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.27em;
+
+            color: #a69d8f;
+        }
+
+
+        .section-title {
+            margin-bottom: 31px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.4rem, 2.4vw, 1.9rem);
+
+            font-weight: 500;
+
+            line-height: 1.45;
+
+            letter-spacing: 0.08em;
+
+            color: #d4af37;
+        }
+
+
+        .theory-intro p {
+            margin-bottom: 23px;
+
+            font-size: 1.03rem;
+
+            line-height: 2;
+
+            color: #ece5da;
+        }
+
+
+        .theory-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+        /* =========================================================
+           CURRENT RESEARCH HEADER
+           ========================================================= */
+
+        .current-research-heading {
+            margin-bottom: 65px;
+
+            text-align: center;
+        }
+
+
+        .current-research-heading .section-title {
+            margin-bottom: 19px;
+        }
+
+
+        .current-research-heading p {
+            max-width: 760px;
+
+            margin: 0 auto;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #cfc7bb;
+        }
+
+
+
+        /* =========================================================
+           RESEARCH ARTICLE
+           ========================================================= */
+
+        .research-article {
+            position: relative;
+
+            margin-bottom: 90px;
+
+            padding:
+                    60px
+                    62px;
+
+            background:
+                    linear-gradient(
+                            140deg,
+                            rgba(7, 7, 7, 0.88),
+                            rgba(18, 18, 18, 0.72)
+                    );
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border:
+                    1px solid rgba(212, 175, 55, 0.15);
+
+            box-shadow:
+                    0 22px 60px
+                    rgba(0, 0, 0, 0.23);
+
+            overflow: hidden;
+        }
+
+
+        .research-article:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .article-number {
+            position: absolute;
+
+            top: 26px;
+            right: 38px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 5.5rem;
+
+            color:
+                    rgba(255, 255, 255, 0.045);
+
+            pointer-events: none;
+        }
+
+
+        .article-category {
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.66rem;
+
+            letter-spacing: 0.26em;
+
+            color: #9e9588;
+        }
+
+
+        .article-title {
+            max-width: 850px;
+
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.65rem, 3vw, 2.55rem);
+
+            font-weight: 500;
+
+            line-height: 1.4;
+
+            color: #d4af37;
+        }
+
+
+        .article-subtitle {
+            margin-bottom: 36px;
+
+            font-size: 0.92rem;
+
+            font-style: italic;
+
+            letter-spacing: 0.04em;
+
+            color: #a79f93;
+        }
+
+
+        .article-divider {
+            width: 100%;
+            height: 1px;
+
+            margin-bottom: 39px;
+
+            background:
+                    linear-gradient(
+                            to right,
+                            rgba(212, 175, 55, 0.58),
+                            rgba(212, 175, 55, 0.03)
+                    );
+        }
+
+
+        .article-body {
+            max-width: 940px;
+        }
+
+
+        .article-body p {
+            margin-bottom: 25px;
+
+            font-size: 1.02rem;
+
+            line-height: 2;
+
+            color: #e8e1d6;
+        }
+
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+        /* =========================================================
+           RESEARCH QUESTION
+           ========================================================= */
+
+        .research-question {
+            margin:
+                    40px
+                    0;
+
+            padding:
+                    28px
+                    32px;
+
+            border-left:
+                    2px solid #d4af37;
+
+            background:
+                    rgba(212, 175, 55, 0.055);
+
+            font-size:
+                    clamp(1.05rem, 1.8vw, 1.23rem);
+
+            line-height: 1.8;
+
+            font-style: italic;
+
+            color: #f0e9dd;
+        }
+
+
+
+        /* =========================================================
+           SIMPLE EQUATION
+           ========================================================= */
+
+        .equation {
+            margin:
+                    34px
+                    0;
+
+            padding:
+                    24px;
+
+            text-align: center;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            font-size:
+                    clamp(1.2rem, 2.5vw, 1.7rem);
+
+            font-style: italic;
+
+            color: #d4af37;
+
+            background:
+                    rgba(255, 255, 255, 0.035);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.12);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.12);
+        }
+
+
+
+        /* =========================================================
+           CURRENT FOCUS
+           ========================================================= */
+
+        .focus-block {
+            margin-top: 44px;
+
+            padding-top: 31px;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.15);
+        }
+
+
+        .focus-title {
+            margin-bottom: 17px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.66rem;
+
+            letter-spacing: 0.24em;
+
+            color: #d4af37;
+        }
+
+
+        .focus-items {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .focus-item {
+            padding:
+                    8px
+                    12px;
+
+            font-size: 0.80rem;
+
+            line-height: 1.4;
+
+            color: #bfb7aa;
+
+            background:
+                    rgba(255, 255, 255, 0.04);
+
+            border:
+                    1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+
+        /* =========================================================
+           RELATED WORK
+           ========================================================= */
+
+        .related-work {
+            margin-top: 32px;
+
+            padding:
+                    25px
+                    27px;
+
+            background:
+                    rgba(245, 241, 232, 0.055);
+
+            border-left:
+                    2px solid rgba(212, 175, 55, 0.70);
+        }
+
+
+        .related-label {
+            margin-bottom: 10px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.62rem;
+
+            letter-spacing: 0.22em;
+
+            color: #999084;
+        }
+
+
+        .related-title {
+            margin-bottom: 17px;
+
+            font-size: 0.96rem;
+
+            line-height: 1.7;
+
+            font-style: italic;
+
+            color: #e8e0d4;
+        }
+
+
+        .related-link {
+            display: inline-block;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.66rem;
+
+            letter-spacing: 0.13em;
+
+            text-decoration: none;
+
+            color: #d4af37;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+
+        .related-link:hover {
+            color: #f0d779;
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(0, 0, 0, 0.90);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.12);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #7e776c;
+        }
+
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 17px;
+
+                padding:
+                        20px
+                        4%;
+            }
+
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap:
+                        13px
+                        17px;
+            }
+
+
+            .language-switcher {
+                justify-content: center;
+            }
+
+
+            .theory-hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        100px;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+
+            .theory-main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+
+            .theory-intro {
+                padding:
+                        39px
+                        27px;
+            }
+
+
+            .research-article {
+                padding:
+                        43px
+                        27px;
+            }
+
+
+            .article-number {
+                top: 20px;
+                right: 20px;
+
+                font-size: 3.4rem;
+            }
+
+
+            .article-body p,
+            .theory-intro p {
+                font-size: 0.96rem;
+
+                line-height: 1.9;
+            }
+
+
+            .research-question {
+                padding:
+                        23px
+                        22px;
+            }
+
+
+            .focus-items {
+                display: block;
+            }
+
+
+            .focus-item {
+                margin-bottom: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+
+        <a th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- THEORY -->
+
+        <a class="current-page"
+           th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a class="current-page"
+           th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a class="current-page"
+           th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+        <!-- PHENOMENOLOGY
+             Şimdilik research sayfasındaki bölüme gider.
+             Ayrı phenomenology.html oluşturduğumuzda değiştireceğiz.
+        -->
+
+        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/research(lang=${lang})} + '#computation'"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})} + '#computation'"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/research(lang=${lang})} + '#computation'"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <!-- LANGUAGE SWITCHER -->
+
+    <div class="language-switcher">
+
+        <a th:href="@{/theory(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/theory(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/theory(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="theory-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            AKADEMIE OLYMPIA · THEORY
+        </div>
+
+
+        <h1 th:if="${lang == 'tr'}">
+            TEORİK KÜTLEÇEKİM<br>
+            VE MATEMATİKSEL FİZİK
+        </h1>
+
+        <h1 th:if="${lang == 'en'}">
+            THEORETICAL GRAVITATION<br>
+            & MATHEMATICAL PHYSICS
+        </h1>
+
+        <h1 th:if="${lang == 'de'}">
+            THEORETISCHE GRAVITATION<br>
+            & MATHEMATISCHE PHYSIK
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+
+            Kütleçekimin geometrik yapısını, eylemsizliğin
+            fiziksel kökenini, güçlü alan rejimlerini ve
+            fizik teorilerinin matematiksel temellerini araştırıyoruz.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+
+            We investigate the geometric structure of gravitation,
+            the physical origin of inertia, strong-field regimes
+            and the mathematical foundations of physical theories.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+
+            Wir untersuchen die geometrische Struktur der Gravitation,
+            den physikalischen Ursprung der Trägheit,
+            Starkfeldregime und die mathematischen Grundlagen
+            physikalischer Theorien.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="theory-main">
+
+
+    <!-- =====================================================
+         GENERAL SCOPE
+         ===================================================== -->
+
+    <section class="theory-intro">
+
+
+        <!-- TURKISH -->
+
+        <div th:if="${lang == 'tr'}">
+
+            <div class="section-kicker">
+                GENERAL SCOPE
+            </div>
+
+            <h2 class="section-title">
+                TEORİK ARAŞTIRMA PROGRAMI
+            </h2>
+
+
+            <p>
+                Teorik araştırma grubumuz kütleçekimin
+                geometrik ve matematiksel yapısını,
+                alternatif geometrik formülasyonları ve
+                fizik teorilerinin temel kavramsal
+                varsayımlarını araştırmaktadır.
+            </p>
+
+
+            <p>
+                Çalışmalarımız özellikle teleparalel geometri,
+                modifiye kütleçekim teorileri,
+                alan denklemlerinin türetilmesi,
+                simetriler, korunum yasaları ve güçlü alan
+                kütleçekim problemleri üzerinde yoğunlaşmaktadır.
+            </p>
+
+
+            <p>
+                Kütleçekimin geometrik olarak neyi temsil ettiği,
+                eylemsizliğin nasıl tanımlanması gerektiği,
+                uzay-zaman geometrisinin fiziksel statüsü
+                ve teorilerin ontolojik temelleri araştırma
+                programımızın temel soruları arasındadır.
+            </p>
+
+        </div>
+
+
+
+        <!-- ENGLISH -->
+
+        <div th:if="${lang == 'en'}">
+
+            <div class="section-kicker">
+                GENERAL SCOPE
+            </div>
+
+            <h2 class="section-title">
+                THEORETICAL RESEARCH PROGRAMME
+            </h2>
+
+
+            <p>
+                Our theoretical research group investigates
+                the geometric and mathematical structure
+                of gravitation, alternative geometric
+                formulations and the fundamental conceptual
+                assumptions underlying physical theories.
+            </p>
+
+
+            <p>
+                Our work focuses on teleparallel geometry,
+                modified theories of gravity,
+                the derivation of field equations,
+                symmetries, conservation laws
+                and strong-field gravitational problems.
+            </p>
+
+
+            <p>
+                Fundamental questions concerning the geometric
+                meaning of gravitation, the definition of inertia,
+                the physical status of spacetime geometry
+                and the ontological foundations of physical
+                theories form a central part of our programme.
+            </p>
+
+        </div>
+
+
+
+        <!-- GERMAN -->
+
+        <div th:if="${lang == 'de'}">
+
+            <div class="section-kicker">
+                ALLGEMEINER RAHMEN
+            </div>
+
+            <h2 class="section-title">
+                THEORETISCHES FORSCHUNGSPROGRAMM
+            </h2>
+
+
+            <p>
+                Unsere theoretische Forschungsgruppe untersucht
+                die geometrische und mathematische Struktur
+                der Gravitation, alternative geometrische
+                Formulierungen und die grundlegenden konzeptionellen
+                Voraussetzungen physikalischer Theorien.
+            </p>
+
+
+            <p>
+                Unsere Forschung konzentriert sich auf
+                teleparallele Geometrie,
+                modifizierte Gravitationstheorien,
+                die Herleitung von Feldgleichungen,
+                Symmetrien, Erhaltungssätze
+                und gravitative Starkfeldprobleme.
+            </p>
+
+
+            <p>
+                Grundlegende Fragen zur geometrischen Bedeutung
+                der Gravitation, zur Definition der Trägheit,
+                zum physikalischen Status der Raumzeitgeometrie
+                und zu den ontologischen Grundlagen physikalischer
+                Theorien bilden einen zentralen Teil
+                unseres Forschungsprogramms.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CURRENT RESEARCH
+         ===================================================== -->
+
+    <section id="current-research">
+
+
+        <div class="current-research-heading">
+
+            <div class="section-kicker">
+                AKADEMIE OLYMPIA
+            </div>
+
+
+            <h2 class="section-title"
+                th:if="${lang == 'tr'}">
+                GÜNCEL ARAŞTIRMALAR
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'en'}">
+                CURRENT RESEARCH
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'de'}">
+                AKTUELLE FORSCHUNG
+            </h2>
+
+
+            <p th:if="${lang == 'tr'}">
+                Teorik grubumuzun güncel araştırmaları
+                kütleçekimin temel geometrik yapısı
+                ve güçlü alan fiziği etrafında yoğunlaşmaktadır.
+            </p>
+
+
+            <p th:if="${lang == 'en'}">
+                Current research within the theory division
+                focuses on the fundamental geometric structure
+                of gravitation and strong-field physics.
+            </p>
+
+
+            <p th:if="${lang == 'de'}">
+                Die aktuelle Forschung unserer Theoriegruppe
+                konzentriert sich auf die grundlegende geometrische
+                Struktur der Gravitation und die Starkfeldphysik.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROJECT 01 — GDV
+             ================================================= -->
+
+        <article class="research-article"
+                 id="gdv">
+
+            <div class="article-number">
+                01
+            </div>
+
+
+            <div class="article-category">
+                ACTIVE RESEARCH · GRAVITATION
+            </div>
+
+
+            <h2 class="article-title">
+                GEOMETRIC DRIFT OF SPACETIME
+            </h2>
+
+
+            <div class="article-subtitle">
+                GDV · Geometric Drift Framework
+            </div>
+
+
+            <div class="article-divider"></div>
+
+
+
+            <!-- TURKISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'tr'}">
+
+
+                <p>
+                    Genel görelilik modern fiziğin en başarılı
+                    kütleçekim teorilerinden biridir.
+                    Güneş Sistemi testlerinden kara deliklere
+                    ve kütleçekim dalgalarına kadar geniş
+                    bir fiziksel rejimde güçlü gözlemsel
+                    başarılar göstermektedir.
+                </p>
+
+
+                <p>
+                    Galaktik ve kozmolojik ölçekte standart
+                    kozmolojik açıklama, genel göreliliğin
+                    ΛCDM modeli içerisinde karanlık madde
+                    ve kozmolojik sabit gibi bileşenlerle
+                    birlikte kullanılmasına dayanır.
+                    Bu yapı kütleçekimin temel geometrik
+                    ve ontolojik kökenine ilişkin soruları
+                    yeniden gündeme getirir.
+                </p>
+
+
+                <div class="research-question">
+                    Eylemsizlik nedir ve geometrik olarak
+                    nasıl tanımlanmalıdır?
+                </div>
+
+
+                <p>
+                    Klasik mekanikte eylemsizlik bir cismin
+                    hareket durumunu koruma eğilimi üzerinden
+                    tanımlanır. Geometrik bir kütleçekim
+                    teorisi daha temel bir olasılığı araştırmaya
+                    izin verir: hareketin doğal durumu
+                    uzay-zamanın kendi geometrik yapısına
+                    göre tanımlanabilir.
+                </p>
+
+
+                <p>
+                    GDV araştırma programında teleparalel
+                    geometrinin tetrad yapısı içerisine
+                    geometrik bir drift alanı yerleştiriyoruz.
+                    Küresel simetri altında bu alan
+                    radyal bir fonksiyonla temsil edilir:
+                </p>
+
+
+                <div class="equation">
+                    W = W(r)
+                </div>
+
+
+                <p>
+                    Bu yapıyı sezgisel olarak akan bir nehir
+                    üzerinden düşünebiliriz.
+                    Nehrin içerisindeki bir cismin hareketi,
+                    içinde bulunduğu akışın yapısıyla birlikte
+                    değerlendirilir. GDV yaklaşımında
+                    geometrik drift alanı uzay-zamanın
+                    yerel kinematik yapısını temsil eder.
+                    Bir gözlemcinin bu geometrik akışla
+                    ilişkisi eylemsel hareketin tanımında
+                    merkezi bir rol üstlenir.
+                </p>
+
+
+                <p>
+                    Drift alanı tetrad yapısına girdiği için
+                    torsiyon geometrisini doğrudan etkiler.
+                    Böylece eylemsizlik, kütleçekim ve
+                    uzay-zaman geometrisi aynı matematiksel
+                    yapı içerisinde birlikte incelenebilir.
+                    Alan denklemlerinin farklı fiziksel
+                    rejimlerdeki davranışı teorinin temel
+                    araştırma konularından biridir.
+                </p>
+
+
+                <p>
+                    Araştırmanın önemli başlıklarından biri
+                    teorinin Machçı özellikleridir.
+                    İncelenen statik ve maddesiz sektörde
+                    fiziksel çözümün drift alanının kaybolduğu
+                    bir rejime yönelmesi, eylemsel yapının
+                    madde dağılımıyla geometrik ilişkisini
+                    araştırmak için güçlü bir motivasyon sağlar.
+                </p>
+
+
+                <div class="research-question">
+                    Uzay-zamanın eylemsel yapısı madde dağılımı
+                    tarafından geometrik olarak belirlenebilir mi?
+                </div>
+
+
+                <p>
+                    Bu soru GDV araştırma programının açık
+                    problemlerinden biridir.
+                    Madde, drift alanı ve torsiyon arasındaki
+                    ilişkinin alan denklemlerinden sistematik
+                    biçimde çıkarılması; teorinin Machçı
+                    karakterinin fiziksel içeriğini belirlemek
+                    açısından temel önem taşımaktadır.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Geometric Drift W(r)
+                        </div>
+
+                        <div class="focus-item">
+                            Field Equations
+                        </div>
+
+                        <div class="focus-item">
+                            Torsion
+                        </div>
+
+                        <div class="focus-item">
+                            Inertia
+                        </div>
+
+                        <div class="focus-item">
+                            Machian Behaviour
+                        </div>
+
+                        <div class="focus-item">
+                            GR / TEGR Limits
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED WORK
+                    </div>
+
+                    <div class="related-title">
+                        On the Nature of Gravitation
+                        and Geometric Drift of Spacetime
+                    </div>
+
+                    <a class="related-link"
+                       href="https://www.preprints.org/manuscript/202512.1361"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        VIEW PREPRINT →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENGLISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'en'}">
+
+
+                <p>
+                    General relativity is one of the most successful
+                    theories of gravitation in modern physics.
+                    It has achieved remarkable observational success
+                    across physical regimes ranging from Solar-System
+                    tests to black holes and gravitational waves.
+                </p>
+
+
+                <p>
+                    On galactic and cosmological scales,
+                    the standard cosmological description
+                    employs general relativity within the ΛCDM
+                    framework together with components such as
+                    dark matter and the cosmological constant.
+                    This structure motivates deeper questions
+                    concerning the geometric and ontological
+                    foundations of gravitation.
+                </p>
+
+
+                <div class="research-question">
+                    What is inertia, and how should it be
+                    defined geometrically?
+                </div>
+
+
+                <p>
+                    Classical mechanics introduces inertia through
+                    the tendency of a body to preserve its state
+                    of motion. A geometric theory of gravitation
+                    permits a deeper possibility: the natural state
+                    of motion may be defined with respect to
+                    the geometric structure of spacetime itself.
+                </p>
+
+
+                <p>
+                    The GDV research programme introduces
+                    a geometric drift field into the tetrad
+                    structure of teleparallel geometry.
+                    Under spherical symmetry this field
+                    is represented by a radial function:
+                </p>
+
+
+                <div class="equation">
+                    W = W(r)
+                </div>
+
+
+                <p>
+                    An intuitive picture can be obtained
+                    from the flow of a river.
+                    The motion of an object within the river
+                    acquires meaning through its relation
+                    to the surrounding flow.
+                    Within the GDV framework, the geometric
+                    drift field represents a local kinematic
+                    structure of spacetime.
+                    The relation between an observer and this
+                    geometric flow becomes central to the
+                    definition of inertial motion.
+                </p>
+
+
+                <p>
+                    The drift field enters the tetrad structure
+                    and therefore modifies the torsional geometry.
+                    Inertia, gravitation and spacetime geometry
+                    can consequently be studied within a common
+                    mathematical structure.
+                    The behaviour of the resulting field equations
+                    across different physical regimes forms
+                    a central part of the programme.
+                </p>
+
+
+                <p>
+                    One major research direction concerns
+                    the Machian properties of the theory.
+                    In the static matter-free sector considered
+                    in the current formulation, the physical
+                    solution approaches a regime in which
+                    the drift field vanishes.
+                    This behaviour motivates a detailed study
+                    of the geometric relation between matter
+                    and inertial structure.
+                </p>
+
+
+                <div class="research-question">
+                    Can the inertial structure of spacetime
+                    be geometrically determined by
+                    the distribution of matter?
+                </div>
+
+
+                <p>
+                    This question remains an open part of
+                    the GDV research programme.
+                    A systematic derivation of the relation
+                    among matter, the drift field and torsion
+                    from the field equations is essential
+                    for determining the physical meaning
+                    of the theory's Machian behaviour.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Geometric Drift W(r)
+                        </div>
+
+                        <div class="focus-item">
+                            Field Equations
+                        </div>
+
+                        <div class="focus-item">
+                            Torsion
+                        </div>
+
+                        <div class="focus-item">
+                            Inertia
+                        </div>
+
+                        <div class="focus-item">
+                            Machian Behaviour
+                        </div>
+
+                        <div class="focus-item">
+                            GR / TEGR Limits
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED WORK
+                    </div>
+
+                    <div class="related-title">
+                        On the Nature of Gravitation
+                        and Geometric Drift of Spacetime
+                    </div>
+
+                    <a class="related-link"
+                       href="https://www.preprints.org/manuscript/202512.1361"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        VIEW PREPRINT →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GERMAN -->
+
+            <div class="article-body"
+                 th:if="${lang == 'de'}">
+
+
+                <p>
+                    Die Allgemeine Relativitätstheorie gehört
+                    zu den erfolgreichsten Gravitationstheorien
+                    der modernen Physik.
+                    Ihre Beobachtungserfolge reichen von Tests
+                    im Sonnensystem bis zu Schwarzen Löchern
+                    und Gravitationswellen.
+                </p>
+
+
+                <p>
+                    Auf galaktischen und kosmologischen Skalen
+                    verwendet die kosmologische Standardbeschreibung
+                    die Allgemeine Relativitätstheorie innerhalb
+                    des ΛCDM-Rahmens zusammen mit Komponenten
+                    wie Dunkler Materie und der kosmologischen Konstante.
+                    Diese Struktur motiviert grundlegende Fragen
+                    nach den geometrischen und ontologischen
+                    Grundlagen der Gravitation.
+                </p>
+
+
+                <div class="research-question">
+                    Was ist Trägheit und wie lässt sie sich
+                    geometrisch definieren?
+                </div>
+
+
+                <p>
+                    In der klassischen Mechanik wird Trägheit
+                    durch die Tendenz eines Körpers beschrieben,
+                    seinen Bewegungszustand beizubehalten.
+                    Eine geometrische Gravitationstheorie eröffnet
+                    eine tiefere Möglichkeit: Der natürliche
+                    Bewegungszustand kann relativ zur geometrischen
+                    Struktur der Raumzeit selbst definiert werden.
+                </p>
+
+
+                <p>
+                    Das GDV-Forschungsprogramm führt ein
+                    geometrisches Driftfeld in die Tetradenstruktur
+                    der teleparallelen Geometrie ein.
+                    Unter Kugelsymmetrie wird dieses Feld
+                    durch eine radiale Funktion beschrieben:
+                </p>
+
+
+                <div class="equation">
+                    W = W(r)
+                </div>
+
+
+                <p>
+                    Ein anschauliches Bild liefert die Strömung
+                    eines Flusses.
+                    Die Bewegung eines Körpers im Fluss erhält
+                    ihre Bedeutung durch die Beziehung zur
+                    umgebenden Strömung.
+                    Im GDV-Rahmen beschreibt das geometrische
+                    Driftfeld eine lokale kinematische Struktur
+                    der Raumzeit.
+                    Die Beziehung eines Beobachters zu dieser
+                    geometrischen Strömung spielt eine zentrale
+                    Rolle bei der Definition träger Bewegung.
+                </p>
+
+
+                <p>
+                    Das Driftfeld ist Bestandteil der
+                    Tetradenstruktur und beeinflusst dadurch
+                    unmittelbar die Torsionsgeometrie.
+                    Trägheit, Gravitation und Raumzeitgeometrie
+                    können innerhalb einer gemeinsamen
+                    mathematischen Struktur untersucht werden.
+                </p>
+
+
+                <p>
+                    Ein wichtiger Forschungsbereich betrifft
+                    die Machschen Eigenschaften der Theorie.
+                    Im untersuchten statischen materiefreien
+                    Sektor nähert sich die physikalische Lösung
+                    einem Regime, in dem das Driftfeld verschwindet.
+                    Dieses Verhalten motiviert eine detaillierte
+                    Untersuchung der geometrischen Beziehung
+                    zwischen Materie und Trägheitsstruktur.
+                </p>
+
+
+                <div class="research-question">
+                    Kann die Trägheitsstruktur der Raumzeit
+                    geometrisch durch die Materieverteilung
+                    bestimmt werden?
+                </div>
+
+
+                <p>
+                    Diese Frage bildet einen offenen Teil
+                    des GDV-Forschungsprogramms.
+                    Die systematische Herleitung der Beziehung
+                    zwischen Materie, Driftfeld und Torsion
+                    aus den Feldgleichungen ist entscheidend
+                    für die physikalische Interpretation
+                    des Machschen Verhaltens der Theorie.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Geometric Drift W(r)
+                        </div>
+
+                        <div class="focus-item">
+                            Feldgleichungen
+                        </div>
+
+                        <div class="focus-item">
+                            Torsion
+                        </div>
+
+                        <div class="focus-item">
+                            Trägheit
+                        </div>
+
+                        <div class="focus-item">
+                            Machsches Verhalten
+                        </div>
+
+                        <div class="focus-item">
+                            GR / TEGR Limits
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED WORK
+                    </div>
+
+                    <div class="related-title">
+                        On the Nature of Gravitation
+                        and Geometric Drift of Spacetime
+                    </div>
+
+                    <a class="related-link"
+                       href="https://www.preprints.org/manuscript/202512.1361"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        PREPRINT ANSEHEN →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             PROJECT 02 — BLACK HOLES
+             ================================================= -->
+
+        <article class="research-article"
+                 id="black-hole-geometry">
+
+            <div class="article-number">
+                02
+            </div>
+
+
+            <div class="article-category">
+                ACTIVE RESEARCH · STRONG GRAVITY
+            </div>
+
+
+            <h2 class="article-title">
+                NON-SINGULAR BLACK-HOLE GEOMETRY
+            </h2>
+
+
+            <div class="article-subtitle">
+                Strong-Field Geometry · Torsion · Horizons
+            </div>
+
+
+            <div class="article-divider"></div>
+
+
+
+            <!-- TURKISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'tr'}">
+
+
+                <p>
+                    Genel göreliliğin klasik kara delik
+                    çözümlerinde merkezi tekillik temel
+                    problemlerden biridir.
+                    Schwarzschild çözümünde merkeze,
+                    yani r → 0 rejimine yaklaşıldığında
+                    bazı geometrik değişmezler sınırsız
+                    değerlere ulaşır.
+                </p>
+
+
+                <p>
+                    Bu davranış güçlü alan kütleçekiminde
+                    önemli bir fiziksel soru ortaya çıkarır:
+                    matematiksel tekillik doğada gerçekleşen
+                    fiziksel bir yapı mıdır?
+                </p>
+
+
+                <div class="research-question">
+                    Bir kara deliğin merkezi fiziksel
+                    bir tekillik olmak zorunda mıdır?
+                </div>
+
+
+                <p>
+                    Teleparalel geometri bu problemi
+                    torsiyon değişkenleri üzerinden yeniden
+                    incelemek için farklı bir geometrik
+                    çerçeve sağlar.
+                    Araştırmamız kara deliğin dış rejiminden
+                    güçlü alan iç rejimine kadar uzanan
+                    geometrik yapıyı incelemektedir.
+                </p>
+
+
+                <p>
+                    Dış bölgede bilinen kara delik davranışının
+                    korunması ve merkez bölgesinde düzenli
+                    bir geometrinin ortaya çıkması temel
+                    araştırma hedeflerinden biridir.
+                    İç bölgede drift alanının yaklaşık doğrusal
+                    bir davranış göstermesi de Sitter-benzeri
+                    düzenli bir çekirdek geometrisine
+                    karşılık gelebilir.
+                </p>
+
+
+                <div class="equation">
+                    W(r) ∼ H r
+                    &nbsp;&nbsp; for &nbsp;&nbsp; r → 0
+                </div>
+
+
+                <p>
+                    Bu yapı merkezi bölgede geometrik
+                    değişmezlerin sonlu kalabildiği
+                    güçlü alan çözümlerinin araştırılmasına
+                    olanak verir.
+                    Çözümün fiziksel anlamı, geodezik davranışı,
+                    torsiyon değişmezleri ve dış geometriyle
+                    bağlantısı birlikte incelenmektedir.
+                </p>
+
+
+                <p>
+                    Ufuk fiziği çalışmanın ikinci önemli
+                    yönünü oluşturur.
+                    Olay ufukları eğri uzay-zamanın küresel
+                    nedensel yapısıyla ilişkilidir.
+                    Rindler ufukları ise düz Minkowski
+                    uzay-zamanında düzgün ivmelenen
+                    gözlemcilerin erişim sınırlarından doğar.
+                </p>
+
+
+                <p>
+                    Bu iki ufuk yapısının karşılaştırılması,
+                    gözlemcinin kinematik durumu ile
+                    uzay-zaman geometrisi arasındaki ilişkiyi
+                    incelemek için doğal bir laboratuvar sunar.
+                    Hawking ve Unruh türü termal etkilerin
+                    geometrik kökeni de bu araştırma
+                    çerçevesinde ele alınmaktadır.
+                </p>
+
+
+                <div class="research-question">
+                    Güçlü alan geometrisi, gözlemci hareketi
+                    ve nedensel ufuklar arasında nasıl
+                    bir geometrik ilişki vardır?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Black-Hole Interiors
+                        </div>
+
+                        <div class="focus-item">
+                            Central Singularity
+                        </div>
+
+                        <div class="focus-item">
+                            Regular Geometry
+                        </div>
+
+                        <div class="focus-item">
+                            Torsion Invariants
+                        </div>
+
+                        <div class="focus-item">
+                            Strong Gravity
+                        </div>
+
+                        <div class="focus-item">
+                            Rindler Horizons
+                        </div>
+
+                        <div class="focus-item">
+                            Hawking / Unruh Structure
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED PUBLICATION
+                    </div>
+
+                    <div class="related-title">
+                        On the Geometric Interpretation
+                        of Non-Singular Black Hole Interiors
+                    </div>
+
+                    <a class="related-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        VIEW PUBLICATION →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENGLISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'en'}">
+
+
+                <p>
+                    The central singularity is one of the
+                    fundamental problems associated with
+                    classical black-hole solutions in
+                    general relativity.
+                    In the Schwarzschild solution,
+                    several geometric invariants become
+                    unbounded as the central region
+                    r → 0 is approached.
+                </p>
+
+
+                <p>
+                    This behaviour raises a central question
+                    in strong-field gravitation:
+                    does the mathematical singularity represent
+                    a physical structure realised in nature?
+                </p>
+
+
+                <div class="research-question">
+                    Must the centre of a black hole
+                    contain a physical singularity?
+                </div>
+
+
+                <p>
+                    Teleparallel geometry provides a distinct
+                    geometric framework in which this problem
+                    can be investigated through torsional variables.
+                    Our research studies the geometry from
+                    the exterior black-hole regime into
+                    the strong-field interior.
+                </p>
+
+
+                <p>
+                    A central objective is to preserve the
+                    established exterior behaviour while allowing
+                    a regular geometry to emerge near the centre.
+                    A near-linear behaviour of the drift field
+                    in the interior can correspond to
+                    a regular de Sitter-like core geometry.
+                </p>
+
+
+                <div class="equation">
+                    W(r) ∼ H r
+                    &nbsp;&nbsp; for &nbsp;&nbsp; r → 0
+                </div>
+
+
+                <p>
+                    This structure provides a setting for
+                    strong-field solutions in which geometric
+                    invariants can remain finite near the centre.
+                    The physical interpretation of the solution,
+                    geodesic behaviour, torsional invariants
+                    and matching with the exterior geometry
+                    are studied together.
+                </p>
+
+
+                <p>
+                    Horizon physics forms another major part
+                    of this research.
+                    Event horizons are associated with the
+                    global causal structure of curved spacetime.
+                    Rindler horizons arise from the accessibility
+                    limits of uniformly accelerated observers
+                    in flat Minkowski spacetime.
+                </p>
+
+
+                <p>
+                    Comparing these horizon structures provides
+                    a natural laboratory for investigating
+                    the relation between observer kinematics
+                    and spacetime geometry.
+                    The geometric origin of Hawking- and
+                    Unruh-type thermal effects forms part
+                    of this research direction.
+                </p>
+
+
+                <div class="research-question">
+                    What geometric relation connects
+                    strong-field geometry, observer motion
+                    and causal horizons?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Black-Hole Interiors
+                        </div>
+
+                        <div class="focus-item">
+                            Central Singularity
+                        </div>
+
+                        <div class="focus-item">
+                            Regular Geometry
+                        </div>
+
+                        <div class="focus-item">
+                            Torsion Invariants
+                        </div>
+
+                        <div class="focus-item">
+                            Strong Gravity
+                        </div>
+
+                        <div class="focus-item">
+                            Rindler Horizons
+                        </div>
+
+                        <div class="focus-item">
+                            Hawking / Unruh Structure
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED PUBLICATION
+                    </div>
+
+                    <div class="related-title">
+                        On the Geometric Interpretation
+                        of Non-Singular Black Hole Interiors
+                    </div>
+
+                    <a class="related-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        VIEW PUBLICATION →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GERMAN -->
+
+            <div class="article-body"
+                 th:if="${lang == 'de'}">
+
+
+                <p>
+                    Die zentrale Singularität gehört
+                    zu den grundlegenden Problemen klassischer
+                    Schwarzer-Loch-Lösungen der Allgemeinen
+                    Relativitätstheorie.
+                    In der Schwarzschild-Lösung werden mehrere
+                    geometrische Invarianten beim Übergang
+                    in die zentrale Region r → 0 unbeschränkt.
+                </p>
+
+
+                <p>
+                    Dieses Verhalten führt zu einer grundlegenden
+                    Frage der Starkfeldgravitation:
+                    Stellt die mathematische Singularität
+                    eine physikalische Struktur der Natur dar?
+                </p>
+
+
+                <div class="research-question">
+                    Muss das Zentrum eines Schwarzen Lochs
+                    eine physikalische Singularität enthalten?
+                </div>
+
+
+                <p>
+                    Die teleparallele Geometrie stellt
+                    einen geometrischen Rahmen bereit,
+                    in dem dieses Problem mithilfe von
+                    Torsionsvariablen untersucht werden kann.
+                    Unsere Forschung verfolgt die Geometrie
+                    vom äußeren Bereich des Schwarzen Lochs
+                    bis in das Starkfeldinnere.
+                </p>
+
+
+                <p>
+                    Ein zentrales Ziel besteht in der Erhaltung
+                    des bekannten äußeren Verhaltens und
+                    der Ausbildung einer regulären Geometrie
+                    im zentralen Bereich.
+                    Ein annähernd lineares Verhalten des
+                    Driftfeldes im Inneren kann einer regulären
+                    de-Sitter-ähnlichen Kerngeometrie entsprechen.
+                </p>
+
+
+                <div class="equation">
+                    W(r) ∼ H r
+                    &nbsp;&nbsp; für &nbsp;&nbsp; r → 0
+                </div>
+
+
+                <p>
+                    Diese Struktur ermöglicht die Untersuchung
+                    von Starkfeldlösungen mit endlichen
+                    geometrischen Invarianten im zentralen Bereich.
+                    Die physikalische Interpretation,
+                    das geodätische Verhalten,
+                    Torsionsinvarianten und die Verbindung
+                    mit der äußeren Geometrie werden gemeinsam
+                    analysiert.
+                </p>
+
+
+                <p>
+                    Die Physik von Horizonten bildet einen
+                    weiteren wichtigen Teil der Forschung.
+                    Ereignishorizonte stehen mit der globalen
+                    kausalen Struktur gekrümmter Raumzeiten
+                    in Verbindung.
+                    Rindler-Horizonte entstehen durch
+                    Zugänglichkeitsgrenzen gleichmäßig
+                    beschleunigter Beobachter in flacher
+                    Minkowski-Raumzeit.
+                </p>
+
+
+                <p>
+                    Der Vergleich dieser Horizontstrukturen
+                    bietet ein natürliches Labor zur Untersuchung
+                    der Beziehung zwischen Beobachterkinematik
+                    und Raumzeitgeometrie.
+                    Der geometrische Ursprung von Hawking-
+                    und Unruh-artigen thermischen Effekten
+                    gehört ebenfalls zu diesem Forschungsbereich.
+                </p>
+
+
+                <div class="research-question">
+                    Welche geometrische Beziehung verbindet
+                    Starkfeldgeometrie, Beobachterbewegung
+                    und kausale Horizonte?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Black-Hole Interiors
+                        </div>
+
+                        <div class="focus-item">
+                            Zentrale Singularität
+                        </div>
+
+                        <div class="focus-item">
+                            Reguläre Geometrie
+                        </div>
+
+                        <div class="focus-item">
+                            Torsionsinvarianten
+                        </div>
+
+                        <div class="focus-item">
+                            Starkfeldgravitation
+                        </div>
+
+                        <div class="focus-item">
+                            Rindler-Horizonte
+                        </div>
+
+                        <div class="focus-item">
+                            Hawking / Unruh Structure
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="related-work">
+
+                    <div class="related-label">
+                        RELATED PUBLICATION
+                    </div>
+
+                    <div class="related-title">
+                        On the Geometric Interpretation
+                        of Non-Singular Black Hole Interiors
+                    </div>
+
+                    <a class="related-link"
+                       href="https://doi.org/10.1142/S0217732326501841"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        PUBLIKATION ANSEHEN →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · THEORY DIVISION
+</footer>
+
+
+</body>
+</html>

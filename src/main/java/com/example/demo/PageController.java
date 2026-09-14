@@ -89,4 +89,31 @@ public class PageController {
         return "contact";
     }
 
+    @GetMapping("/theory")
+    public String theory(
+            @RequestParam(value = "lang", defaultValue = "tr") String lang,
+            Model model) {
+
+        addLanguage(model, lang);
+        return "theory";
+    }
+
+    @GetMapping("/phenomenology")
+    public String phenomenology(
+            @RequestParam(value = "lang", defaultValue = "tr") String lang,
+            Model model) {
+
+        addLanguage(model, lang);
+        return "phenomenology";
+    }
+
+    @GetMapping("/computation")
+    public String computation(
+            @RequestParam(value = "lang", defaultValue = "tr") String lang,
+            Model model) {
+
+        addLanguage(model, lang);
+        return "computation";
+    }
+
 }

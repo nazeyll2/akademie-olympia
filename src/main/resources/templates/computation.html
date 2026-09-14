@@ -1,0 +1,3062 @@
+<!DOCTYPE html>
+<html lang="tr"
+      th:lang="${lang}"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Computational Physics and Numerical Modeling | Akademie Olympia">
+
+    <title>Computation | Akademie Olympia</title>
+
+
+    <!-- =========================================================
+         GOOGLE FONTS
+         ========================================================= -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                    Georgia,
+                    "Times New Roman",
+                    serif;
+
+            color: #eee9df;
+
+            background-color: #080808;
+
+            background-image:
+                    linear-gradient(
+                            rgba(4, 4, 4, 0.43),
+                            rgba(4, 4, 4, 0.78)
+                    ),
+                    url('/images/computation-bg.png');
+
+            background-size:
+                    100% 100%,
+                    100% auto;
+
+            background-position:
+                    center top,
+                    center top;
+
+            background-repeat:
+                    no-repeat,
+                    repeat-y;
+
+            background-attachment:
+                    scroll,
+                    scroll;
+        }
+
+
+        a {
+            color: inherit;
+        }
+
+
+
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
+
+        .navbar {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding:
+                    0
+                    4%;
+
+            background:
+                    rgba(0, 0, 0, 0.89);
+
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.24);
+
+            z-index: 1000;
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 19px;
+        }
+
+
+        .nav-links a,
+        .language-switcher a {
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.68rem;
+
+            letter-spacing: 0.065em;
+
+            text-decoration: none;
+
+            color: #ddd6c8;
+
+            white-space: nowrap;
+
+            transition:
+                    color 0.25s ease;
+        }
+
+
+        .nav-links a:hover,
+        .language-switcher a:hover {
+            color: #d4af37;
+        }
+
+
+        .current-page {
+            color: #d4af37 !important;
+        }
+
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
+
+            color: #777166;
+        }
+
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .computation-hero {
+            min-height: 86vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                    145px
+                    7%
+                    100px;
+        }
+
+
+        .hero-content {
+            width: 100%;
+
+            max-width: 1050px;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+            margin-bottom: 24px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.73rem;
+
+            letter-spacing: 0.34em;
+
+            color: #d4af37;
+        }
+
+
+        .computation-hero h1 {
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(2.8rem, 5.8vw, 5.7rem);
+
+            font-weight: 500;
+
+            line-height: 1.16;
+
+            letter-spacing: 0.07em;
+
+            color: #f4efe5;
+
+            text-shadow:
+                    0 4px 30px
+                    rgba(0, 0, 0, 0.95);
+        }
+
+
+        .gold-line {
+            width: 110px;
+            height: 1px;
+
+            margin:
+                    38px
+                    auto;
+
+            background: #d4af37;
+        }
+
+
+        .hero-description {
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            font-size: 1.08rem;
+
+            line-height: 1.95;
+
+            color: #ded7cb;
+
+            text-shadow:
+                    0 3px 15px
+                    rgba(0, 0, 0, 0.96);
+        }
+
+
+
+        /* =========================================================
+           MAIN
+           ========================================================= */
+
+        .computation-main {
+            width: 100%;
+
+            max-width: 1180px;
+
+            margin: 0 auto;
+
+            padding:
+                    30px
+                    7%
+                    140px;
+        }
+
+
+
+        /* =========================================================
+           GENERAL INTRO
+           ========================================================= */
+
+        .computation-intro {
+            margin-bottom: 120px;
+
+            padding:
+                    58px
+                    62px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(245, 241, 232, 0.13),
+                            rgba(245, 241, 232, 0.055)
+                    );
+
+            backdrop-filter: blur(11px);
+            -webkit-backdrop-filter: blur(11px);
+
+            border-left:
+                    2px solid #d4af37;
+
+            border-top:
+                    1px solid rgba(245, 241, 232, 0.15);
+
+            border-right:
+                    1px solid rgba(245, 241, 232, 0.10);
+
+            border-bottom:
+                    1px solid rgba(245, 241, 232, 0.10);
+
+            box-shadow:
+                    0 20px 55px
+                    rgba(0, 0, 0, 0.20);
+        }
+
+
+        .section-kicker {
+            margin-bottom: 15px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.67rem;
+
+            letter-spacing: 0.27em;
+
+            color: #a69d8f;
+        }
+
+
+        .section-title {
+            margin-bottom: 31px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.4rem, 2.4vw, 1.9rem);
+
+            font-weight: 500;
+
+            line-height: 1.45;
+
+            letter-spacing: 0.08em;
+
+            color: #d4af37;
+        }
+
+
+        .computation-intro p {
+            margin-bottom: 23px;
+
+            font-size: 1.03rem;
+
+            line-height: 2;
+
+            color: #ece5da;
+        }
+
+
+        .computation-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+
+
+        /* =========================================================
+           CURRENT RESEARCH HEADING
+           ========================================================= */
+
+        .current-research-heading {
+            margin-bottom: 65px;
+
+            text-align: center;
+        }
+
+
+        .current-research-heading .section-title {
+            margin-bottom: 19px;
+        }
+
+
+        .current-research-heading p {
+            max-width: 790px;
+
+            margin: 0 auto;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+
+            color: #cfc7bb;
+        }
+
+
+
+        /* =========================================================
+           RESEARCH ARTICLE
+           ========================================================= */
+
+        .research-article {
+            position: relative;
+
+            margin-bottom: 90px;
+
+            padding:
+                    60px
+                    62px;
+
+            background:
+                    linear-gradient(
+                            140deg,
+                            rgba(7, 7, 7, 0.90),
+                            rgba(18, 18, 18, 0.74)
+                    );
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border:
+                    1px solid rgba(212, 175, 55, 0.15);
+
+            box-shadow:
+                    0 22px 60px
+                    rgba(0, 0, 0, 0.23);
+
+            overflow: hidden;
+        }
+
+
+        .research-article:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .article-number {
+            position: absolute;
+
+            top: 26px;
+            right: 38px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 5.5rem;
+
+            color:
+                    rgba(255, 255, 255, 0.045);
+
+            pointer-events: none;
+        }
+
+
+        .article-category {
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.66rem;
+
+            letter-spacing: 0.26em;
+
+            color: #9e9588;
+        }
+
+
+        .article-title {
+            max-width: 880px;
+
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size:
+                    clamp(1.65rem, 3vw, 2.55rem);
+
+            font-weight: 500;
+
+            line-height: 1.4;
+
+            color: #d4af37;
+        }
+
+
+        .article-subtitle {
+            margin-bottom: 36px;
+
+            font-size: 0.92rem;
+
+            font-style: italic;
+
+            letter-spacing: 0.04em;
+
+            color: #a79f93;
+        }
+
+
+        .article-divider {
+            width: 100%;
+            height: 1px;
+
+            margin-bottom: 39px;
+
+            background:
+                    linear-gradient(
+                            to right,
+                            rgba(212, 175, 55, 0.58),
+                            rgba(212, 175, 55, 0.03)
+                    );
+        }
+
+
+        .article-body {
+            max-width: 940px;
+        }
+
+
+        .article-body p {
+            margin-bottom: 25px;
+
+            font-size: 1.02rem;
+
+            line-height: 2;
+
+            color: #e8e1d6;
+        }
+
+
+
+        /* =========================================================
+           RESEARCH QUESTION
+           ========================================================= */
+
+        .research-question {
+            margin:
+                    40px
+                    0;
+
+            padding:
+                    28px
+                    32px;
+
+            border-left:
+                    2px solid #d4af37;
+
+            background:
+                    rgba(212, 175, 55, 0.055);
+
+            font-size:
+                    clamp(1.05rem, 1.8vw, 1.23rem);
+
+            line-height: 1.8;
+
+            font-style: italic;
+
+            color: #f0e9dd;
+        }
+
+
+
+        /* =========================================================
+           EQUATION
+           ========================================================= */
+
+        .equation {
+            margin:
+                    34px
+                    0;
+
+            padding:
+                    25px;
+
+            text-align: center;
+
+            font-size:
+                    clamp(1.15rem, 2.4vw, 1.58rem);
+
+            font-style: italic;
+
+            line-height: 1.8;
+
+            color: #d4af37;
+
+            background:
+                    rgba(255, 255, 255, 0.035);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.12);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.12);
+        }
+
+
+
+        /* =========================================================
+           DATA CARDS
+           ========================================================= */
+
+        .data-grid {
+            display: grid;
+
+            grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+
+            gap: 14px;
+
+            margin:
+                    38px
+                    0;
+        }
+
+
+        .data-card {
+            padding:
+                    25px
+                    23px;
+
+            background:
+                    rgba(255, 255, 255, 0.035);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.17);
+
+            border-bottom:
+                    1px solid rgba(212, 175, 55, 0.09);
+        }
+
+
+        .data-label {
+            margin-bottom: 12px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.61rem;
+
+            letter-spacing: 0.18em;
+
+            color: #d4af37;
+        }
+
+
+        .data-card h3 {
+            margin-bottom: 11px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.89rem;
+
+            font-weight: 500;
+
+            line-height: 1.5;
+
+            color: #ded6ca;
+        }
+
+
+        .data-card p {
+            margin-bottom: 0;
+
+            font-size: 0.88rem;
+
+            line-height: 1.75;
+
+            color: #b8b0a4;
+        }
+
+
+
+        /* =========================================================
+           SIMULATION STRUCTURE
+           ========================================================= */
+
+        .simulation-grid {
+            display: grid;
+
+            grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            gap: 15px;
+
+            margin:
+                    38px
+                    0;
+        }
+
+
+        .simulation-card {
+            padding:
+                    27px
+                    26px;
+
+            background:
+                    rgba(255, 255, 255, 0.032);
+
+            border-left:
+                    1px solid rgba(212, 175, 55, 0.34);
+
+            border-top:
+                    1px solid rgba(255, 255, 255, 0.05);
+
+            border-bottom:
+                    1px solid rgba(255, 255, 255, 0.05);
+        }
+
+
+        .simulation-card h3 {
+            margin-bottom: 13px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.78rem;
+
+            font-weight: 500;
+
+            letter-spacing: 0.10em;
+
+            line-height: 1.6;
+
+            color: #d4af37;
+        }
+
+
+        .simulation-card p {
+            margin-bottom: 0;
+
+            font-size: 0.91rem;
+
+            line-height: 1.8;
+
+            color: #beb6aa;
+        }
+
+
+
+        /* =========================================================
+           ANALYSIS TABLE
+           ========================================================= */
+
+        .analysis-table {
+            margin:
+                    40px
+                    0;
+
+            border:
+                    1px solid rgba(212, 175, 55, 0.14);
+        }
+
+
+        .analysis-row {
+            display: grid;
+
+            grid-template-columns:
+                    180px 1fr;
+
+            border-bottom:
+                    1px solid rgba(255, 255, 255, 0.06);
+        }
+
+
+        .analysis-row:last-child {
+            border-bottom: 0;
+        }
+
+
+        .analysis-label {
+            padding:
+                    18px
+                    20px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.63rem;
+
+            letter-spacing: 0.14em;
+
+            color: #d4af37;
+
+            background:
+                    rgba(212, 175, 55, 0.04);
+        }
+
+
+        .analysis-content {
+            padding:
+                    18px
+                    22px;
+
+            font-size: 0.91rem;
+
+            line-height: 1.75;
+
+            color: #c8c0b4;
+        }
+
+
+
+        /* =========================================================
+           FOCUS
+           ========================================================= */
+
+        .focus-block {
+            margin-top: 44px;
+
+            padding-top: 31px;
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.15);
+        }
+
+
+        .focus-title {
+            margin-bottom: 17px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.66rem;
+
+            letter-spacing: 0.24em;
+
+            color: #d4af37;
+        }
+
+
+        .focus-items {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+
+        .focus-item {
+            padding:
+                    8px
+                    12px;
+
+            font-size: 0.80rem;
+
+            line-height: 1.4;
+
+            color: #bfb7aa;
+
+            background:
+                    rgba(255, 255, 255, 0.04);
+
+            border:
+                    1px solid rgba(255, 255, 255, 0.08);
+        }
+
+
+
+        /* =========================================================
+           STATUS
+           ========================================================= */
+
+        .research-status {
+            margin-top: 32px;
+
+            padding:
+                    25px
+                    27px;
+
+            background:
+                    rgba(245, 241, 232, 0.055);
+
+            border-left:
+                    2px solid rgba(212, 175, 55, 0.70);
+        }
+
+
+        .status-label {
+            margin-bottom: 10px;
+
+            font-family:
+                    "Cinzel",
+                    Georgia,
+                    serif;
+
+            font-size: 0.62rem;
+
+            letter-spacing: 0.22em;
+
+            color: #999084;
+        }
+
+
+        .status-text {
+            font-size: 0.95rem;
+
+            line-height: 1.8;
+
+            color: #ded6ca;
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            padding:
+                    38px
+                    8%;
+
+            text-align: center;
+
+            background:
+                    rgba(0, 0, 0, 0.90);
+
+            border-top:
+                    1px solid rgba(212, 175, 55, 0.12);
+
+            font-size: 0.80rem;
+
+            letter-spacing: 0.12em;
+
+            color: #7e776c;
+        }
+
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 1180px) {
+
+            .navbar {
+                position: relative;
+
+                flex-direction: column;
+
+                gap: 16px;
+
+                padding:
+                        19px
+                        4%;
+            }
+
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap:
+                        13px
+                        18px;
+            }
+
+
+            .language-switcher {
+                margin-left: 0;
+
+                justify-content: center;
+            }
+
+
+            .computation-hero {
+                min-height: auto;
+
+                padding:
+                        105px
+                        7%
+                        100px;
+            }
+
+        }
+
+
+        @media (max-width: 760px) {
+
+            body {
+                background-size:
+                        100% 100%,
+                        auto 100vh;
+            }
+
+
+            .computation-main {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+
+            .computation-intro,
+            .research-article {
+                padding:
+                        40px
+                        27px;
+            }
+
+
+            .article-number {
+                top: 20px;
+                right: 20px;
+
+                font-size: 3.4rem;
+            }
+
+
+            .data-grid,
+            .simulation-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .analysis-row {
+                grid-template-columns: 1fr;
+            }
+
+
+            .analysis-label {
+                border-bottom:
+                        1px solid rgba(255, 255, 255, 0.05);
+            }
+
+
+            .focus-items {
+                display: block;
+            }
+
+
+            .focus-item {
+                margin-bottom: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+
+        <a th:href="@{/(lang=${lang})}">
+            [HOME]
+        </a>
+
+
+        <!-- RESEARCH -->
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            ARAŞTIRMA
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            RESEARCH
+        </a>
+
+        <a th:href="@{/research(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            FORSCHUNG
+        </a>
+
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+        <!-- COMPUTATION -->
+
+        <a class="current-page"
+           th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a class="current-page"
+           th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a class="current-page"
+           th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+        <!-- PUBLICATIONS -->
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            YAYINLAR
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PUBLICATIONS
+        </a>
+
+        <a th:href="@{/publications(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PUBLIKATIONEN
+        </a>
+
+
+        <!-- TEAM -->
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            EKİP
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            TEAM
+        </a>
+
+        <a th:href="@{/team(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            TEAM
+        </a>
+
+
+        <!-- CONTACT -->
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            İLETİŞİM
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            CONTACT
+        </a>
+
+        <a th:href="@{/contact(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            KONTAKT
+        </a>
+
+    </div>
+
+
+    <div class="language-switcher">
+
+        <a th:href="@{/computation(lang='tr')}"
+           th:classappend="${lang == 'tr'} ? 'current-page'">
+            TR
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/computation(lang='en')}"
+           th:classappend="${lang == 'en'} ? 'current-page'">
+            EN
+        </a>
+
+        <span>|</span>
+
+        <a th:href="@{/computation(lang='de')}"
+           th:classappend="${lang == 'de'} ? 'current-page'">
+            DE
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="computation-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            AKADEMIE OLYMPIA · COMPUTATION
+        </div>
+
+
+        <h1 th:if="${lang == 'tr'}">
+            HESAPLAMALI FİZİK<br>
+            VE SAYISAL MODELLEME
+        </h1>
+
+        <h1 th:if="${lang == 'en'}">
+            COMPUTATIONAL PHYSICS<br>
+            & NUMERICAL MODELING
+        </h1>
+
+        <h1 th:if="${lang == 'de'}">
+            COMPUTATIONAL PHYSICS<br>
+            & NUMERISCHE MODELLIERUNG
+        </h1>
+
+
+        <div class="gold-line"></div>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'tr'}">
+
+            Galaktik dinamikleri sayısal olarak modelliyor,
+            galaksi örneklemlerini sistematik biçimde analiz ediyor,
+            dönüş eğrilerini ve BTFR davranışını hesaplamalı
+            yöntemlerle araştırıyoruz.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'en'}">
+
+            We numerically model galactic dynamics,
+            systematically analyse galaxy samples,
+            and investigate rotation curves and BTFR behaviour
+            through computational methods.
+
+        </p>
+
+
+        <p class="hero-description"
+           th:if="${lang == 'de'}">
+
+            Wir modellieren galaktische Dynamik numerisch,
+            analysieren Galaxiensamples systematisch
+            und untersuchen Rotationskurven sowie BTFR-Verhalten
+            mit computergestützten Methoden.
+
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="computation-main">
+
+
+    <!-- =====================================================
+         GENERAL SCOPE
+         ===================================================== -->
+
+    <section class="computation-intro">
+
+
+        <!-- TURKISH -->
+
+        <div th:if="${lang == 'tr'}">
+
+            <div class="section-kicker">
+                GENERAL SCOPE
+            </div>
+
+
+            <h2 class="section-title">
+                HESAPLAMALI ARAŞTIRMA PROGRAMI
+            </h2>
+
+
+            <p>
+                Hesaplamalı fizik grubumuz teorik modellerin
+                sayısal çözümlerini, galaktik sistemlerin
+                modellenmesini, fiziksel simülasyonları
+                ve gözlemsel verilerin sistematik analizini
+                yürütmektedir.
+            </p>
+
+
+            <p>
+                Güncel çalışmalarımızın merkezinde galaktik
+                dinamikler bulunmaktadır. Galaksilerin dönüş
+                eğrileri, baryonik madde dağılımları,
+                karakteristik uzunluk ölçekleri,
+                galaksi uzaklıkları ve asimptotik hızları
+                galaksi bazında incelenmektedir.
+            </p>
+
+
+            <p>
+                Çalışmada kullanılan veri kümesindeki galaksiler
+                ortak bir sayısal çerçeve içerisinde analiz edilir.
+                Radyal koordinatlar, kpc ve Mpc ölçekleri,
+                hız verileri, gaz ve yıldız bileşenleri,
+                baryonik kütleler ve gözlemsel belirsizlikler
+                birlikte değerlendirilir.
+            </p>
+
+
+            <p>
+                Sayısal sonuçlar dönüş eğrileri,
+                BTFR diyagramları, galaksi bazlı grafikler,
+                model karşılaştırmaları ve fiziksel simülasyonlar
+                aracılığıyla incelenmektedir.
+            </p>
+
+        </div>
+
+
+
+        <!-- ENGLISH -->
+
+        <div th:if="${lang == 'en'}">
+
+            <div class="section-kicker">
+                GENERAL SCOPE
+            </div>
+
+
+            <h2 class="section-title">
+                COMPUTATIONAL RESEARCH PROGRAMME
+            </h2>
+
+
+            <p>
+                Our computational physics division develops
+                numerical solutions of theoretical models,
+                models galactic systems, performs physical
+                simulations and systematically analyses
+                observational data.
+            </p>
+
+
+            <p>
+                Galactic dynamics forms the central focus
+                of our current work.
+                Rotation curves, baryonic matter distributions,
+                characteristic length scales, galaxy distances
+                and asymptotic velocities are studied
+                on a galaxy-by-galaxy basis.
+            </p>
+
+
+            <p>
+                Galaxies in the adopted data set are analysed
+                within a common numerical framework.
+                Radial coordinates, kpc and Mpc scales,
+                velocity measurements, gas and stellar components,
+                baryonic masses and observational uncertainties
+                are treated consistently.
+            </p>
+
+
+            <p>
+                Numerical results are examined through
+                rotation curves, BTFR diagrams,
+                galaxy-level plots, model comparisons
+                and physical simulations.
+            </p>
+
+        </div>
+
+
+
+        <!-- GERMAN -->
+
+        <div th:if="${lang == 'de'}">
+
+            <div class="section-kicker">
+                ALLGEMEINER RAHMEN
+            </div>
+
+
+            <h2 class="section-title">
+                COMPUTATIONAL-FORSCHUNGSPROGRAMM
+            </h2>
+
+
+            <p>
+                Unsere Computational-Physics-Gruppe entwickelt
+                numerische Lösungen theoretischer Modelle,
+                modelliert galaktische Systeme,
+                führt physikalische Simulationen durch
+                und analysiert Beobachtungsdaten systematisch.
+            </p>
+
+
+            <p>
+                Die galaktische Dynamik bildet den Schwerpunkt
+                unserer aktuellen Arbeit.
+                Rotationskurven, baryonische Materieverteilungen,
+                charakteristische Längenskalen,
+                Galaxienentfernungen und asymptotische
+                Geschwindigkeiten werden galaxienweise untersucht.
+            </p>
+
+
+            <p>
+                Die Galaxien des verwendeten Datensatzes
+                werden in einem gemeinsamen numerischen Rahmen
+                analysiert. Radialkoordinaten, kpc- und Mpc-Skalen,
+                Geschwindigkeitsdaten, Gas- und Sternkomponenten,
+                baryonische Massen und Beobachtungsunsicherheiten
+                werden konsistent behandelt.
+            </p>
+
+
+            <p>
+                Die numerischen Ergebnisse werden durch
+                Rotationskurven, BTFR-Diagramme,
+                galaxienbezogene Darstellungen,
+                Modellvergleiche und physikalische
+                Simulationen untersucht.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CURRENT RESEARCH
+         ===================================================== -->
+
+    <section>
+
+
+        <div class="current-research-heading">
+
+            <div class="section-kicker">
+                AKADEMIE OLYMPIA
+            </div>
+
+
+            <h2 class="section-title"
+                th:if="${lang == 'tr'}">
+                GÜNCEL HESAPLAMALI ARAŞTIRMALAR
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'en'}">
+                CURRENT COMPUTATIONAL RESEARCH
+            </h2>
+
+            <h2 class="section-title"
+                th:if="${lang == 'de'}">
+                AKTUELLE COMPUTATIONAL-FORSCHUNG
+            </h2>
+
+
+            <p th:if="${lang == 'tr'}">
+                Güncel çalışmalarımız galaktik dönüş eğrilerinin
+                modellenmesi, galaksi örneklemlerinin BTFR analizi
+                ve galaktik dinamiklerin sayısal simülasyonu
+                üzerinde yoğunlaşmaktadır.
+            </p>
+
+
+            <p th:if="${lang == 'en'}">
+                Current work focuses on modelling galactic
+                rotation curves, analysing the BTFR across
+                galaxy samples and performing numerical
+                simulations of galactic dynamics.
+            </p>
+
+
+            <p th:if="${lang == 'de'}">
+                Unsere aktuelle Forschung konzentriert sich
+                auf die Modellierung galaktischer Rotationskurven,
+                BTFR-Analysen von Galaxiensamples
+                und numerische Simulationen galaktischer Dynamik.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             01 — ROTATION CURVES
+             ================================================= -->
+
+        <article class="research-article"
+                 id="rotation-curves">
+
+
+            <div class="article-number">
+                01
+            </div>
+
+
+            <div class="article-category">
+                ACTIVE RESEARCH · GALACTIC MODELING
+            </div>
+
+
+            <h2 class="article-title">
+                NUMERICAL MODELING
+                OF GALACTIC ROTATION CURVES
+            </h2>
+
+
+            <div class="article-subtitle">
+                kpc Scales · Velocity Profiles · Galactic Structure
+            </div>
+
+
+            <div class="article-divider"></div>
+
+
+
+            <!-- TURKISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'tr'}">
+
+
+                <p>
+                    Bir galaksinin dönüş eğrisi,
+                    galaktik merkezden uzaklığın fonksiyonu
+                    olarak yıldızların ve gazın yörünge
+                    hızlarını gösterir.
+                    Bu eğri galaksinin kütle dağılımı
+                    ve kütleçekim dinamiği hakkında
+                    doğrudan fiziksel bilgi taşır.
+                </p>
+
+
+                <p>
+                    Sayısal analizde her galaksi kendi
+                    fiziksel ölçeğinde ele alınmaktadır.
+                    Galaktik radyal koordinatlar kiloparsek
+                    ölçeğinde, galaksi uzaklıkları megaparsek
+                    ölçeğinde ve dönüş hızları kilometre/saniye
+                    biriminde değerlendirilir.
+                </p>
+
+
+                <div class="equation">
+                    r [kpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    D [Mpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Fiziksel ölçeklerin ve birimlerin
+                    tutarlı biçimde kullanılması galaksi
+                    modellemesinin temel bileşenlerinden biridir.
+                    Galaksi uzaklığı, radyal koordinat,
+                    baryonik kütle ve karakteristik hızlar
+                    aynı sayısal yapı içerisinde işlenir.
+                </p>
+
+
+                <p>
+                    Her galaksinin gözlenen dönüş eğrisi
+                    hesaplama sistemine aktarılır.
+                    Gaz, yıldız diski ve mevcut olduğu
+                    durumlarda bulge bileşenlerinin
+                    dinamik katkıları ayrı ayrı takip edilir.
+                </p>
+
+
+                <div class="equation">
+                    v<sub>bar</sub><sup>2</sup>
+                    =
+                    v<sub>gas</sub><sup>2</sup>
+                    +
+                    v<sub>disk</sub><sup>2</sup>
+                    +
+                    v<sub>bulge</sub><sup>2</sup>
+                </div>
+
+
+                <p>
+                    Teorik galaktik çözüm aynı radyal
+                    koordinat sistemi üzerinde hesaplanır.
+                    Böylece teorik hız profili ile
+                    gözlenen dönüş eğrisi doğrudan
+                    karşılaştırılabilir.
+                </p>
+
+
+                <div class="research-question">
+                    Aynı teorik yapı farklı fiziksel ölçeklere,
+                    baryonik dağılımlara ve dönüş hızlarına sahip
+                    galaksilerin dinamiğini nasıl üretir?
+                </div>
+
+
+                <div class="data-grid">
+
+
+                    <div class="data-card">
+
+                        <div class="data-label">
+                            RADIAL STRUCTURE
+                        </div>
+
+                        <h3>
+                            kpc SCALE
+                        </h3>
+
+                        <p>
+                            İç galaktik bölgeden dış
+                            dönüş eğrisine kadar radyal
+                            yapı takip edilir.
+                        </p>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-label">
+                            VELOCITY
+                        </div>
+
+                        <h3>
+                            km/s PROFILE
+                        </h3>
+
+                        <p>
+                            Gözlenen ve hesaplanan
+                            hız profilleri aynı
+                            koordinatlar üzerinde incelenir.
+                        </p>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-label">
+                            DISTANCE
+                        </div>
+
+                        <h3>
+                            Mpc SCALE
+                        </h3>
+
+                        <p>
+                            Galaksi uzaklığı ve fiziksel
+                            ölçek dönüşümleri sayısal
+                            analiz boyunca korunur.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Rotation Curves
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Scales
+                        </div>
+
+                        <div class="focus-item">
+                            Velocity Profiles
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Components
+                        </div>
+
+                        <div class="focus-item">
+                            Galaxy Modeling
+                        </div>
+
+                        <div class="focus-item">
+                            Numerical Solutions
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENGLISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'en'}">
+
+
+                <p>
+                    A galactic rotation curve describes
+                    the orbital velocities of stars and gas
+                    as a function of distance from
+                    the galactic centre.
+                    It carries direct physical information
+                    about mass distribution and
+                    gravitational dynamics.
+                </p>
+
+
+                <p>
+                    Each galaxy is treated on its own
+                    physical scale.
+                    Galactic radial coordinates are analysed
+                    in kiloparsecs, galaxy distances
+                    in megaparsecs and rotation velocities
+                    in kilometres per second.
+                </p>
+
+
+                <div class="equation">
+                    r [kpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    D [Mpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Consistent treatment of physical scales
+                    and units forms a fundamental part
+                    of galaxy modelling.
+                    Galaxy distance, radial coordinates,
+                    baryonic masses and characteristic
+                    velocities are processed within
+                    a common numerical framework.
+                </p>
+
+
+                <p>
+                    The observed rotation curve of each galaxy
+                    is incorporated into the computational model.
+                    Contributions from gas, the stellar disk
+                    and the bulge, where present,
+                    are tracked separately.
+                </p>
+
+
+                <div class="equation">
+                    v<sub>bar</sub><sup>2</sup>
+                    =
+                    v<sub>gas</sub><sup>2</sup>
+                    +
+                    v<sub>disk</sub><sup>2</sup>
+                    +
+                    v<sub>bulge</sub><sup>2</sup>
+                </div>
+
+
+                <p>
+                    The theoretical galactic solution
+                    is calculated on the same radial grid.
+                    Predicted velocity profiles can therefore
+                    be compared directly with observed
+                    rotation curves.
+                </p>
+
+
+                <div class="research-question">
+                    How does a common theoretical structure
+                    describe galaxies with different physical scales,
+                    baryonic distributions and rotational velocities?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Rotation Curves
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Scales
+                        </div>
+
+                        <div class="focus-item">
+                            Velocity Profiles
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Components
+                        </div>
+
+                        <div class="focus-item">
+                            Galaxy Modeling
+                        </div>
+
+                        <div class="focus-item">
+                            Numerical Solutions
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GERMAN -->
+
+            <div class="article-body"
+                 th:if="${lang == 'de'}">
+
+
+                <p>
+                    Eine galaktische Rotationskurve beschreibt
+                    die Umlaufgeschwindigkeit von Sternen
+                    und Gas als Funktion des Abstands
+                    vom galaktischen Zentrum.
+                    Sie enthält direkte physikalische Informationen
+                    über Massenverteilung und Gravitationsdynamik.
+                </p>
+
+
+                <p>
+                    Jede Galaxie wird auf ihrer eigenen
+                    physikalischen Skala untersucht.
+                    Radialkoordinaten werden in Kiloparsec,
+                    Galaxienentfernungen in Megaparsec
+                    und Rotationsgeschwindigkeiten
+                    in Kilometer pro Sekunde analysiert.
+                </p>
+
+
+                <div class="equation">
+                    r [kpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    D [Mpc]
+                    &nbsp;&nbsp; · &nbsp;&nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Die konsistente Behandlung physikalischer
+                    Skalen und Einheiten bildet einen
+                    grundlegenden Bestandteil der
+                    Galaxienmodellierung.
+                </p>
+
+
+                <p>
+                    Die beobachtete Rotationskurve jeder Galaxie
+                    wird in das numerische Modell aufgenommen.
+                    Beiträge von Gas, Sternscheibe und
+                    gegebenenfalls Bulge werden getrennt verfolgt.
+                </p>
+
+
+                <div class="equation">
+                    v<sub>bar</sub><sup>2</sup>
+                    =
+                    v<sub>gas</sub><sup>2</sup>
+                    +
+                    v<sub>disk</sub><sup>2</sup>
+                    +
+                    v<sub>bulge</sub><sup>2</sup>
+                </div>
+
+
+                <div class="research-question">
+                    Wie beschreibt eine gemeinsame theoretische
+                    Struktur Galaxien mit unterschiedlichen
+                    physikalischen Skalen und baryonischen Verteilungen?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Rotationskurven
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Skalen
+                        </div>
+
+                        <div class="focus-item">
+                            Geschwindigkeitsprofile
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonische Komponenten
+                        </div>
+
+                        <div class="focus-item">
+                            Galaxienmodellierung
+                        </div>
+
+                        <div class="focus-item">
+                            Numerische Lösungen
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             02 — BTFR ANALYSIS
+             ================================================= -->
+
+        <article class="research-article"
+                 id="btfr-analysis">
+
+
+            <div class="article-number">
+                02
+            </div>
+
+
+            <div class="article-category">
+                ACTIVE RESEARCH · POPULATION ANALYSIS
+            </div>
+
+
+            <h2 class="article-title">
+                GALAXY-SAMPLE BTFR ANALYSIS
+            </h2>
+
+
+            <div class="article-subtitle">
+                Baryonic Mass · Flat Velocity · Population Scaling
+            </div>
+
+
+            <div class="article-divider"></div>
+
+
+
+            <!-- TURKISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'tr'}">
+
+
+                <p>
+                    Baryonic Tully–Fisher Relation,
+                    galaksi popülasyonlarında ortaya çıkan
+                    temel bir ölçek ilişkisini ifade eder.
+                    Bu nedenle hesaplamalı BTFR analizi
+                    veri kümesindeki galaksilerin ortak
+                    bir fiziksel düzlem içerisinde
+                    değerlendirilmesini gerektirir.
+                </p>
+
+
+                <p>
+                    Her galaksi için toplam baryonik kütle
+                    ve karakteristik dış dönüş hızı belirlenir.
+                    Elde edilen büyüklükler ortak BTFR
+                    düzlemine yerleştirilerek galaksi
+                    örnekleminin davranışı incelenir.
+                </p>
+
+
+                <div class="equation">
+                    M<sub>b</sub>
+                    &nbsp; ↔ &nbsp;
+                    V<sub>flat</sub>
+                    &nbsp;&nbsp;&nbsp;
+                    M<sub>b</sub> ∝ V<sub>flat</sub><sup>4</sup>
+                </div>
+
+
+                <p>
+                    BTFR grafiğindeki her nokta ayrı
+                    bir galaksiyi temsil eder.
+                    Böylece dönüş eğrisi analizleri
+                    popülasyon ölçeğindeki bir testle
+                    bir araya gelir.
+                </p>
+
+
+                <p>
+                    Baryonik kütleler, düz hızlar,
+                    gözlemsel belirsizlikler ve teorik
+                    öngörüler ortak bir veri yapısı
+                    içerisinde işlenir.
+                    Sonuçlar doğrusal ve logaritmik
+                    gösterimlerle grafiklendirilmektedir.
+                </p>
+
+
+                <div class="research-question">
+                    Galaksi örneklemi için elde edilen teorik
+                    hızlar gözlenen BTFR eğimini,
+                    normalizasyonunu ve saçılımını
+                    yeniden üretebilir mi?
+                </div>
+
+
+                <div class="analysis-table">
+
+
+                    <div class="analysis-row">
+
+                        <div class="analysis-label">
+                            GALAXY DATA
+                        </div>
+
+                        <div class="analysis-content">
+                            Galaksi uzaklığı, baryonik kütle,
+                            radyal veri ve gözlenen dönüş hızları.
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-row">
+
+                        <div class="analysis-label">
+                            VFLAT
+                        </div>
+
+                        <div class="analysis-content">
+                            Galaksinin dış bölgesindeki
+                            karakteristik düz dönüş hızının
+                            belirlenmesi.
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-row">
+
+                        <div class="analysis-label">
+                            BTFR
+                        </div>
+
+                        <div class="analysis-content">
+                            Galaksilerin ortak
+                            M<sub>b</sub> – V<sub>flat</sub>
+                            düzleminde karşılaştırılması.
+                        </div>
+
+                    </div>
+
+
+                    <div class="analysis-row">
+
+                        <div class="analysis-label">
+                            VISUALIZATION
+                        </div>
+
+                        <div class="analysis-content">
+                            BTFR grafikleri, log-log gösterimler,
+                            saçılım ve residual analizleri.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaxy Samples
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Mass
+                        </div>
+
+                        <div class="focus-item">
+                            Vflat
+                        </div>
+
+                        <div class="focus-item">
+                            BTFR Diagrams
+                        </div>
+
+                        <div class="focus-item">
+                            Log–Log Analysis
+                        </div>
+
+                        <div class="focus-item">
+                            Scatter
+                        </div>
+
+                        <div class="focus-item">
+                            Residuals
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-status">
+
+                    <div class="status-label">
+                        RESEARCH STATUS
+                    </div>
+
+                    <div class="status-text">
+                        Ongoing · Veri kümesindeki galaksiler
+                        sistematik olarak analiz edilmekte,
+                        BTFR değişkenleri çıkarılmakta
+                        ve sonuçlar grafiksel olarak incelenmektedir.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENGLISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'en'}">
+
+
+                <p>
+                    The Baryonic Tully–Fisher Relation
+                    represents a fundamental scaling relation
+                    across galaxy populations.
+                    Computational BTFR analysis therefore
+                    requires galaxies in the data set
+                    to be studied within a common
+                    physical plane.
+                </p>
+
+
+                <p>
+                    Total baryonic mass and characteristic
+                    outer rotation velocity are determined
+                    for each galaxy.
+                    These quantities are placed on a common
+                    BTFR plane to study population behaviour.
+                </p>
+
+
+                <div class="equation">
+                    M<sub>b</sub>
+                    &nbsp; ↔ &nbsp;
+                    V<sub>flat</sub>
+                    &nbsp;&nbsp;&nbsp;
+                    M<sub>b</sub> ∝ V<sub>flat</sub><sup>4</sup>
+                </div>
+
+
+                <p>
+                    Each point on the BTFR diagram represents
+                    an individual galaxy.
+                    Rotation-curve analysis can therefore
+                    be connected with a population-level test.
+                </p>
+
+
+                <p>
+                    Baryonic masses, flat velocities,
+                    observational uncertainties and theoretical
+                    predictions are processed within
+                    a common numerical data structure.
+                    Results are visualised on linear
+                    and logarithmic axes.
+                </p>
+
+
+                <div class="research-question">
+                    Can theoretical velocities obtained
+                    across the galaxy sample reproduce
+                    the observed BTFR slope,
+                    normalisation and scatter?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaxy Samples
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Mass
+                        </div>
+
+                        <div class="focus-item">
+                            Vflat
+                        </div>
+
+                        <div class="focus-item">
+                            BTFR Diagrams
+                        </div>
+
+                        <div class="focus-item">
+                            Log–Log Analysis
+                        </div>
+
+                        <div class="focus-item">
+                            Scatter
+                        </div>
+
+                        <div class="focus-item">
+                            Residuals
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-status">
+
+                    <div class="status-label">
+                        RESEARCH STATUS
+                    </div>
+
+                    <div class="status-text">
+                        Ongoing · Galaxies in the adopted sample
+                        are analysed systematically,
+                        BTFR quantities are extracted
+                        and the resulting distributions
+                        are studied graphically.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GERMAN -->
+
+            <div class="article-body"
+                 th:if="${lang == 'de'}">
+
+
+                <p>
+                    Die baryonische Tully-Fisher-Relation
+                    beschreibt eine grundlegende Skalierungsbeziehung
+                    innerhalb von Galaxienpopulationen.
+                    Die numerische BTFR-Analyse untersucht
+                    Galaxien daher in einer gemeinsamen
+                    physikalischen Ebene.
+                </p>
+
+
+                <p>
+                    Für jede Galaxie werden baryonische
+                    Gesamtmasse und charakteristische
+                    äußere Rotationsgeschwindigkeit bestimmt.
+                    Diese Größen werden in einer gemeinsamen
+                    BTFR-Ebene dargestellt.
+                </p>
+
+
+                <div class="equation">
+                    M<sub>b</sub>
+                    &nbsp; ↔ &nbsp;
+                    V<sub>flat</sub>
+                    &nbsp;&nbsp;&nbsp;
+                    M<sub>b</sub> ∝ V<sub>flat</sub><sup>4</sup>
+                </div>
+
+
+                <div class="research-question">
+                    Können die theoretischen Geschwindigkeiten
+                    des Galaxiensamples die beobachtete
+                    BTFR-Steigung, Normalisierung
+                    und Streuung reproduzieren?
+                </div>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaxiensamples
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonische Masse
+                        </div>
+
+                        <div class="focus-item">
+                            Vflat
+                        </div>
+
+                        <div class="focus-item">
+                            BTFR-Diagramme
+                        </div>
+
+                        <div class="focus-item">
+                            Log–Log Analyse
+                        </div>
+
+                        <div class="focus-item">
+                            Streuung
+                        </div>
+
+                        <div class="focus-item">
+                            Residuen
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =================================================
+             03 — GALAXY DYNAMICS SIMULATIONS
+             ================================================= -->
+
+        <article class="research-article"
+                 id="galaxy-dynamics-simulations">
+
+
+            <div class="article-number">
+                03
+            </div>
+
+
+            <div class="article-category">
+                ACTIVE RESEARCH · GALACTIC SIMULATIONS
+            </div>
+
+
+            <h2 class="article-title">
+                GALAXY DYNAMICS SIMULATIONS
+            </h2>
+
+
+            <div class="article-subtitle">
+                Galactic Scales · Rotation Curves · Numerical Dynamics · Visualization
+            </div>
+
+
+            <div class="article-divider"></div>
+
+
+
+            <!-- TURKISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'tr'}">
+
+
+                <p>
+                    Galaktik sistemler geniş bir fiziksel
+                    ölçek aralığına sahiptir.
+                    Galaksinin merkezi bölgesinden dış
+                    diskine kadar uzanan dinamik yapı,
+                    kiloparsek ölçeğindeki radyal koordinatlar
+                    ve kilometre/saniye ölçeğindeki
+                    dönüş hızları üzerinden incelenir.
+                </p>
+
+
+                <p>
+                    Galaxy Dynamics Simulations çalışmamızda
+                    galaksilerin baryonik yapısı ve
+                    dönüş dinamikleri sayısal ortamda
+                    modellenmektedir.
+                    Gaz dağılımı, yıldız diski,
+                    bulge bileşeni, baryonik kütle,
+                    radyal ölçek ve dönüş hızı
+                    aynı fiziksel sistem içerisinde
+                    takip edilmektedir.
+                </p>
+
+
+                <p>
+                    Simülasyon her galaksinin kendi
+                    fiziksel ölçeğini korur.
+                    Galaksi uzaklığı Mpc,
+                    galaktik radyal yapı kpc
+                    ve hız profilleri km/s
+                    birimleri üzerinden hesaplamaya aktarılır.
+                </p>
+
+
+                <div class="equation">
+                    D [Mpc]
+                    &nbsp; → &nbsp;
+                    r [kpc]
+                    &nbsp; → &nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Sayısal çözüm galaktik merkeze yakın
+                    bölgelerden dış dönüş eğrisine kadar
+                    radyal olarak takip edilir.
+                    Böylece iç bölgedeki baryonik yapı,
+                    geçiş rejimi ve dış galaktik hız
+                    davranışı aynı simülasyon içerisinde
+                    incelenebilir.
+                </p>
+
+
+                <div class="simulation-grid">
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            GALACTIC STRUCTURE
+                        </h3>
+
+                        <p>
+                            Gaz, yıldız diski,
+                            bulge ve toplam baryonik
+                            yapı sayısal modele aktarılır.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            RADIAL DYNAMICS
+                        </h3>
+
+                        <p>
+                            Galaktik merkezden dış bölgelere
+                            kadar radyal hız profili
+                            hesaplanır ve takip edilir.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            ROTATION CURVES
+                        </h3>
+
+                        <p>
+                            Simülasyondan elde edilen
+                            dönüş eğrileri gözlemsel
+                            hız verileriyle karşılaştırılır.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            GALAXY COMPARISON
+                        </h3>
+
+                        <p>
+                            Farklı kütle, boyut ve
+                            yüzey yoğunluğuna sahip galaksiler
+                            ortak hesaplama yaklaşımıyla incelenir.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    Galaksilerin çeşitliliği simülasyonların
+                    temel fiziksel sınamalarından biridir.
+                    Düşük kütleli galaksiler,
+                    yüksek yüzey yoğunluklu sistemler
+                    ve farklı karakteristik boyutlara
+                    sahip galaksiler ayrı ayrı modellenir.
+                </p>
+
+
+                <div class="research-question">
+                    Aynı galaktik dinamik modeli,
+                    farklı fiziksel ölçeklerdeki galaksilerin
+                    gözlenen dönüş davranışını
+                    sayısal olarak yeniden üretebilir mi?
+                </div>
+
+
+                <p>
+                    Simülasyon çıktıları dönüş eğrileri,
+                    radyal hız profilleri,
+                    baryonik bileşen grafikleri
+                    ve galaksiler arası karşılaştırmalar
+                    halinde görselleştirilir.
+                    Bu görselleştirmeler teorik çözümün
+                    fiziksel davranışının galaksi ölçeğinde
+                    izlenmesini sağlar.
+                </p>
+
+
+                <p>
+                    BTFR analizi ile galaksi dinamiği
+                    simülasyonları aynı hesaplamalı
+                    araştırma hattının birbirini tamamlayan
+                    iki bölümünü oluşturur.
+                    Tek tek galaksilerin dönüş dinamiği
+                    simülasyonlarla incelenirken,
+                    tüm galaksi örneklemi baryonik kütle
+                    ve karakteristik hız ilişkisi
+                    üzerinden karşılaştırılır.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaxy Dynamics
+                        </div>
+
+                        <div class="focus-item">
+                            Galactic Simulations
+                        </div>
+
+                        <div class="focus-item">
+                            Rotation Curves
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Scales
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Structure
+                        </div>
+
+                        <div class="focus-item">
+                            Velocity Profiles
+                        </div>
+
+                        <div class="focus-item">
+                            Scientific Visualization
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-status">
+
+                    <div class="status-label">
+                        RESEARCH STATUS
+                    </div>
+
+                    <div class="status-text">
+                        Ongoing · Galaksilerin dönüş dinamikleri,
+                        baryonik yapıları ve radyal hız profilleri
+                        sayısal olarak modellenmekte ve
+                        simülasyon sonuçları grafiksel olarak
+                        analiz edilmektedir.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ENGLISH -->
+
+            <div class="article-body"
+                 th:if="${lang == 'en'}">
+
+
+                <p>
+                    Galactic systems extend across a broad
+                    range of physical scales.
+                    Their dynamical structure from the
+                    central region to the outer disk
+                    is studied through kiloparsec radial scales
+                    and kilometre-per-second velocity profiles.
+                </p>
+
+
+                <p>
+                    Our Galaxy Dynamics Simulations model
+                    the baryonic structure and rotational
+                    dynamics of galaxies numerically.
+                    Gas distributions, stellar disks,
+                    bulge components, baryonic masses,
+                    radial scales and orbital velocities
+                    are followed within a common physical system.
+                </p>
+
+
+                <p>
+                    Each simulation preserves the physical
+                    scale of the galaxy.
+                    Galaxy distances are represented in Mpc,
+                    galactic radial coordinates in kpc
+                    and velocity profiles in km/s.
+                </p>
+
+
+                <div class="equation">
+                    D [Mpc]
+                    &nbsp; → &nbsp;
+                    r [kpc]
+                    &nbsp; → &nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Numerical solutions are followed radially
+                    from the central region to the outer
+                    rotation curve.
+                    The baryonic inner structure,
+                    transition regime and outer galactic
+                    velocity behaviour can therefore
+                    be examined within the same simulation.
+                </p>
+
+
+                <div class="simulation-grid">
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            GALACTIC STRUCTURE
+                        </h3>
+
+                        <p>
+                            Gas, stellar disk,
+                            bulge and total baryonic
+                            structure are incorporated
+                            into the numerical model.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            RADIAL DYNAMICS
+                        </h3>
+
+                        <p>
+                            Radial velocity profiles
+                            are calculated from the
+                            galactic centre toward
+                            the outer regions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            ROTATION CURVES
+                        </h3>
+
+                        <p>
+                            Simulated rotation curves
+                            are compared with observed
+                            velocity measurements.
+                        </p>
+
+                    </div>
+
+
+                    <div class="simulation-card">
+
+                        <h3>
+                            GALAXY COMPARISON
+                        </h3>
+
+                        <p>
+                            Galaxies with different masses,
+                            dimensions and surface densities
+                            are analysed within a common
+                            computational framework.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-question">
+                    Can the same galactic-dynamics framework
+                    numerically reproduce the observed
+                    rotational behaviour of galaxies
+                    across different physical scales?
+                </div>
+
+
+                <p>
+                    Simulation outputs are visualised
+                    through rotation curves,
+                    radial velocity profiles,
+                    baryonic-component plots
+                    and galaxy-to-galaxy comparisons.
+                </p>
+
+
+                <p>
+                    BTFR analysis and galaxy-dynamics
+                    simulations form complementary parts
+                    of the same computational research programme.
+                    Individual galaxies are studied through
+                    their dynamical simulations, while
+                    the full galaxy sample is compared
+                    through baryonic mass and characteristic
+                    velocity scaling.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaxy Dynamics
+                        </div>
+
+                        <div class="focus-item">
+                            Galactic Simulations
+                        </div>
+
+                        <div class="focus-item">
+                            Rotation Curves
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Scales
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonic Structure
+                        </div>
+
+                        <div class="focus-item">
+                            Velocity Profiles
+                        </div>
+
+                        <div class="focus-item">
+                            Scientific Visualization
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="research-status">
+
+                    <div class="status-label">
+                        RESEARCH STATUS
+                    </div>
+
+                    <div class="status-text">
+                        Ongoing · Galactic rotation dynamics,
+                        baryonic structures and radial velocity
+                        profiles are being modelled numerically
+                        and analysed through simulation outputs.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GERMAN -->
+
+            <div class="article-body"
+                 th:if="${lang == 'de'}">
+
+
+                <p>
+                    Galaktische Systeme umfassen einen
+                    breiten Bereich physikalischer Skalen.
+                    Ihre Dynamik vom zentralen Bereich
+                    bis zur äußeren Scheibe wird anhand
+                    von Kiloparsec-Radialskalen und
+                    Geschwindigkeitsprofilen untersucht.
+                </p>
+
+
+                <p>
+                    Unsere Galaxy Dynamics Simulations
+                    modellieren die baryonische Struktur
+                    und Rotationsdynamik von Galaxien numerisch.
+                    Gasverteilung, Sternscheibe,
+                    Bulge, baryonische Masse,
+                    radiale Skalen und Umlaufgeschwindigkeiten
+                    werden gemeinsam verfolgt.
+                </p>
+
+
+                <p>
+                    Jede Simulation erhält die physikalische
+                    Skala der jeweiligen Galaxie.
+                    Galaxienentfernungen werden in Mpc,
+                    galaktische Radialkoordinaten in kpc
+                    und Geschwindigkeitsprofile in km/s dargestellt.
+                </p>
+
+
+                <div class="equation">
+                    D [Mpc]
+                    &nbsp; → &nbsp;
+                    r [kpc]
+                    &nbsp; → &nbsp;
+                    v(r) [km/s]
+                </div>
+
+
+                <p>
+                    Die numerische Lösung wird vom
+                    galaktischen Zentrum bis zur
+                    äußeren Rotationskurve radial verfolgt.
+                    Dadurch können baryonische Innenstruktur,
+                    Übergangsbereich und äußeres
+                    Geschwindigkeitsverhalten innerhalb
+                    derselben Simulation untersucht werden.
+                </p>
+
+
+                <div class="research-question">
+                    Kann dasselbe Modell galaktischer Dynamik
+                    das beobachtete Rotationsverhalten
+                    von Galaxien auf unterschiedlichen
+                    physikalischen Skalen numerisch reproduzieren?
+                </div>
+
+
+                <p>
+                    Simulationsergebnisse werden durch
+                    Rotationskurven, radiale Geschwindigkeitsprofile,
+                    baryonische Komponenten und
+                    Galaxienvergleiche visualisiert.
+                </p>
+
+
+                <div class="focus-block">
+
+                    <div class="focus-title">
+                        CURRENT FOCUS
+                    </div>
+
+
+                    <div class="focus-items">
+
+                        <div class="focus-item">
+                            Galaktische Dynamik
+                        </div>
+
+                        <div class="focus-item">
+                            Galaktische Simulationen
+                        </div>
+
+                        <div class="focus-item">
+                            Rotationskurven
+                        </div>
+
+                        <div class="focus-item">
+                            kpc / Mpc Skalen
+                        </div>
+
+                        <div class="focus-item">
+                            Baryonische Struktur
+                        </div>
+
+                        <div class="focus-item">
+                            Geschwindigkeitsprofile
+                        </div>
+
+                        <div class="focus-item">
+                            Wissenschaftliche Visualisierung
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+    AKADEMIE OLYMPIA · COMPUTATION DIVISION
+</footer>
+
+
+</body>
+</html>

@@ -43,9 +43,11 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             min-height: 100vh;
@@ -66,13 +68,6 @@
                     ),
                     url('/images/index-bg.jpg');
 
-            /*
-             * FOTOĞRAF SAYFAYLA BİRLİKTE KAYAR.
-             *
-             * İlk katman tüm sayfa boyunca karanlık ton verir.
-             * Fotoğraf kendi oranında aşağı doğru devam eder.
-             */
-
             background-size:
                     100% 100%,
                     100% auto;
@@ -90,9 +85,11 @@
                     scroll;
         }
 
+
         a {
             color: inherit;
         }
+
 
 
         /* =========================================================
@@ -112,13 +109,15 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 6%;
+            padding:
+                    0
+                    4%;
 
             background:
-                    rgba(5, 5, 5, 0.88);
+                    rgba(5, 5, 5, 0.90);
 
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
 
             border-bottom:
                     1px solid rgba(212, 175, 55, 0.24);
@@ -126,12 +125,14 @@
             z-index: 1000;
         }
 
+
         .nav-links {
             display: flex;
             align-items: center;
 
-            gap: 29px;
+            gap: 19px;
         }
+
 
         .nav-links a,
         .language-switcher a {
@@ -140,35 +141,45 @@
                     Georgia,
                     serif;
 
-            font-size: 0.78rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.09em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
             color: #ddd6c8;
 
+            white-space: nowrap;
+
             transition:
                     color 0.25s ease;
         }
+
 
         .nav-links a:hover,
         .language-switcher a:hover {
             color: #d4af37;
         }
 
+
         .current-page {
             color: #d4af37 !important;
         }
+
 
         .language-switcher {
             display: flex;
             align-items: center;
 
-            gap: 9px;
+            flex-shrink: 0;
+
+            margin-left: 22px;
+
+            gap: 8px;
 
             color: #777166;
         }
+
 
 
         /* =========================================================
@@ -188,6 +199,7 @@
                     90px;
         }
 
+
         .hero-content {
             width: 100%;
 
@@ -195,6 +207,7 @@
 
             text-align: center;
         }
+
 
         .hero h1 {
             font-family:
@@ -217,6 +230,7 @@
                     0 4px 30px rgba(0, 0, 0, 0.95);
         }
 
+
         .hero-subtitle {
             margin-top: 22px;
 
@@ -236,14 +250,18 @@
                     0 2px 12px rgba(0, 0, 0, 0.95);
         }
 
+
         .gold-line {
             width: 115px;
             height: 1px;
 
-            margin: 38px auto;
+            margin:
+                    38px
+                    auto;
 
             background: #d4af37;
         }
+
 
         .hero-description {
             max-width: 820px;
@@ -259,6 +277,7 @@
             text-shadow:
                     0 3px 12px rgba(0, 0, 0, 0.95);
         }
+
 
 
         /* =========================================================
@@ -281,6 +300,7 @@
             color: #d4af37;
         }
 
+
         .section-description {
             max-width: 790px;
 
@@ -302,6 +322,7 @@
         }
 
 
+
         /* =========================================================
            HISTORY
            ========================================================= */
@@ -315,6 +336,7 @@
                     105px
                     7%;
         }
+
 
         .history-panel {
             padding:
@@ -347,11 +369,13 @@
                     0 15px 50px rgba(0, 0, 0, 0.22);
         }
 
+
         .history-panel .section-title {
             margin-bottom: 42px;
 
             text-align: center;
         }
+
 
         .history-panel p {
             margin-bottom: 24px;
@@ -363,13 +387,16 @@
             color: #d5cec2;
         }
 
+
         .history-panel p:last-child {
             margin-bottom: 0;
         }
 
+
         .history-panel strong {
             color: #f0e9dd;
         }
+
 
         .historical-quote {
             margin:
@@ -387,6 +414,7 @@
                     2px solid #d4af37;
         }
 
+
         .historical-quote blockquote {
             font-size: 1.11rem;
 
@@ -397,6 +425,7 @@
             color: #e7e0d5;
         }
 
+
         .quote-reference {
             margin-top: 18px;
 
@@ -404,6 +433,7 @@
 
             color: #8e867a;
         }
+
 
 
         /* =========================================================
@@ -417,11 +447,13 @@
                     130px;
         }
 
+
         .questions-container {
             max-width: 1140px;
 
             margin: 0 auto;
         }
+
 
         .questions-heading {
             margin-bottom: 60px;
@@ -429,15 +461,12 @@
             text-align: center;
         }
 
+
         .questions-heading .section-title {
             text-shadow:
                     0 3px 12px rgba(0, 0, 0, 0.85);
         }
 
-
-        /*
-         * 2 SÜTUN × 3 SATIR
-         */
 
         .questions-grid {
             display: grid;
@@ -447,6 +476,7 @@
 
             gap: 22px;
         }
+
 
         .question-card {
             min-height: 160px;
@@ -489,6 +519,7 @@
                     border-color 0.25s ease;
         }
 
+
         .question-card:hover {
             transform:
                     translateY(-4px);
@@ -503,6 +534,7 @@
             border-color:
                     rgba(212, 175, 55, 0.40);
         }
+
 
         .question-number {
             flex:
@@ -520,6 +552,7 @@
 
             color: #d4af37;
         }
+
 
         .question-text {
             font-family:
@@ -541,6 +574,7 @@
         }
 
 
+
         /* =========================================================
            RESEARCH DIVISIONS
            ========================================================= */
@@ -556,11 +590,13 @@
                     135px;
         }
 
+
         .research-heading {
             margin-bottom: 62px;
 
             text-align: center;
         }
+
 
         .division-grid {
             display: grid;
@@ -571,12 +607,13 @@
             gap: 25px;
         }
 
+
         .division-card {
             display: flex;
 
             flex-direction: column;
 
-            min-height: 430px;
+            min-height: 465px;
 
             padding:
                     36px
@@ -587,8 +624,8 @@
             background:
                     linear-gradient(
                             135deg,
-                            rgba(7, 7, 7, 0.79),
-                            rgba(15, 15, 15, 0.68)
+                            rgba(7, 7, 7, 0.81),
+                            rgba(15, 15, 15, 0.70)
                     );
 
             backdrop-filter: blur(6px);
@@ -615,6 +652,7 @@
                     border-color 0.25s ease;
         }
 
+
         .division-card:hover {
             transform:
                     translateY(-6px);
@@ -622,13 +660,14 @@
             background:
                     linear-gradient(
                             135deg,
-                            rgba(15, 15, 15, 0.88),
-                            rgba(22, 22, 22, 0.77)
+                            rgba(15, 15, 15, 0.90),
+                            rgba(22, 22, 22, 0.79)
                     );
 
             border-color:
                     rgba(212, 175, 55, 0.42);
         }
+
 
         .division-number {
             margin-bottom: 17px;
@@ -645,6 +684,7 @@
             color: #777064;
         }
 
+
         .division-name {
             margin-bottom: 20px;
 
@@ -659,6 +699,7 @@
 
             color: #a0988c;
         }
+
 
         .division-card h3 {
             min-height: 98px;
@@ -679,6 +720,7 @@
             color: #d4af37;
         }
 
+
         .division-card p {
             font-size: 0.96rem;
 
@@ -686,6 +728,7 @@
 
             color: #cac3b7;
         }
+
 
         .division-link {
             display: inline-block;
@@ -699,9 +742,9 @@
                     Georgia,
                     serif;
 
-            font-size: 0.68rem;
+            font-size: 0.66rem;
 
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
 
             color: #8c8579;
 
@@ -709,10 +752,11 @@
                     color 0.25s ease;
         }
 
-        .division-card:hover
-        .division-link {
+
+        .division-card:hover .division-link {
             color: #d4af37;
         }
+
 
 
         /* =========================================================
@@ -740,56 +784,75 @@
         }
 
 
+
         /* =========================================================
-           TABLET
+           TABLET / SMALL DESKTOP
            ========================================================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 18px;
+                gap: 16px;
 
-                padding: 20px;
+                padding:
+                        19px
+                        4%;
             }
+
 
             .nav-links {
                 flex-wrap: wrap;
 
                 justify-content: center;
 
-                gap: 16px;
+                gap:
+                        13px
+                        18px;
             }
 
+
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
+
 
             .hero {
                 min-height: auto;
 
                 padding:
-                        105px
+                        110px
                         7%
                         90px;
             }
+
+        }
+
+
+
+        @media (max-width: 900px) {
 
             .questions-grid {
                 grid-template-columns: 1fr;
             }
 
+
             .division-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .division-card {
                 min-height: auto;
             }
 
         }
+
 
 
         /* =========================================================
@@ -804,9 +867,17 @@
                         auto 100vh;
             }
 
+
+            .nav-links a,
+            .language-switcher a {
+                font-size: 0.64rem;
+            }
+
+
             .hero h1 {
                 font-size: 2.8rem;
             }
+
 
             .hero-subtitle {
                 font-size: 0.76rem;
@@ -814,11 +885,13 @@
                 letter-spacing: 0.20em;
             }
 
+
             .history-section {
                 padding:
                         80px
                         6%;
             }
+
 
             .history-panel {
                 padding:
@@ -826,12 +899,14 @@
                         24px;
             }
 
+
             .questions-section {
                 padding:
                         85px
                         6%
                         100px;
             }
+
 
             .question-card {
                 min-height: 125px;
@@ -841,15 +916,18 @@
                         22px;
             }
 
+
             .question-number {
                 flex-basis: 45px;
 
                 font-size: 0.80rem;
             }
 
+
             .question-text {
                 font-size: 0.88rem;
             }
+
 
             .research-section {
                 padding:
@@ -857,6 +935,7 @@
                         6%
                         105px;
             }
+
 
             .division-card {
                 padding:
@@ -883,10 +962,13 @@
     <div class="nav-links">
 
 
+        <!-- HOME -->
+
         <a class="current-page"
            th:href="@{/(lang=${lang})}">
             [HOME]
         </a>
+
 
 
         <!-- RESEARCH -->
@@ -907,6 +989,64 @@
         </a>
 
 
+
+        <!-- THEORY -->
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            TEORİ
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            THEORY
+        </a>
+
+        <a th:href="@{/theory(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            THEORIE
+        </a>
+
+
+
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            FENOMENOLOJİ
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            PHENOMENOLOGY
+        </a>
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            PHÄNOMENOLOGIE
+        </a>
+
+
+
+        <!-- COMPUTATION -->
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'tr'}">
+            HESAPLAMA
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'en'}">
+            COMPUTATION
+        </a>
+
+        <a th:href="@{/computation(lang=${lang})}"
+           th:if="${lang == 'de'}">
+            COMPUTATION
+        </a>
+
+
+
         <!-- PUBLICATIONS -->
 
         <a th:href="@{/publications(lang=${lang})}"
@@ -925,6 +1065,7 @@
         </a>
 
 
+
         <!-- TEAM -->
 
         <a th:href="@{/team(lang=${lang})}"
@@ -941,6 +1082,7 @@
            th:if="${lang == 'de'}">
             TEAM
         </a>
+
 
 
         <!-- CONTACT -->
@@ -962,6 +1104,9 @@
 
     </div>
 
+
+
+    <!-- LANGUAGE SWITCHER -->
 
     <div class="language-switcher">
 
@@ -989,6 +1134,7 @@
 </nav>
 
 
+
 <!-- =========================================================
      HERO
      ========================================================= -->
@@ -1002,11 +1148,14 @@
             OLYMPIA
         </h1>
 
+
         <div class="hero-subtitle">
             RESEARCH GROUP
         </div>
 
+
         <div class="gold-line"></div>
+
 
 
         <p class="hero-description"
@@ -1014,6 +1163,7 @@
 
             Fizikteki temel problemleri teorik,
             fenomenolojik ve hesaplamalı yöntemleri
+            ortak bir araştırma programı içerisinde
             bir araya getirerek inceleyen bağımsız
             bir araştırma topluluğu.
 
@@ -1023,10 +1173,10 @@
         <p class="hero-description"
            th:if="${lang == 'en'}">
 
-            An independent research group studying
+            An independent research group investigating
             fundamental problems in physics through
-            theoretical, phenomenological and
-            computational methods.
+            an integrated programme of theoretical,
+            phenomenological and computational research.
 
         </p>
 
@@ -1035,15 +1185,17 @@
            th:if="${lang == 'de'}">
 
             Eine unabhängige Forschungsgruppe,
-            die grundlegende Probleme der Physik durch
-            theoretische, phänomenologische und
-            computergestützte Methoden untersucht.
+            die grundlegende Probleme der Physik
+            durch ein gemeinsames Programm aus Theorie,
+            Phänomenologie und computergestützter
+            Forschung untersucht.
 
         </p>
 
     </div>
 
 </header>
+
 
 
 <!-- =========================================================
@@ -1082,18 +1234,16 @@
                 Maurice Solovine idi. Solovine, doğa bilimlerine
                 yönelmeyi düşündüğü için Einstein’dan fizik dersi
                 almak üzere onun kapısını çaldı.
-                Ancak ilk görüşmeleri beklenmedik biçimde gelişti.
-                Öğretmen-öğrenci ilişkisiyle başlaması gereken
-                ders, kısa sürede fizik ve felsefe üzerine
-                uzun bir tartışmaya dönüştü.
+                İlk görüşmeleri kısa sürede fizik ve felsefe
+                üzerine uzun bir tartışmaya dönüştü.
             </p>
 
 
             <p>
-                Sonraki gün yeniden buluştular;
-                ardından ders ücreti ve resmi ders fikri
-                tamamen ortadan kalktı.
-                Einstein ve Solovine, fiziğin temel problemlerini
+                Sonraki gün yeniden buluştular.
+                Kısa süre içerisinde ders ücreti ve resmi ders
+                fikri ortadan kalktı.
+                Einstein ve Solovine fiziğin temel problemlerini
                 birlikte tartışan iki arkadaşa dönüştüler.
             </p>
 
@@ -1112,11 +1262,12 @@
 
 
             <p>
-                Toplantılarında yalnızca fizik konuşmuyorlardı.
+                Toplantılarında fizik, felsefe ve bilimsel
+                düşüncenin temelleri birlikte ele alınıyordu.
                 Hume, Mach, Poincaré, Pearson, Mill ve Spinoza
                 gibi düşünürleri okuyarak bilgi, deney,
                 nedensellik, uzay, zaman ve hareket gibi
-                fiziğin en temel kavramlarını tartışıyorlardı.
+                fiziğin temel kavramlarını tartışıyorlardı.
                 Bazen tek bir sayfa üzerinde bütün bir akşam
                 duruyor, bir kavramı saatlerce sorguluyorlardı.
             </p>
@@ -1130,9 +1281,8 @@
 
 
             <p>
-                Bu yaklaşımın Einstein’ın düşüncesinde geçici
-                bir gençlik hevesi olmadığı, yaklaşık yarım
-                yüzyıl sonra yazdığı bir mektupta da görülür.
+                Bu düşünsel yaklaşım Einstein’ın ilerleyen
+                yıllardaki çalışmalarında da görülebilir.
                 12 Şubat 1951’de Maurice Solovine’e yazdığı
                 mektupta, birleşik alan teorisi üzerine
                 çalışmalarından söz ederken teorinin matematiksel
@@ -1158,35 +1308,34 @@
 
 
             <p>
-                Einstein için fiziğin temel problemleri
-                yalnızca daha karmaşık hesaplar yapılarak
-                çözülecek teknik problemler değildir;
-                kullandığımız kavramların anlamını,
-                mantıksal yapısını ve felsefi temellerini
-                de yeniden sorgulamak gerekir.
+                Bu yaklaşım temel fizik problemlerinin
+                kavramların anlamı, mantıksal yapısı,
+                matematiksel formülasyonu ve felsefi temelleri
+                üzerinden birlikte değerlendirilmesini önerir.
             </p>
 
 
             <p>
-                Bu araştırma grubu da bu düşünsel gelenekten
-                ilham alıyor. Amacımız fizik, matematik ve
-                felsefenin kesiştiği yerde sorular sormak,
-                birbirimizin fikirlerini eleştirmek,
-                fizikteki ontolojik kabulleri yeniden incelemek
-                ve gerektiğinde bir problemin en başına dönmek.
+                Araştırma grubumuz bu düşünsel gelenekten
+                ilham almaktadır.
+                Fizik, matematik ve felsefenin kesiştiği
+                noktada sorular soruyor, fikirleri eleştirel
+                biçimde inceliyor ve fizik teorilerinin
+                ontolojik kabullerini araştırıyoruz.
             </p>
 
 
             <p>
                 Olympia Akademisi üç arkadaşın bir odada
-                kitap okuyup tartışmasıyla başlamıştı.
-                Biz de aynı ruhu günümüzün fizik problemlerine
-                taşıyan, özgür tartışmaya ve bağımsız düşünceye
-                dayanan bir araştırma topluluğu oluşturmayı
-                amaçlıyoruz.
+                kitap okuyup tartışmasıyla başladı.
+                Akademie Olympia aynı özgür düşünce,
+                sorgulama ve bilimsel tartışma ruhunu
+                günümüzün temel fizik problemlerine
+                taşımayı amaçlamaktadır.
             </p>
 
         </div>
+
 
 
         <!-- =====================================================
@@ -1217,20 +1366,18 @@
                 then studying philosophy and considering a move
                 toward the natural sciences.
                 He approached Einstein intending to take lessons
-                in physics, but their first meeting developed
-                in an unexpected direction.
-                What was supposed to be a teacher-student lesson
-                quickly became a long discussion about
-                physics and philosophy.
+                in physics. Their first meeting soon developed
+                into an extended discussion of physics
+                and philosophy.
             </p>
 
 
             <p>
                 They met again the following day.
-                Before long, both the lesson fee and the formal
-                idea of private instruction disappeared.
-                Einstein and Solovine instead became friends
-                who met to discuss fundamental problems in physics.
+                The lesson fee and the formal arrangement
+                soon disappeared.
+                Einstein and Solovine became friends who met
+                to discuss fundamental problems in physics.
             </p>
 
 
@@ -1248,15 +1395,15 @@
 
 
             <p>
-                Their meetings were not restricted to physics.
+                Their meetings brought physics, philosophy
+                and the foundations of scientific thought
+                into a common discussion.
                 They read thinkers such as Hume, Mach,
-                Poincaré, Pearson, Mill and Spinoza
-                and discussed some of the most fundamental
-                concepts underlying physics:
-                knowledge, experience, causality,
-                space, time and motion.
-                At times, an entire evening could be devoted
-                to a single page or a single conceptual problem.
+                Poincaré, Pearson, Mill and Spinoza,
+                examining concepts such as knowledge,
+                experience, causality, space, time and motion.
+                An entire evening could be devoted to a single
+                page or a single conceptual question.
             </p>
 
 
@@ -1268,10 +1415,11 @@
 
 
             <p>
-                That concern with conceptual and philosophical
-                foundations was not merely a youthful episode.
-                Decades later, in a letter to Maurice Solovine
-                dated 12 February 1951, Einstein discussed
+                The same concern with conceptual and philosophical
+                foundations remained visible in Einstein's
+                later work.
+                In a letter to Maurice Solovine dated
+                12 February 1951, Einstein discussed
                 his work on unified field theory and the
                 difficulty of bringing such a theory into
                 mathematical and empirical use.
@@ -1295,37 +1443,33 @@
 
 
             <p>
-                From this perspective, fundamental problems
-                in physics are not merely technical problems
-                to be solved by increasingly complicated
-                calculations. The meaning, logical structure
-                and philosophical foundations of the concepts
-                we use must also be subjected to scrutiny.
+                This perspective approaches fundamental problems
+                in physics through the meaning of concepts,
+                their logical structure, mathematical formulation
+                and philosophical foundations.
             </p>
 
 
             <p>
                 Our research group draws inspiration from
                 this intellectual tradition.
-                We aim to ask questions at the intersection
-                of physics, mathematics and philosophy,
-                to criticise one another's ideas,
-                to reconsider the ontological assumptions
-                of physical theories and, when necessary,
-                to return to the beginning of a problem.
+                We ask questions at the intersection of physics,
+                mathematics and philosophy, examine ideas critically
+                and investigate the ontological assumptions
+                underlying physical theories.
             </p>
 
 
             <p>
                 The original Olympia Academy began with
-                three friends reading and arguing together
-                in a room. Our aim is to carry that spirit
-                into contemporary problems in physics
-                and to build a research community grounded
-                in free discussion and independent thought.
+                three friends reading and discussing together.
+                Akademie Olympia aims to carry the same spirit
+                of independent thought, questioning and scientific
+                discussion into contemporary problems in physics.
             </p>
 
         </div>
+
 
 
         <!-- =====================================================
@@ -1361,18 +1505,16 @@
                 sich den Naturwissenschaften zuzuwenden.
                 Solovine suchte Einstein ursprünglich auf,
                 um Physikunterricht zu nehmen.
-                Doch ihr erstes Treffen entwickelte sich
-                anders als erwartet:
-                Aus einer Lehrer-Schüler-Situation wurde
-                schnell eine lange Diskussion über Physik
+                Ihr erstes Treffen entwickelte sich rasch
+                zu einer langen Diskussion über Physik
                 und Philosophie.
             </p>
 
 
             <p>
                 Bereits am folgenden Tag trafen sie sich erneut.
-                Bald verschwanden sowohl die Unterrichtsgebühr
-                als auch die Idee eines formalen Unterrichts.
+                Bald verschwanden die Unterrichtsgebühr
+                und die Idee eines formalen Unterrichts.
                 Einstein und Solovine wurden Freunde,
                 die gemeinsam über grundlegende Probleme
                 der Physik diskutierten.
@@ -1394,13 +1536,13 @@
 
 
             <p>
-                In ihren Treffen sprachen sie keineswegs
-                nur über Physik.
+                Ihre Treffen verbanden Physik,
+                Philosophie und die Grundlagen wissenschaftlichen
+                Denkens miteinander.
                 Sie lasen Hume, Mach, Poincaré,
                 Pearson, Mill und Spinoza und diskutierten
-                grundlegende Begriffe wie Erkenntnis,
-                Erfahrung, Kausalität, Raum,
-                Zeit und Bewegung.
+                Begriffe wie Erkenntnis, Erfahrung,
+                Kausalität, Raum, Zeit und Bewegung.
                 Mitunter konnte ein ganzer Abend einer
                 einzigen Seite oder einer einzigen
                 begrifflichen Frage gewidmet sein.
@@ -1415,10 +1557,9 @@
 
 
             <p>
-                Dass diese Beschäftigung mit begrifflichen
-                und philosophischen Grundlagen für Einstein
-                keine bloße Jugenderscheinung war,
-                zeigt sich auch Jahrzehnte später.
+                Die Beschäftigung mit begrifflichen
+                und philosophischen Grundlagen prägte
+                auch Einsteins spätere Arbeiten.
                 In einem Brief an Maurice Solovine vom
                 12. Februar 1951 schrieb Einstein über
                 seine Arbeiten an einer einheitlichen
@@ -1445,37 +1586,33 @@
 
 
             <p>
-                Aus dieser Perspektive sind die grundlegenden
-                Probleme der Physik nicht bloß technische
-                Aufgaben, die durch immer kompliziertere
-                Berechnungen gelöst werden können.
-                Auch die Bedeutung, die logische Struktur
-                und die philosophischen Grundlagen unserer
-                Begriffe müssen erneut untersucht werden.
+                Diese Perspektive untersucht grundlegende
+                Probleme der Physik über die Bedeutung
+                der Begriffe, ihre logische Struktur,
+                mathematische Formulierung und
+                philosophischen Grundlagen.
             </p>
 
 
             <p>
                 Unsere Forschungsgruppe lässt sich von
                 dieser intellektuellen Tradition inspirieren.
-                Wir möchten Fragen an der Schnittstelle von
-                Physik, Mathematik und Philosophie stellen,
-                gegenseitige Kritik fördern,
+                Wir stellen Fragen an der Schnittstelle von
+                Physik, Mathematik und Philosophie,
+                untersuchen Ideen kritisch und erforschen
                 ontologische Voraussetzungen physikalischer
-                Theorien neu untersuchen und, wenn nötig,
-                zum Ausgangspunkt eines Problems zurückkehren.
+                Theorien.
             </p>
 
 
             <p>
                 Die ursprüngliche Olympia-Akademie begann
-                damit, dass drei Freunde gemeinsam in einem
-                Zimmer lasen und diskutierten.
-                Wir möchten denselben Geist auf heutige
-                Probleme der Physik übertragen und eine
-                Forschungsgemeinschaft auf der Grundlage
-                freier Diskussion und unabhängigen Denkens
-                aufbauen.
+                mit drei Freunden, die gemeinsam lasen
+                und diskutierten.
+                Akademie Olympia möchte denselben Geist
+                unabhängigen Denkens, wissenschaftlicher
+                Diskussion und kritischen Fragens auf heutige
+                Probleme der Physik übertragen.
             </p>
 
         </div>
@@ -1483,6 +1620,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1515,11 +1653,10 @@
             <p class="section-description"
                th:if="${lang == 'tr'}">
 
-                Çalışmalarımız yalnızca belirli teknikleri
-                uygulamakla sınırlı değildir.
-                Fizik teorilerinin arkasındaki kavramsal,
-                matematiksel ve ontolojik soruları
-                yeniden düşünmeyi amaçlıyoruz.
+                Araştırma programımız fizik teorilerinin
+                kavramsal, matematiksel ve ontolojik
+                temellerini güncel fiziksel problemler
+                üzerinden yeniden incelemektedir.
 
             </p>
 
@@ -1527,11 +1664,10 @@
             <p class="section-description"
                th:if="${lang == 'en'}">
 
-                Our work is not limited to the application
-                of particular techniques.
-                We also aim to reconsider the conceptual,
-                mathematical and ontological questions
-                underlying physical theories.
+                Our research programme re-examines
+                the conceptual, mathematical and ontological
+                foundations of physical theories through
+                contemporary problems in physics.
 
             </p>
 
@@ -1539,23 +1675,21 @@
             <p class="section-description"
                th:if="${lang == 'de'}">
 
-                Unsere Arbeit beschränkt sich nicht
-                auf die Anwendung bestimmter Methoden.
-                Wir möchten auch die begrifflichen,
-                mathematischen und ontologischen Fragen
-                hinter physikalischen Theorien neu untersuchen.
+                Unser Forschungsprogramm untersucht
+                die begrifflichen, mathematischen und
+                ontologischen Grundlagen physikalischer
+                Theorien anhand aktueller Probleme der Physik.
 
             </p>
 
         </div>
 
 
+
         <div class="questions-grid">
 
 
-            <!-- =================================================
-                 QUESTION I
-                 ================================================= -->
+            <!-- QUESTION I -->
 
             <div class="question-card">
 
@@ -1584,9 +1718,8 @@
             </div>
 
 
-            <!-- =================================================
-                 QUESTION II
-                 ================================================= -->
+
+            <!-- QUESTION II -->
 
             <div class="question-card">
 
@@ -1613,9 +1746,8 @@
             </div>
 
 
-            <!-- =================================================
-                 QUESTION III
-                 ================================================= -->
+
+            <!-- QUESTION III -->
 
             <div class="question-card">
 
@@ -1641,9 +1773,8 @@
             </div>
 
 
-            <!-- =================================================
-                 QUESTION IV
-                 ================================================= -->
+
+            <!-- QUESTION IV -->
 
             <div class="question-card">
 
@@ -1673,9 +1804,8 @@
             </div>
 
 
-            <!-- =================================================
-                 QUESTION V
-                 ================================================= -->
+
+            <!-- QUESTION V -->
 
             <div class="question-card">
 
@@ -1704,9 +1834,8 @@
             </div>
 
 
-            <!-- =================================================
-                 QUESTION VI
-                 ================================================= -->
+
+            <!-- QUESTION VI -->
 
             <div class="question-card">
 
@@ -1744,6 +1873,7 @@
 </section>
 
 
+
 <!-- =========================================================
      RESEARCH DIVISIONS
      ========================================================= -->
@@ -1751,6 +1881,7 @@
 <section class="research-section">
 
     <div class="research-heading">
+
 
         <h2 class="section-title"
             th:if="${lang == 'tr'}">
@@ -1771,10 +1902,10 @@
         <p class="section-description"
            th:if="${lang == 'tr'}">
 
-            Araştırma programımızı teori,
+            Araştırma programımız teori,
             fenomenoloji ve hesaplama olmak üzere
-            birbirini tamamlayan üç temel alan
-            üzerinden yürütüyoruz.
+            birbirini tamamlayan üç temel bölüm
+            üzerinden yürütülmektedir.
 
         </p>
 
@@ -1783,7 +1914,7 @@
            th:if="${lang == 'en'}">
 
             Our research programme is organised around
-            three complementary areas:
+            three complementary divisions:
             theory, phenomenology and computation.
 
         </p>
@@ -1794,11 +1925,12 @@
 
             Unser Forschungsprogramm gliedert sich
             in drei sich ergänzende Bereiche:
-            Theorie, Phänomenologie und Berechnung.
+            Theorie, Phänomenologie und Computational Physics.
 
         </p>
 
     </div>
+
 
 
     <div class="division-grid">
@@ -1809,11 +1941,13 @@
              ===================================================== -->
 
         <a class="division-card"
-           th:href="@{/research(lang=${lang})}">
+           th:href="@{/theory(lang=${lang})}">
+
 
             <div class="division-number">
                 DIVISION I
             </div>
+
 
             <div class="division-name">
                 THEORY
@@ -1837,46 +1971,58 @@
 
 
             <p th:if="${lang == 'tr'}">
-                Geometrik ve fiziksel teorilerin oluşturulması,
-                matematiksel temellerinin kurulması,
-                teleparalel geometri, alan denklemleri,
-                simetriler ve temel fiziksel problemlerin
-                teorik yapısı üzerine çalışmalar.
+
+                Kütleçekimin geometrik ve matematiksel
+                temellerini araştırıyoruz.
+                Güncel çalışmalarımız Geometric Drift
+                of Spacetime (GDV), eylemsizliğin geometrik
+                kökeni ve düzenli kara delik iç
+                geometrileri üzerinde yoğunlaşmaktadır.
+
             </p>
+
 
             <p th:if="${lang == 'en'}">
-                Research on the construction of geometric
-                and physical theories, their mathematical
-                foundations, teleparallel geometry,
-                field equations, symmetries and fundamental
-                theoretical problems in physics.
+
+                We investigate the geometric and mathematical
+                foundations of gravitation.
+                Current work focuses on Geometric Drift
+                of Spacetime (GDV), the geometric origin
+                of inertia and regular black-hole
+                interior geometries.
+
             </p>
 
+
             <p th:if="${lang == 'de'}">
-                Forschung zur Entwicklung geometrischer
-                und physikalischer Theorien, ihren mathematischen
-                Grundlagen, teleparalleler Geometrie,
-                Feldgleichungen, Symmetrien und grundlegenden
-                theoretischen Problemen der Physik.
+
+                Wir untersuchen die geometrischen und
+                mathematischen Grundlagen der Gravitation.
+                Unsere aktuelle Forschung konzentriert sich
+                auf Geometric Drift of Spacetime (GDV),
+                den geometrischen Ursprung der Trägheit
+                und reguläre Innengeometrien Schwarzer Löcher.
+
             </p>
 
 
             <span class="division-link"
                   th:if="${lang == 'tr'}">
-                ARAŞTIRMAYI İNCELE →
+                GÜNCEL ÇALIŞMALARI İNCELE →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'en'}">
-                EXPLORE RESEARCH →
+                VIEW CURRENT RESEARCH →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'de'}">
-                FORSCHUNG ENTDECKEN →
+                AKTUELLE FORSCHUNG ANSEHEN →
             </span>
 
         </a>
+
 
 
         <!-- =====================================================
@@ -1884,11 +2030,13 @@
              ===================================================== -->
 
         <a class="division-card"
-           th:href="@{/research(lang=${lang})}">
+           th:href="@{/phenomenology(lang=${lang})}">
+
 
             <div class="division-number">
                 DIVISION II
             </div>
+
 
             <div class="division-name">
                 PHENOMENOLOGY
@@ -1912,45 +2060,60 @@
 
 
             <p th:if="${lang == 'tr'}">
-                Teorik modellerin fiziksel çözümleri,
-                kara delikler, galaktik dinamikler,
-                dönüş eğrileri, BTFR, kozmoloji,
-                CMB ve gözlemsel verilerle karşılaştırılması
-                üzerine çalışmalar.
+
+                Teorik modellerin gözlenebilir fiziksel
+                sonuçlarını araştırıyoruz.
+                Güncel çalışmalarımız galaktik dönüş
+                eğrileri, Baryonic Tully–Fisher Relation
+                ve GDV alan denklemlerinden galaktik
+                gözlenebilirlerin türetilmesi üzerine
+                yoğunlaşmaktadır.
+
             </p>
+
 
             <p th:if="${lang == 'en'}">
-                Research on physical solutions of theoretical
-                models, black holes, galactic dynamics,
-                rotation curves, the BTFR, cosmology,
-                the CMB and comparison with observational data.
+
+                We investigate observable physical
+                consequences of theoretical models.
+                Current work focuses on galactic rotation
+                curves, the Baryonic Tully–Fisher Relation
+                and the derivation of galactic observables
+                from the GDV field equations.
+
             </p>
 
+
             <p th:if="${lang == 'de'}">
-                Forschung zu physikalischen Lösungen
-                theoretischer Modelle, Schwarzen Löchern,
-                galaktischer Dynamik, Rotationskurven,
-                BTFR, Kosmologie, CMB und dem Vergleich
-                mit Beobachtungsdaten.
+
+                Wir untersuchen die beobachtbaren
+                physikalischen Konsequenzen theoretischer Modelle.
+                Die aktuelle Forschung konzentriert sich
+                auf galaktische Rotationskurven,
+                die baryonische Tully-Fisher-Relation
+                und die Herleitung galaktischer Observablen
+                aus den GDV-Feldgleichungen.
+
             </p>
 
 
             <span class="division-link"
                   th:if="${lang == 'tr'}">
-                ARAŞTIRMAYI İNCELE →
+                GÜNCEL ÇALIŞMALARI İNCELE →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'en'}">
-                EXPLORE RESEARCH →
+                VIEW CURRENT RESEARCH →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'de'}">
-                FORSCHUNG ENTDECKEN →
+                AKTUELLE FORSCHUNG ANSEHEN →
             </span>
 
         </a>
+
 
 
         <!-- =====================================================
@@ -1958,11 +2121,13 @@
              ===================================================== -->
 
         <a class="division-card"
-           th:href="@{/research(lang=${lang})}">
+           th:href="@{/computation(lang=${lang})}">
+
 
             <div class="division-number">
                 DIVISION III
             </div>
+
 
             <div class="division-name">
                 COMPUTATION
@@ -1986,43 +2151,53 @@
 
 
             <p th:if="${lang == 'tr'}">
-                Sayısal çözümler, diferansiyel denklemler,
-                parametre taramaları, dinamik sistemler,
-                astrofiziksel ve kozmolojik modellemeler,
-                simülasyonlar ve bilimsel görselleştirme
-                üzerine çalışmalar.
+
+                Galaktik sistemleri sayısal yöntemlerle
+                modelliyor ve gözlemsel verileri analiz ediyoruz.
+                Güncel çalışmalarımız galaksi dönüş eğrileri,
+                veri kümesindeki galaksilerin BTFR analizi,
+                sayısal alan denklemleri ve galaktik
+                simülasyonlar üzerinde yoğunlaşmaktadır.
+
             </p>
+
 
             <p th:if="${lang == 'en'}">
-                Research on numerical solutions,
-                differential equations, parameter scans,
-                dynamical systems, astrophysical and
-                cosmological modelling, simulations
-                and scientific visualisation.
+
+                We model galactic systems numerically
+                and analyse observational data.
+                Current work focuses on galaxy rotation curves,
+                sample-wide BTFR analysis, numerical field
+                equations and galactic simulations.
+
             </p>
 
+
             <p th:if="${lang == 'de'}">
-                Forschung zu numerischen Lösungen,
-                Differentialgleichungen, Parameterscans,
-                dynamischen Systemen, astrophysikalischer
-                und kosmologischer Modellierung,
-                Simulationen und wissenschaftlicher Visualisierung.
+
+                Wir modellieren galaktische Systeme numerisch
+                und analysieren Beobachtungsdaten.
+                Unsere aktuelle Forschung konzentriert sich
+                auf Rotationskurven, BTFR-Analysen des
+                Galaxiensamples, numerische Feldgleichungen
+                und galaktische Simulationen.
+
             </p>
 
 
             <span class="division-link"
                   th:if="${lang == 'tr'}">
-                ARAŞTIRMAYI İNCELE →
+                GÜNCEL ÇALIŞMALARI İNCELE →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'en'}">
-                EXPLORE RESEARCH →
+                VIEW CURRENT RESEARCH →
             </span>
 
             <span class="division-link"
                   th:if="${lang == 'de'}">
-                FORSCHUNG ENTDECKEN →
+                AKTUELLE FORSCHUNG ANSEHEN →
             </span>
 
         </a>
@@ -2030,6 +2205,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
