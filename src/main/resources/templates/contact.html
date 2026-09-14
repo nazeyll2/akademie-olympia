@@ -13,7 +13,7 @@
     <meta name="description"
           content="Contact Akademie Olympia Research Group">
 
-    <title>Contact | Akademie Olympia</title>
+    <title>Contact &amp; Join Us | Akademie Olympia</title>
 
 
     <!-- =========================================================
@@ -779,19 +779,19 @@
         <a class="current-page"
            th:href="@{/contact(lang=${lang})}"
            th:if="${lang == 'tr'}">
-            İLETİŞİM
+            İLETİŞİM &amp; KATILIM
         </a>
 
         <a class="current-page"
            th:href="@{/contact(lang=${lang})}"
            th:if="${lang == 'en'}">
-            CONTACT
+            CONTACT &amp; JOIN US
         </a>
 
         <a class="current-page"
            th:href="@{/contact(lang=${lang})}"
            th:if="${lang == 'de'}">
-            KONTAKT
+            KONTAKT &amp; MITWIRKEN
         </a>
 
     </div>
@@ -841,27 +841,17 @@
             AKADEMIE OLYMPIA
         </div>
 
-
-        <!-- TURKISH -->
-
         <h1 th:if="${lang == 'tr'}">
-            İLETİŞİM
+            İLETİŞİM &amp; KATILIM
         </h1>
-
-
-        <!-- ENGLISH -->
 
         <h1 th:if="${lang == 'en'}">
-            CONTACT
+            CONTACT &amp; JOIN US
         </h1>
-
-
-        <!-- GERMAN -->
 
         <h1 th:if="${lang == 'de'}">
-            KONTAKT
+            KONTAKT &amp; MITWIRKEN
         </h1>
-
 
         <div class="gold-line"></div>
 
