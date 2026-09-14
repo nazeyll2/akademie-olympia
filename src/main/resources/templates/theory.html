@@ -109,7 +109,9 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 4.5%;
+            padding:
+                    0
+                    4%;
 
             background:
                     rgba(0, 0, 0, 0.88);
@@ -128,7 +130,7 @@
             display: flex;
             align-items: center;
 
-            gap: 21px;
+            gap: 19px;
         }
 
 
@@ -139,9 +141,9 @@
                     Georgia,
                     serif;
 
-            font-size: 0.70rem;
+            font-size: 0.68rem;
 
-            letter-spacing: 0.075em;
+            letter-spacing: 0.065em;
 
             text-decoration: none;
 
@@ -168,6 +170,10 @@
         .language-switcher {
             display: flex;
             align-items: center;
+
+            flex-shrink: 0;
+
+            margin-left: 22px;
 
             gap: 8px;
 
@@ -797,17 +803,17 @@
            RESPONSIVE
            ========================================================= */
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1180px) {
 
             .navbar {
                 position: relative;
 
                 flex-direction: column;
 
-                gap: 17px;
+                gap: 16px;
 
                 padding:
-                        20px
+                        19px
                         4%;
             }
 
@@ -819,11 +825,13 @@
 
                 gap:
                         13px
-                        17px;
+                        18px;
             }
 
 
             .language-switcher {
+                margin-left: 0;
+
                 justify-content: center;
             }
 
@@ -920,9 +928,12 @@
     <div class="nav-links">
 
 
+        <!-- HOME -->
+
         <a th:href="@{/(lang=${lang})}">
             [HOME]
         </a>
+
 
 
         <!-- RESEARCH -->
@@ -941,6 +952,7 @@
            th:if="${lang == 'de'}">
             FORSCHUNG
         </a>
+
 
 
         <!-- THEORY -->
@@ -964,43 +976,43 @@
         </a>
 
 
-        <!-- PHENOMENOLOGY
-             Şimdilik research sayfasındaki bölüme gider.
-             Ayrı phenomenology.html oluşturduğumuzda değiştireceğiz.
-        -->
 
-        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+        <!-- PHENOMENOLOGY -->
+
+        <a th:href="@{/phenomenology(lang=${lang})}"
            th:if="${lang == 'tr'}">
             FENOMENOLOJİ
         </a>
 
-        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+        <a th:href="@{/phenomenology(lang=${lang})}"
            th:if="${lang == 'en'}">
             PHENOMENOLOGY
         </a>
 
-        <a th:href="@{/research(lang=${lang})} + '#phenomenology'"
+        <a th:href="@{/phenomenology(lang=${lang})}"
            th:if="${lang == 'de'}">
             PHÄNOMENOLOGIE
         </a>
 
 
+
         <!-- COMPUTATION -->
 
-        <a th:href="@{/research(lang=${lang})} + '#computation'"
+        <a th:href="@{/computation(lang=${lang})}"
            th:if="${lang == 'tr'}">
             HESAPLAMA
         </a>
 
-        <a th:href="@{/research(lang=${lang})} + '#computation'"
+        <a th:href="@{/computation(lang=${lang})}"
            th:if="${lang == 'en'}">
             COMPUTATION
         </a>
 
-        <a th:href="@{/research(lang=${lang})} + '#computation'"
+        <a th:href="@{/computation(lang=${lang})}"
            th:if="${lang == 'de'}">
             COMPUTATION
         </a>
+
 
 
         <!-- PUBLICATIONS -->
@@ -1021,6 +1033,7 @@
         </a>
 
 
+
         <!-- TEAM -->
 
         <a th:href="@{/team(lang=${lang})}"
@@ -1037,6 +1050,7 @@
            th:if="${lang == 'de'}">
             TEAM
         </a>
+
 
 
         <!-- CONTACT -->
@@ -1057,6 +1071,7 @@
         </a>
 
     </div>
+
 
 
     <!-- LANGUAGE SWITCHER -->
@@ -1363,6 +1378,7 @@
 
         <article class="research-article"
                  id="gdv">
+
 
             <div class="article-number">
                 01
@@ -1921,6 +1937,7 @@
 
         <article class="research-article"
                  id="black-hole-geometry">
+
 
             <div class="article-number">
                 02
